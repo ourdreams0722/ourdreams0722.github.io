@@ -236,11 +236,11 @@
 
         <div class="statistics flex justify-around my-2.5">
     <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/tags">
-        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">10</div>
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">28</div>
         <div class="label text-third-text-color text-sm">标签</div>
     </a>
     <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/categories">
-        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">0</div>
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">7</div>
         <div class="label text-third-text-color text-sm">分类</div>
     </a>
     <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/archives">
@@ -276,11 +276,11 @@
 </div>
                 <div class="statistics flex justify-around my-2.5">
     <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/tags">
-        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">10</div>
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">28</div>
         <div class="label text-third-text-color text-sm">标签</div>
     </a>
     <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/categories">
-        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">0</div>
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">7</div>
         <div class="label text-third-text-color text-sm">分类</div>
     </a>
     <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/archives">
@@ -309,23 +309,17 @@
                 
                 <div class="flex flex-col gap-5 px-7 pb-7 pt-7">
                     <h3 class="home-article-title">
-                        <a href="/2025/03/12/centos%20PHP%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%9F%BA%E7%A1%80%E7%8E%AF%E5%A2%83%E9%83%A8%E7%BD%B2/">
-                            Centos下PHP单体基础服务部署
+                        <a href="/2025/03/12/%E7%AE%97%E6%B3%95%E5%AE%9E%E8%B7%B5/">
+                            简单算法-Java示例
                         </a>
                     </h3>
 
                     <div class="home-article-content markdown-body">
                         
                             
-                            环境当前环境：centos7.2
-预安装：php7.4  apache2.4   certbot  mysql7
-切换yum源没有安装wget使用yum安装 
-1yum install wget -y
-
-切换源
-1wget -O /etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/Centos-7.repo
-
-清除...
+                            简单回文字符串
+循环双指针
+12345678910111213141516171819202122232425/** * 空字符串或只有单一字符 √ * 不关心奇偶取中数,向上向下取皆对 * 头部字符与尾部字符逐一对比 * * @param str 源字符串 * @return boolean */public static boolean solve(String str)&#123;  ...
                         
                     </div>
 
@@ -346,12 +340,7 @@
                     
                         <li>
                             
-                            <a href="/tags/%E8%BF%90%E7%BB%B4/">运维</a>&nbsp;
-                        </li>
-                    
-                        <li>
-                            | 
-                            <a href="/tags/Linux/">Linux</a>&nbsp;
+                            <a href="/tags/java/">java</a>&nbsp;
                         </li>
                     
                 </ul>
@@ -359,7 +348,7 @@
         
     </div>
 
-    <a href="/2025/03/12/centos%20PHP%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%9F%BA%E7%A1%80%E7%8E%AF%E5%A2%83%E9%83%A8%E7%BD%B2/">阅读全文<span class="seo-reader-text">Centos下PHP单体基础服务部署</span>&nbsp;<i class="fa-solid fa-angle-right"></i></a>
+    <a href="/2025/03/12/%E7%AE%97%E6%B3%95%E5%AE%9E%E8%B7%B5/">阅读全文<span class="seo-reader-text">简单算法-Java示例</span>&nbsp;<i class="fa-solid fa-angle-right"></i></a>
 </div>
 
                 </div>
@@ -374,23 +363,35 @@
                 
                 <div class="flex flex-col gap-5 px-7 pb-7 pt-7">
                     <h3 class="home-article-title">
-                        <a href="/2025/03/12/CSS/">
-                            CSS基础
+                        <a href="/2025/03/12/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">
+                            设计模式-Java示例
                         </a>
                     </h3>
 
                     <div class="home-article-content markdown-body">
                         
                             
-                            实现文本
-文本溢出替换
+                            字典
+工厂方法
 
-1234overflow: hidden;white-space: nowrap;text-overflow: ellipsis;pointer-events: none;
+在父类中提供一个创建对象的接口以允许子类决定实例化对象的类型
 
-滚动
-元素y轴滚动但不显示滚动条
+从业务角度行为一致，结构&#x2F;方式不同
 
-12345678height: 100vh;scrollbar-width: none; /* firefox */-ms-overflow-style: ...
+场景：工厂发送商品至买家手中
+行为：工厂出货→物流运输→买家签收
+结构：物流运输分为 陆运&#x2F;海运&#x2F;空运等
+
+
+
+抽象工厂
+
+让你能创建一系列相关的对象，而无需指定其具体类
+
+从描述角度一个组装品本质一致，细节不同
+
+场景：装修购买一套家具
+结构...
                         
                     </div>
 
@@ -411,7 +412,7 @@
                     
                         <li>
                             
-                            <a href="/tags/css/">css</a>&nbsp;
+                            <a href="/tags/%E8%AE%BE%E8%AE%A1%E6%9E%B6%E6%9E%84/">设计架构</a>&nbsp;
                         </li>
                     
                 </ul>
@@ -419,7 +420,7 @@
         
     </div>
 
-    <a href="/2025/03/12/CSS/">阅读全文<span class="seo-reader-text">CSS基础</span>&nbsp;<i class="fa-solid fa-angle-right"></i></a>
+    <a href="/2025/03/12/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">阅读全文<span class="seo-reader-text">设计模式-Java示例</span>&nbsp;<i class="fa-solid fa-angle-right"></i></a>
 </div>
 
                 </div>
@@ -434,23 +435,34 @@
                 
                 <div class="flex flex-col gap-5 px-7 pb-7 pt-7">
                     <h3 class="home-article-title">
-                        <a href="/2025/03/12/ElementUI%E7%BB%84%E4%BB%B6%E6%89%A9%E5%B1%95-%E5%85%A8%E9%80%89%E5%8F%8D%E9%80%89/">
-                            ElementUI组件侵入式增强扩展
+                        <a href="/2025/03/12/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">
+                            通用数据结构
                         </a>
                     </h3>
 
                     <div class="home-article-content markdown-body">
                         
                             
-                            ElementUI组件扩展-全选反选
-基于Vue2的$parent属性，仅ElementUI VUE2可用
+                            数组
+结构
 
-注：这是一个非标做法，从设计思想上不推荐这么做，但它确实可以很好的完成工作
-需求为el-select组件增加全选&#x2F;反选 功能
-实现
-自定义组件 el-option-all
+线性表结构，一组连续的内存空间
 
-12345678910111213141516171819202122232425262728293...
+
+特性
+
+数组因为是一组连续的内存空间，其通过首空间内存地址与访问下标来实现随机访问
+
+
+基础
+
+数组随机访问寻址公式：a[i]_address &#x3D; base_address + i * data_type_size
+首地址 加 (访问下标 乘 数据类型大小(单下标被分配的内存大小))
+
+
+优劣
+
+链表适合插入、删除，时间复杂度O(1...
                         
                     </div>
 
@@ -471,12 +483,7 @@
                     
                         <li>
                             
-                            <a href="/tags/js/">js</a>&nbsp;
-                        </li>
-                    
-                        <li>
-                            | 
-                            <a href="/tags/Element-UI/">Element-UI</a>&nbsp;
+                            <a href="/tags/%E8%BD%AF%E4%BB%B6%E5%9F%BA%E7%A1%80/">软件基础</a>&nbsp;
                         </li>
                     
                 </ul>
@@ -484,85 +491,7 @@
         
     </div>
 
-    <a href="/2025/03/12/ElementUI%E7%BB%84%E4%BB%B6%E6%89%A9%E5%B1%95-%E5%85%A8%E9%80%89%E5%8F%8D%E9%80%89/">阅读全文<span class="seo-reader-text">ElementUI组件侵入式增强扩展</span>&nbsp;<i class="fa-solid fa-angle-right"></i></a>
-</div>
-
-                </div>
-            </li>
-        
-            <li class="home-article-item">
-
-                
-
-                
-
-                
-                <div class="flex flex-col gap-5 px-7 pb-7 pt-7">
-                    <h3 class="home-article-title">
-                        <a href="/2025/03/12/Andorid/">
-                            Android基础
-                        </a>
-                    </h3>
-
-                    <div class="home-article-content markdown-body">
-                        
-                            
-                            Base
-设计时层级，区块越少，性能越好
-
-FLOW
-安卓启动基于Activity运行
-第一个Activity为AndroidManifest，所有Activity必须在此注册
-
-ModuleTextView
-
-
-prefix
-key
-value
-describe
-
-
-
-android
-signleLine
-true,false
-是否单行显示
-
-
-
-focusable
-true,false
-...
-                        
-                    </div>
-
-                    <div class="home-article-meta-info-container">
-    <div class="home-article-meta-info">
-        <span><i class="fa-solid fa-calendars"></i>&nbsp;
-            <span class="home-article-date" data-date="Wed Mar 12 2025 22:07:05 GMT+0800">
-                
-                    2025-03-12
-                
-            </span>
-        </span>
-        
-        
-            <span class="home-article-tag">
-                <i class="fa-solid fa-tags"></i>&nbsp;
-                <ul>
-                    
-                        <li>
-                            
-                            <a href="/tags/Android/">Android</a>&nbsp;
-                        </li>
-                    
-                </ul>
-            </span>
-        
-    </div>
-
-    <a href="/2025/03/12/Andorid/">阅读全文<span class="seo-reader-text">Android基础</span>&nbsp;<i class="fa-solid fa-angle-right"></i></a>
+    <a href="/2025/03/12/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">阅读全文<span class="seo-reader-text">通用数据结构</span>&nbsp;<i class="fa-solid fa-angle-right"></i></a>
 </div>
 
                 </div>
@@ -608,6 +537,22 @@ amis-editor 页面编辑器拉取项目 编辑器
             </span>
         </span>
         
+            <span class="home-article-category">
+                <i class="fa-solid fa-folders"></i>&nbsp;
+            <ul>
+                
+                
+                    
+                        
+                        <li>
+                            <a href="/categories/%E6%B3%9B%E5%89%8D%E7%AB%AF-Web/">泛前端-Web</a>&nbsp;
+                        </li>
+                    
+                    
+                
+            </ul>
+        </span>
+        
         
             <span class="home-article-tag">
                 <i class="fa-solid fa-tags"></i>&nbsp;
@@ -634,6 +579,70 @@ amis-editor 页面编辑器拉取项目 编辑器
     </div>
 
     <a href="/2022/10/02/AmisLowCode/">阅读全文<span class="seo-reader-text">AMIS低代码</span>&nbsp;<i class="fa-solid fa-angle-right"></i></a>
+</div>
+
+                </div>
+            </li>
+        
+            <li class="home-article-item">
+
+                
+
+                
+
+                
+                <div class="flex flex-col gap-5 px-7 pb-7 pt-7">
+                    <h3 class="home-article-title">
+                        <a href="/2021/03/12/Jetbrains/">
+                            旧版Jetbrains家系列软件无限试用方案
+                        </a>
+                    </h3>
+
+                    <div class="home-article-content markdown-body">
+                        
+                            
+                            无限试用Jetbrains系列通用2021.1.3版本及以前,以WIN10为例
+
+查看IDEA的APPDATA目录,如果您未自定义的话它一般存放在：
+
+C:\Users\你的用户\AppData\Roaming\JetBrains
+
+如果您并未看到jetbrains目录请查看您的安装路径及在磁盘检索此目录
+
+查看注册表
+
+win+R 打开CMD命令行
+输入：regedit
+路径：HKEY_C...
+                        
+                    </div>
+
+                    <div class="home-article-meta-info-container">
+    <div class="home-article-meta-info">
+        <span><i class="fa-solid fa-calendars"></i>&nbsp;
+            <span class="home-article-date" data-date="Fri Mar 12 2021 22:07:05 GMT+0800">
+                
+                    2021-03-12
+                
+            </span>
+        </span>
+        
+        
+            <span class="home-article-tag">
+                <i class="fa-solid fa-tags"></i>&nbsp;
+                <ul>
+                    
+                        <li>
+                            
+                            <a href="/tags/tool/">tool</a>&nbsp;
+                        </li>
+                    
+                </ul>
+            </span>
+        
+    </div>
+
+    <a href="/2021/03/12/Jetbrains/">阅读全文<span class="seo-reader-text">旧版Jetbrains家系列软件无限试用方案</span>&nbsp;<i class="fa-solid fa-angle-right"></i></a>
 </div>
 
                 </div>
