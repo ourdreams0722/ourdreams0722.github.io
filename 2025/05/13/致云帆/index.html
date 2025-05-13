@@ -19,7 +19,7 @@
     
     <!--- Seo Part-->
     
-    <link rel="canonical" href="http://example.com/2025/03/12/js/"/>
+    <link rel="canonical" href="http://example.com/2025/05/13/致云帆/"/>
     <meta name="robots" content="index,follow">
     <meta name="googlebot" content="index,follow">
     <meta name="revisit-after" content="1 days">
@@ -29,16 +29,15 @@
         
         <meta name="description" content="Hexo Theme Redefine, Redefine Your Hexo Journey.">
 <meta property="og:type" content="article">
-<meta property="og:title" content="JS基础">
-<meta property="og:url" content="http://example.com/2025/03/12/JS/index.html">
+<meta property="og:title" content="致云帆">
+<meta property="og:url" content="http://example.com/2025/05/13/%E8%87%B4%E4%BA%91%E5%B8%86/index.html">
 <meta property="og:site_name" content="ourdreams">
 <meta property="og:description" content="Hexo Theme Redefine, Redefine Your Hexo Journey.">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://example.com/images/redefine-og.webp">
-<meta property="article:published_time" content="2025-03-12T14:07:05.000Z">
-<meta property="article:modified_time" content="2025-03-27T08:02:43.710Z">
+<meta property="article:published_time" content="2025-05-13T06:07:05.000Z">
+<meta property="article:modified_time" content="2025-05-13T08:01:25.115Z">
 <meta property="article:author" content="不易">
-<meta property="article:tag" content="js">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://example.com/images/redefine-og.webp">
     
@@ -52,7 +51,7 @@
     
     <title>
         
-            JS基础 | ourdreams
+            致云帆 | ourdreams
         
     </title>
 
@@ -232,7 +231,7 @@
 		<div class="article-title relative w-full">
 			
 			<div class="w-full flex items-center pt-6 justify-start">
-				<h1 class="article-title-regular text-second-text-color tracking-tight text-4xl md:text-6xl font-semibold px-2 sm:px-6 md:px-8 py-3">JS基础</h1>
+				<h1 class="article-title-regular text-second-text-color tracking-tight text-4xl md:text-6xl font-semibold px-2 sm:px-6 md:px-8 py-3">致云帆</h1>
 			</div>
 			
 		</div>
@@ -253,31 +252,20 @@
 					<div class="article-meta-info">
     <span class="article-date article-meta-item">
         <i class="fa-regular fa-pen-fancy"></i>&nbsp;
-        <span class="desktop">2025-03-12 22:07:05</span>
-        <span class="mobile">2025-03-12 22:07:05</span>
+        <span class="desktop">2025-05-13 14:07:05</span>
+        <span class="mobile">2025-05-13 14:07:05</span>
         <span class="hover-info">创建</span>
     </span>
     
         <span class="article-date article-meta-item">
             <i class="fa-regular fa-wrench"></i>&nbsp;
-            <span class="desktop">2025-03-27 16:02:43</span>
-            <span class="mobile">2025-03-27 16:02:43</span>
+            <span class="desktop">2025-05-13 16:01:25</span>
+            <span class="mobile">2025-05-13 16:01:25</span>
             <span class="hover-info">更新</span>
         </span>
     
 
     
-    
-        <span class="article-tags article-meta-item">
-            <i class="fa-regular fa-tags"></i>&nbsp;
-            <ul>
-                
-                    <li>
-                        <a href="/tags/js/">js</a>&nbsp;
-                    </li>
-                
-            </ul>
-        </span>
     
 
     
@@ -295,156 +283,25 @@
 
 
 		<div class="article-content markdown-body px-2 sm:px-6 md:px-8 pb-8">
-			<h2 id="引入"><a href="#引入" class="headerlink" title="引入"></a>引入</h2><ul>
-<li><strong>Q：VUE引入JQUERY及其插件</strong></li>
-</ul>
-<div class="code-container" data-rel="Javascript"><figure class="iseeu highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> $ <span class="keyword">from</span> <span class="string">&quot;jquery&quot;</span>;<span class="comment">// 引入JQ</span></span><br><span class="line"><span class="keyword">import</span> jcanvas <span class="keyword">from</span> <span class="string">&#x27;jcanvas&#x27;</span>;<span class="comment">// 引入插件</span></span><br><span class="line"><span class="title function_">jcanvas</span>($, <span class="variable language_">window</span>);<span class="comment">// 工厂代理插件</span></span><br></pre></td></tr></table></figure></div>
-
-<h2 id="基础"><a href="#基础" class="headerlink" title="基础"></a>基础</h2><p><strong>循环</strong></p>
-<ul>
-<li><p>for</p>
-<blockquote>
-<p>常规循环：语法:let i &#x3D; 0; i&lt;n; i++ </p>
-</blockquote>
-</li>
-<li><p>forEach</p>
-<blockquote>
-<p>迭代器：语法: (val,index)&#x3D;&gt;{},无法使用break与return来跳出</p>
-</blockquote>
-</li>
-<li><p>some</p>
-<blockquote>
-<p>迭代器：语法同上，return true结束,返回当前元素</p>
-</blockquote>
-</li>
-<li><p>every</p>
-<blockquote>
-<p>迭代器：语法同上，return false结束,return true向下迭代\</p>
-</blockquote>
-</li>
-</ul>
-<p>**注：**some与eveny用法区别：</p>
-<p>some：多用于检测数组是否存在符合条件的元素</p>
-<ul>
-<li>如果有一个元素满足条件，则表达式返回<em>true</em> , 剩余的元素不会再执行检测。</li>
-<li>如果没有满足条件的元素，则返回false。</li>
-</ul>
-<p>veery：多用于验证数组内每一个元素节点</p>
-<ul>
-<li>如果数组中检测到有一个元素不满足，则整个表达式返回 <em>false</em> ，且剩余的元素不会再进行检测。</li>
-<li>如果所有元素都满足条件，则返回 true。</li>
-</ul>
-<p><strong>请求</strong></p>
-<p>ajax（Asynchronous  JavaScript  XML）：基于XMLHTTPRequest对象</p>
-<p>axios，fetch都是对其实现的另外封装</p>
-<div class="code-container" data-rel="Javascript"><figure class="iseeu highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//axios</span></span><br><span class="line">axios.<span class="title function_">post</span>(<span class="string">&#x27;url&#x27;</span>,&#123;<span class="attr">key</span>:value&#125;)</span><br><span class="line">.<span class="title function_">then</span>(<span class="keyword">function</span>(<span class="params">response</span>)&#123;&#125;)</span><br><span class="line">.<span class="title function_">catch</span>(<span class="keyword">function</span>(<span class="params">error</span>)&#123;&#125;);</span><br></pre></td></tr></table></figure></div>
-
-<p><strong>作用域</strong></p>
-<blockquote>
-<p>箭头函数</p>
-</blockquote>
-<p>对于一些闭包采取箭头函数,来获取上下文提升作用域</p>
-<p>自ES6起,更简短的函数并且不绑定<code>this</code></p>
-<h2 id="技巧"><a href="#技巧" class="headerlink" title="技巧"></a>技巧</h2><blockquote>
-<p>获取A-Z的数组</p>
-</blockquote>
-<div class="code-container" data-rel="Javascript"><figure class="iseeu highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//ES6</span></span><br><span class="line"><span class="keyword">let</span> arr = [...<span class="title class_">Array</span>(<span class="number">26</span>).<span class="title function_">keys</span>()].<span class="title function_">map</span>(<span class="function"><span class="params">i</span> =&gt;</span> <span class="title class_">String</span>.<span class="title function_">fromCharCode</span>(i + <span class="number">65</span>));</span><br></pre></td></tr></table></figure></div>
-
-<blockquote>
-<p>为数字补0凑字节数</p>
-</blockquote>
-<div class="code-container" data-rel="Javascript"><figure class="iseeu highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//ES6</span></span><br><span class="line"><span class="keyword">let</span> size = <span class="number">5</span>;<span class="comment">//size：总字节数</span></span><br><span class="line"><span class="keyword">let</span> val = <span class="number">22</span>;<span class="comment">//val：原值</span></span><br><span class="line">val = (<span class="title class_">Array</span>(size).<span class="title function_">join</span>(<span class="string">&#x27;0&#x27;</span>) + val).<span class="title function_">slice</span>(-size);<span class="comment">//00022</span></span><br></pre></td></tr></table></figure></div>
-
-<blockquote>
-<p>判断字符串最后一个字符是 [A-Z] 还是 [0-9]</p>
-</blockquote>
-<div class="code-container" data-rel="Javascript"><figure class="iseeu highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> str = <span class="string">&quot;TEST01&quot;</span>;<span class="comment">//字符串</span></span><br><span class="line"><span class="keyword">let</span> lastChar = str.<span class="title function_">substr</span>(-<span class="number">1</span>,<span class="number">1</span>);<span class="comment">//取最后字符</span></span><br><span class="line"><span class="keyword">if</span> (lastChar.<span class="title function_">search</span>(<span class="regexp">/[A-Z]/g</span>)===<span class="number">0</span>)&#123;</span><br><span class="line">	<span class="comment">//字符串</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">if</span> (lastChar.<span class="title function_">search</span>(<span class="regexp">/[\d]/g</span>)===<span class="number">0</span>)&#123;</span><br><span class="line">    <span class="comment">//数字</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
-
-<blockquote>
-<p>取字符串最后一组连续数字</p>
-</blockquote>
-<div class="code-container" data-rel="Javascript"><figure class="iseeu highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> strTem = str.<span class="title function_">replace</span>(<span class="regexp">/[^\d]/g</span>,<span class="string">&#x27;*&#x27;</span>);<span class="comment">//替换非数字为*</span></span><br><span class="line"><span class="keyword">let</span> strArr = strTem.<span class="title function_">split</span>(<span class="string">&#x27;*&#x27;</span>);<span class="comment">//已*分割，剔除非数字</span></span><br><span class="line"><span class="keyword">let</span> val = strArr[strArr.<span class="property">length</span>-<span class="number">1</span>];<span class="comment">//取最后一组</span></span><br></pre></td></tr></table></figure></div>
-
-<h2 id="实践"><a href="#实践" class="headerlink" title="实践"></a>实践</h2><blockquote>
-<p>对div内元素截图</p>
-</blockquote>
-<div class="code-container" data-rel="Javascript"><figure class="iseeu highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"> <span class="title function_">html2canvas</span>(<span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&quot;目标元素ID&quot;</span>)).<span class="title function_">then</span>(<span class="function"><span class="params">canvas</span>=&gt;</span> &#123;</span><br><span class="line">     <span class="keyword">return</span> canvas.<span class="title function_">toDataURL</span>(<span class="string">&#x27;images/png&#x27;</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></div>
-
-<blockquote>
-<p>对video截图</p>
-</blockquote>
-<div class="code-container" data-rel="Javascript"><figure class="iseeu highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//获取base64截图</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">getBase64Img</span>(<span class="params"></span>)&#123;</span><br><span class="line">   <span class="keyword">let</span> canvas = $(<span class="string">&#x27;&lt;canvas&gt;&lt;/canvas&gt;&#x27;</span>);</span><br><span class="line">   <span class="keyword">let</span> video = $(<span class="string">&quot;#目标元素ID&quot;</span>).<span class="title function_">children</span>()[<span class="number">0</span>];</span><br><span class="line">   <span class="keyword">let</span> ctx = canvas[<span class="number">0</span>].<span class="title function_">getContext</span>(<span class="string">&#x27;2d&#x27;</span>);</span><br><span class="line">   <span class="keyword">let</span> w = video.<span class="property">videoWidth</span>;</span><br><span class="line">   <span class="keyword">let</span> h = video.<span class="property">videoHeight</span>;</span><br><span class="line">   canvas.<span class="title function_">attr</span>(&#123;</span><br><span class="line">      <span class="attr">width</span>: w,</span><br><span class="line">      <span class="attr">height</span>: h,</span><br><span class="line">   &#125;);</span><br><span class="line">   ctx.<span class="title function_">drawImage</span>(video, <span class="number">0</span>, <span class="number">0</span>, w, h);</span><br><span class="line">   <span class="keyword">return</span> canvas[<span class="number">0</span>].<span class="title function_">toDataURL</span>(<span class="string">&#x27;images/png&#x27;</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//此处取默认帧，截取特定帧需要在video上指定帧通过setTimeout延时几十毫秒后截帧</span></span><br></pre></td></tr></table></figure></div>
-
-<blockquote>
-<p>简单字符排序</p>
-</blockquote>
-<p><strong>难点</strong></p>
-<ol>
-<li>数字 》 字母 》 中文拼音字母</li>
-<li>大小写 》 数量 》同名优先级</li>
-<li>不固定长度 》 效率</li>
-</ol>
-<p><strong>方式</strong></p>
-<ul>
-<li><p>比较类排序</p>
-<blockquote>
-<p>交换排序</p>
-<blockquote>
-<p>冒泡排序   快速排序</p>
-</blockquote>
-<p>插入排序</p>
-<blockquote>
-<p>简单插入排序   希尔排序</p>
-</blockquote>
-<p>选择排序</p>
-<blockquote>
-<p>简单选择排序   堆排序</p>
-</blockquote>
-<p>归并排序</p>
-<blockquote>
-<p>二路归并排序    多路归并排序</p>
-</blockquote>
-</blockquote>
-</li>
-<li><p>非比较类排序</p>
-<blockquote>
-<p>计数排序    桶排序     基数排序</p>
-</blockquote>
-</li>
-</ul>
-<p><strong>小论</strong></p>
-<blockquote>
-<p>基数排序最为简单快捷，以时间换空间方式</p>
-</blockquote>
-<blockquote>
-<p>N维数组 》 基数放置 每维长度高1 》 单维抽离递归 》 直至长度为1 》同名不变动保持顺序</p>
-<p>中文以首字母拼音当作英文字母处理 》 层级处于字母后方 》 特殊字符不考虑直接放置最后方</p>
-<p>列出基数顺序池： 0 1 2 3 4 5 6 7 8 9 a b c d e f g h i j k l m n o p q r s t u v w x y z A B C D E F G H I J K L M N  O P Q R S T U V W X Y Z<br>              chinese: a b c d e f g h i j k l m n o p q r s t u v w x y z</p>
-<p>special: 顺序置放</p>
-<p>减少时间复杂度 加大空间复杂度 因每次数据一般为50-500ms 不考虑空间优化</p>
-<p>数组一维 无限循环来增加其元素 以下标当作其维度</p>
-<p>保证追加数组的顺序(键值对数组每次新增必定在最后一个) 获取一个中文的首字母</p>
-<p>对中文的操作需要引入“数据字典”</p>
-</blockquote>
-
+			<h1 id="傻逼前端"><a href="#傻逼前端" class="headerlink" title="傻逼前端"></a>傻逼前端</h1><h2 id="写你的臭CSS吧"><a href="#写你的臭CSS吧" class="headerlink" title="写你的臭CSS吧"></a><font color="#FF0000">写你的臭CSS吧</font></h2>
 		</div>
 
 		
 		<div class="post-copyright-info w-full my-8 px-2 sm:px-6 md:px-8">
 			<div class="article-copyright-info-container">
     <ul>
-        <li><strong>标题:</strong> JS基础</li>
+        <li><strong>标题:</strong> 致云帆</li>
         <li><strong>作者:</strong> 不易</li>
         <li><strong>创建于
-                :</strong> 2025-03-12 22:07:05</li>
+                :</strong> 2025-05-13 14:07:05</li>
         
             <li>
                 <strong>更新于
-                    :</strong> 2025-03-27 16:02:43
+                    :</strong> 2025-05-13 16:01:25
             </li>
         
         <li>
-            <strong>链接:</strong> https://github.com/ourdreams0722/2025/03/12/JS/
+            <strong>链接:</strong> https://github.com/ourdreams0722/2025/05/13/致云帆/
         </li>
         <li>
             <strong>
@@ -463,37 +320,17 @@
 		
 
 		
-		<ul class="post-tags-box text-lg mt-1.5 flex-wrap justify-center flex md:hidden">
-			
-			<li class="tag-item mx-0.5">
-				<a href="/tags/js/">#js</a>&nbsp;
-			</li>
-			
-		</ul>
-		
 
 		
 
 		
 		<div class="article-nav my-8 flex justify-between items-center px-2 sm:px-6 md:px-8">
 			
-			<div class="article-prev border-border-color shadow-redefine-flat shadow-shadow-color-2 rounded-medium px-4 py-2 hover:shadow-redefine-flat-hover hover:shadow-shadow-color-2">
-				<a class="prev" rel="prev" href="/2025/03/12/JAVA%20%E7%A9%B7%E4%B8%BE%E6%95%B0%E7%BB%84%E6%89%80%E6%9C%89%E6%8E%92%E5%88%97%E5%8F%AF%E8%83%BD/">
-					<span class="left arrow-icon flex justify-center items-center">
-						<i class="fa-solid fa-chevron-left"></i>
-					</span>
-					<span class="title flex justify-center items-center">
-						<span class="post-nav-title-item">Java穷举排列组合-非算法实现</span>
-						<span class="post-nav-item">上一篇</span>
-					</span>
-				</a>
-			</div>
-			
 			
 			<div class="article-next border-border-color shadow-redefine-flat shadow-shadow-color-2 rounded-medium px-4 py-2 hover:shadow-redefine-flat-hover hover:shadow-shadow-color-2">
-				<a class="next" rel="next" href="/2025/03/12/JS%E6%96%87%E4%BB%B6%E5%A4%84%E7%90%86%EF%BC%88Excel%EF%BC%8CText%EF%BC%8CPDF%EF%BC%89/">
+				<a class="next" rel="next" href="/2025/03/17/Spring%E7%9A%84%E5%A4%9A%E7%A7%9F%E6%88%B7%E7%AB%99%E7%82%B9%E6%96%B9%E6%A1%88/">
 					<span class="title flex justify-center items-center">
-						<span class="post-nav-title-item">JS文件处理-Excel/Text/Pdf</span>
+						<span class="post-nav-title-item">Spring的多租户/站点方案</span>
 						<span class="post-nav-item">下一篇</span>
 					</span>
 					<span class="right arrow-icon flex justify-center items-center">
@@ -557,8 +394,8 @@
 		<div class="post-toc-wrap">
 	<div class="post-toc">
 		<div class="toc-title">目录</div>
-		<div class="page-title">JS基础</div>
-		<ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BC%95%E5%85%A5"><span class="nav-text">引入</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9F%BA%E7%A1%80"><span class="nav-text">基础</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8A%80%E5%B7%A7"><span class="nav-text">技巧</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9E%E8%B7%B5"><span class="nav-text">实践</span></a></li></ol>
+		<div class="page-title">致云帆</div>
+		<ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%82%BB%E9%80%BC%E5%89%8D%E7%AB%AF"><span class="nav-text">傻逼前端</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%86%99%E4%BD%A0%E7%9A%84%E8%87%ADCSS%E5%90%A7"><span class="nav-text">写你的臭CSS吧</span></a></li></ol></li></ol>
 
 	</div>
 </div>
