@@ -1,0 +1,1199 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords" content="Hexo Theme Redefine">
+    
+    <meta name="author" content="不易">
+    <!-- preconnect -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    
+        
+        
+        
+            <link rel="preconnect" href="https://evan.beee.top" crossorigin>
+        
+    
+    <!--- Seo Part-->
+    
+    <link rel="canonical" href="http://example.com/2025/03/12/sql/"/>
+    <meta name="robots" content="index,follow">
+    <meta name="googlebot" content="index,follow">
+    <meta name="revisit-after" content="1 days">
+    
+    
+    
+        
+        <meta name="description" content="Hexo Theme Redefine, Redefine Your Hexo Journey.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SQL基础">
+<meta property="og:url" content="http://example.com/2025/03/12/SQL/index.html">
+<meta property="og:site_name" content="ourdreams">
+<meta property="og:description" content="Hexo Theme Redefine, Redefine Your Hexo Journey.">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/images/redefine-og.webp">
+<meta property="article:published_time" content="2025-03-12T14:07:05.000Z">
+<meta property="article:modified_time" content="2025-03-27T08:13:34.243Z">
+<meta property="article:author" content="不易">
+<meta property="article:tag" content="mysql">
+<meta property="article:tag" content="oracle">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/images/redefine-og.webp">
+    
+    
+    <!--- Icon Part-->
+    <link rel="icon" type="image/png" href="/images/redefine-favicon.svg" sizes="192x192">
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/redefine-favicon.svg">
+    <meta name="theme-color" content="#A31F34">
+    <link rel="shortcut icon" href="/images/redefine-favicon.svg">
+    <!--- Page Info-->
+    
+    <title>
+        
+            SQL基础 | ourdreams
+        
+    </title>
+
+    <link rel="stylesheet" href="https://evan.beee.top/projects/hexo-theme-redefine@2.8.2/source/fonts/Chillax/chillax.css">
+
+    <!--- Inject Part-->
+    
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    
+        <link rel="stylesheet" href="https://evan.beee.top/projects/hexo-theme-redefine@2.8.2/source/css/build/tailwind.css">
+    
+
+    <link rel="stylesheet" href="https://evan.beee.top/projects/hexo-theme-redefine@2.8.2/source/fonts/GeistMono/geist-mono.css">
+    <link rel="stylesheet" href="https://evan.beee.top/projects/hexo-theme-redefine@2.8.2/source/fonts/Geist/geist.css">
+    <!--- Font Part-->
+    
+    
+    
+    
+    
+    
+
+    <script id="hexo-configurations">
+    window.config = {"hostname":"example.com","root":"/","language":"zh-CN","path":"search.xml"};
+    window.theme = {"articles":{"style":{"font_size":"16px","line_height":1.5,"image_border_radius":"14px","image_alignment":"center","image_caption":false,"link_icon":true,"delete_mask":false,"title_alignment":"left","headings_top_spacing":{"h1":"3.2rem","h2":"2.4rem","h3":"1.9rem","h4":"1.6rem","h5":"1.4rem","h6":"1.3rem"}},"word_count":{"enable":true,"count":true,"min2read":true},"author_label":{"enable":true,"auto":false,"list":["不全的全栈"]},"code_block":{"copy":true,"style":"mac","highlight_theme":{"light":"github","dark":"vs2015"},"font":{"enable":false,"family":null,"url":null}},"toc":{"enable":true,"max_depth":3,"number":false,"expand":true,"init_open":true},"copyright":{"enable":true,"default":"cc_by_nc_sa"},"lazyload":true,"pangu_js":false,"recommendation":{"enable":false,"title":"推荐阅读","limit":3,"mobile_limit":2,"placeholder":"/images/wallhaven-wqery6-light.webp","skip_dirs":[]}},"colors":{"primary":"#A31F34","secondary":null,"default_mode":"light"},"global":{"fonts":{"chinese":{"enable":false,"family":null,"url":null},"english":{"enable":false,"family":null,"url":null},"title":{"enable":false,"family":null,"url":null}},"content_max_width":"1000px","sidebar_width":"210px","hover":{"shadow":true,"scale":false},"scroll_progress":{"bar":false,"percentage":true},"website_counter":{"url":"https://cn.vercount.one/js","enable":false,"site_pv":true,"site_uv":true,"post_pv":true},"single_page":true,"preloader":{"enable":false,"custom_message":null},"open_graph":{"enable":true,"image":"/images/redefine-og.webp","description":"Hexo Theme Redefine, Redefine Your Hexo Journey."},"google_analytics":{"enable":false,"id":null}},"home_banner":{"enable":true,"style":"fixed","image":{"light":"/images/wallhaven-wqery6-light.webp","dark":"/images/wallhaven-wqery6-dark.webp"},"title":"Easy to know, easy to be ignorant","subtitle":{"text":["Easier said than done."],"hitokoto":{"enable":false,"show_author":false,"api":"https://v1.hitokoto.cn"},"typing_speed":100,"backing_speed":80,"starting_delay":500,"backing_delay":1500,"loop":false,"smart_backspace":false},"text_color":{"light":"#fff","dark":"#d1d1b6"},"text_style":{"title_size":"2.8rem","subtitle_size":"1.5rem","line_height":1.2},"custom_font":{"enable":false,"family":null,"url":null},"social_links":{"enable":false,"style":"default","links":{"github":null,"instagram":null,"zhihu":null,"twitter":null,"email":null},"qrs":{"weixin":null}}},"plugins":{"feed":{"enable":false},"aplayer":{"enable":false,"type":"fixed","audios":[{"name":null,"artist":null,"url":null,"cover":null,"lrc":null}]},"mermaid":{"enable":false,"version":"11.4.1"}},"version":"2.8.2","navbar":{"auto_hide":false,"color":{"left":"#f78736","right":"#367df7","transparency":35},"width":{"home":"1200px","pages":"1000px"},"links":{"Home":{"path":"/","icon":"fa-regular fa-house"}},"search":{"enable":true,"preload":true}},"page_templates":{"friends_column":2,"tags_style":"blur"},"home":{"sidebar":{"enable":true,"position":"left","first_item":"menu","announcement":null,"show_on_mobile":true,"links":null},"article_date_format":"auto","excerpt_length":200,"categories":{"enable":true,"limit":3},"tags":{"enable":true,"limit":3}},"footerStart":"2025/3/12 11:45:14"};
+    window.lang_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 个月前","year":"%s 年前"};
+    window.data = {"masonry":false};
+  </script>
+    
+    <!--- Fontawesome Part-->
+    <link rel="stylesheet" href="https://evan.beee.top/projects/hexo-theme-redefine@2.8.2/source/fontawesome/fontawesome.min.css">
+    <link rel="stylesheet" href="https://evan.beee.top/projects/hexo-theme-redefine@2.8.2/source/fontawesome/brands.min.css">
+    <link rel="stylesheet" href="https://evan.beee.top/projects/hexo-theme-redefine@2.8.2/source/fontawesome/solid.min.css">
+    <link rel="stylesheet" href="https://evan.beee.top/projects/hexo-theme-redefine@2.8.2/source/fontawesome/regular.min.css">
+    
+    
+    
+    
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+
+<body>
+	<div class="progress-bar-container">
+	
+
+	
+	<span class="pjax-progress-bar"></span>
+	<!--        <span class="swup-progress-icon">-->
+	<!--            <i class="fa-solid fa-circle-notch fa-spin"></i>-->
+	<!--        </span>-->
+	
+</div>
+
+<main class="page-container" id="swup">
+
+	
+
+	<div class="main-content-container flex flex-col justify-between min-h-dvh">
+		<div class="main-content-header">
+			<header class="navbar-container px-6 md:px-12">
+    <div class="navbar-content transition-navbar ">
+        <div class="left">
+            
+            <a class="logo-title" href="/">
+                
+                ourdreams
+                
+            </a>
+        </div>
+
+        <div class="right">
+            <!-- PC -->
+            <div class="desktop">
+                <ul class="navbar-list">
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class=""
+                                   href="/"
+                                        >
+                                    <i class="fa-regular fa-house fa-fw"></i>
+                                    首页
+                                    
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                    
+                        <li class="navbar-item search search-popup-trigger">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <!-- Mobile -->
+            <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fa-solid fa-magnifying-glass"></i>
+                    </div>
+                
+                <div class="icon-item navbar-bar">
+                    <div class="navbar-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mobile sheet -->
+    <div class="navbar-drawer h-dvh w-full absolute top-0 left-0 bg-background-color flex flex-col justify-between">
+        <ul class="drawer-navbar-list flex flex-col px-4 justify-center items-start">
+            
+                
+                    
+
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                           href="/"
+                        >
+                            <span>
+                                首页
+                            </span>
+                            
+                                <i class="fa-regular fa-house fa-sm fa-fw"></i>
+                            
+                        </a>
+                        
+
+                        
+                    </li>
+            
+
+            
+            
+        </ul>
+
+        <div class="statistics flex justify-around my-2.5">
+    <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/tags">
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">28</div>
+        <div class="label text-third-text-color text-sm">标签</div>
+    </a>
+    <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/categories">
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">9</div>
+        <div class="label text-third-text-color text-sm">分类</div>
+    </a>
+    <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/archives">
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">46</div>
+        <div class="label text-third-text-color text-sm">文章</div>
+    </a>
+</div>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+		</div>
+
+		<div class="main-content-body transition-fade-up">
+			
+
+			<div class="main-content">
+				<div class="post-page-container flex relative justify-between box-border w-full h-full">
+	<div class="article-content-container">
+
+		<div class="article-title relative w-full">
+			
+			<div class="w-full flex items-center pt-6 justify-start">
+				<h1 class="article-title-regular text-second-text-color tracking-tight text-4xl md:text-6xl font-semibold px-2 sm:px-6 md:px-8 py-3">SQL基础</h1>
+			</div>
+			
+		</div>
+
+		
+		<div class="article-header flex flex-row gap-2 items-center px-2 sm:px-6 md:px-8">
+			<div class="avatar w-[46px] h-[46px] flex-shrink-0 rounded-medium border border-border-color p-[1px]">
+				<img src="/images/redefine-avatar.jpg">
+			</div>
+			<div class="info flex flex-col justify-between">
+				<div class="author flex items-center">
+					<span class="name text-default-text-color text-lg font-semibold">不易</span>
+					
+					<span class="author-label ml-1.5 text-xs px-2 py-0.5 rounded-small text-third-text-color border border-shadow-color-1">不全的全栈</span>
+					
+				</div>
+				<div class="meta-info">
+					<div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fa-regular fa-pen-fancy"></i>&nbsp;
+        <span class="desktop">2025-03-12 22:07:05</span>
+        <span class="mobile">2025-03-12 22:07:05</span>
+        <span class="hover-info">创建</span>
+    </span>
+    
+        <span class="article-date article-meta-item">
+            <i class="fa-regular fa-wrench"></i>&nbsp;
+            <span class="desktop">2025-03-27 16:13:34</span>
+            <span class="mobile">2025-03-27 16:13:34</span>
+            <span class="hover-info">更新</span>
+        </span>
+    
+
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fa-regular fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/mysql/">mysql</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        | <a href="/tags/oracle/">oracle</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+    
+    
+</div>
+
+				</div>
+			</div>
+		</div>
+		
+
+		
+
+
+		<div class="article-content markdown-body px-2 sm:px-6 md:px-8 pb-8">
+			<h1 id="Mysql"><a href="#Mysql" class="headerlink" title="Mysql"></a>Mysql</h1><h2 id="基础架构"><a href="#基础架构" class="headerlink" title="基础架构"></a>基础架构</h2><blockquote>
+<p>分为Server层和存储引擎层两部分</p>
+</blockquote>
+<h3 id="Server层"><a href="#Server层" class="headerlink" title="Server层"></a>Server层</h3><h4 id="连接器"><a href="#连接器" class="headerlink" title="连接器"></a>连接器</h4><blockquote>
+<p>负责跟客户端建立连接、获取权限、维持和管理连接</p>
+</blockquote>
+<h4 id="查询缓存"><a href="#查询缓存" class="headerlink" title="查询缓存"></a>查询缓存</h4><blockquote>
+<p>拿到一个查询请求先去缓存中查看，存在直接返回</p>
+</blockquote>
+<p><strong>查询缓存往往弊大于利。</strong> 查询缓存的失效非常频繁，只要有对一个表的更新，这个表上所有的查询缓存都会被清空。</p>
+<p>MySQL 8.0 版本直接将查询缓存的整块功能删掉了。</p>
+<h4 id="分析器"><a href="#分析器" class="headerlink" title="分析器"></a>分析器</h4><p>没有命中缓存的真实执行部分</p>
+<p>词法分析(语言关键字等含义解析) → 语法分析(语句整体的正确性解析)</p>
+<h4 id="优化器"><a href="#优化器" class="headerlink" title="优化器"></a>优化器</h4><blockquote>
+<p>索引选择，连表的引擎接口调用</p>
+</blockquote>
+<h4 id="执行器"><a href="#执行器" class="headerlink" title="执行器"></a>执行器</h4><p>权限判断，执行查询</p>
+<h3 id="存储引擎"><a href="#存储引擎" class="headerlink" title="存储引擎"></a>存储引擎</h3><blockquote>
+<p>常见的引擎有：InnoDB、 MyISAM、Memory 等多个存储引擎</p>
+<p>最常用的是 InnoDB，它从 MySQL 5.5.5 版本开始成为了默认</p>
+</blockquote>
+<p>不同的存储引擎共用一个<strong>Server 层</strong></p>
+<h3 id="日志模块"><a href="#日志模块" class="headerlink" title="日志模块"></a>日志模块</h3><ul>
+<li><p><strong>redo log（重做日志）</strong></p>
+<blockquote>
+<p>WAL 技术来提升更新效率。WAL 的全称 是 Write-Ahead Logging，它的关键点就是先写日志，再写磁盘</p>
+</blockquote>
+<p>当有一条记录需要更新的时候，InnoDB 引擎就会先把记录写到 redo log中，并更新内存，这个时候更新就算完成了。同时，InnoDB 引擎会在适当的时候，将这个操作记录更新到磁盘里面，而这个更新往往是在系统比较空闲的时候做。</p>
+<blockquote>
+<p>有了 redo log，InnoDB 就可以保证即使数据库发生异常重启，之前提交的记录都不会丢失，这个能力称为<strong>crash-safe</strong>。</p>
+</blockquote>
+<p>redo log是InnoDB引擎特有的日志</p>
+</li>
+<li><p><strong>binlog（归档日志）</strong></p>
+<p>属于MySQL的Server层</p>
+<p>binlog 没有 crash-safe 能力</p>
+</li>
+<li><p><strong>区别</strong></p>
+<ol>
+<li>redo log 是 InnoDB 引擎特有的；binlog 是 MySQL 的 Server 层实现的，所有引擎都可以使用。</li>
+<li>redo log 是物理日志，记录的是“在某个数据页上做了什么修改”；binlog是逻辑日志，记录的是这个语句的原始逻辑，比如“给ID&#x3D;2这一行的c字段加1”</li>
+<li>redo log 是循环写的，空间固定会用完；binlog是可以追加写入的。“追加写”是指binlog文件写到一定大小后会切换到下一个，并不会覆盖以前的日志。</li>
+</ol>
+</li>
+</ul>
+<h2 id="事务"><a href="#事务" class="headerlink" title="事务"></a>事务</h2><blockquote>
+<p>事务支持是在引擎层实现的,并不是所有的引擎都支持事务（MyISAM不支持，InnoDB支持）</p>
+</blockquote>
+<blockquote>
+<p>事务就是要保证一组数据库操作，要么全部成功，要么全部失败</p>
+</blockquote>
+<p>四大特性有<strong>ACID(Atomicity、Consistency、Isolation、Durability</strong>，即<strong>原子性、一致性、隔离性、持久性</strong>)，其中就有隔离性</p>
+<h3 id="隔离性和隔离级别"><a href="#隔离性和隔离级别" class="headerlink" title="隔离性和隔离级别"></a>隔离性和隔离级别</h3><blockquote>
+<p> 当数据库上有多个事务同时执行的时候，就可能出现<strong>脏读、不可重复读 、幻读</strong>的问题，为了解决这些问题，就有 了<strong>隔离级别</strong>的概念</p>
+</blockquote>
+<blockquote>
+<p>隔离级别设置的越高，也就是越严格，那就意味着效率越低，所以安全性和性能必须寻找一个平衡点。SQL标准的事务隔离级别包括<strong>读未提交、读提交、可重复读和串行化</strong></p>
+</blockquote>
+<ul>
+<li><p><strong>读未提交</strong></p>
+<p>一个事务还没提交时，它做的变更就能被别的事务看到</p>
+</li>
+<li><p><strong>读提交</strong></p>
+<p>一个事务提交之后，它做的变更才会被其他事务看到</p>
+</li>
+<li><p><strong>可重复读</strong></p>
+<p>一个事务执行过程中看到的数据，总是跟这个事务在启动时看到的数据是一致的</p>
+<p>在可重复读隔离级别下，未提交变更对其他事务也是不可见的</p>
+</li>
+<li><p><strong>串行化</strong></p>
+<p>对于同一行记录，“写”会加“写锁”，“读”会加“读锁”。当出现读写锁冲突的时候，后访问的事务必须等前一个事务执行完成，才能继续执行</p>
+</li>
+</ul>
+<h3 id="启动方式"><a href="#启动方式" class="headerlink" title="启动方式"></a>启动方式</h3><ul>
+<li><p>显式的启动事务</p>
+<blockquote>
+<p>begin 或 start transaction。配套的提交语句是 commit，回滚语句是 rollback。</p>
+</blockquote>
+</li>
+<li><p>隐式默认启动</p>
+<blockquote>
+<p>通过配置set autocommit&#x3D;0，关闭自动提交来强制开启事务手动提交</p>
+</blockquote>
+<p>会导致接下来的查询都在事务中，如果是长连接，就导致了意外的长事务，最好不要使用此方式</p>
+</li>
+</ul>
+<h3 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h3><ul>
+<li><p>InnoDB实现</p>
+<p>InnoDB 的行数据有多个版本，每个数据版本有自己的<code>row trx_id</code>，每个事务或者语句有自己的一致性视图。普通查询语句是一致性读，一致性读会根据 <code>row trx_id</code>和一致性视图确定数据版本的可见性。</p>
+<p>1、对于可重复读，查询只承认在事务启动前就已经提交完成的数据 </p>
+<p>2、对于读提交，查询只承认在语句启动前就已经提交完成的数据 </p>
+<p>3、当前读，总是读取已经提交完成的最新版本。</p>
+</li>
+<li><p>事务B的 update 语句，如果按照一致性读，不是矛盾了吗?</p>
+<p><strong>更新数据都是先读后写的，而这个读，只能读当前的值，称为”当前读”(current read)</strong></p>
+</li>
+<li><p>InnoDB为什么能够秒级创建快照支持回滚</p>
+<p><strong>InnoDB 利用了所有数据都有多个版本的这个特性，实现了”秒级创建快照”的能力。</strong></p>
+<p><strong>InnoDB 为每个事务构造了一个数组，用来保存这个事务启动瞬间，当前正在活跃的所有事务 ID。</strong></p>
+</li>
+</ul>
+<h2 id="索引"><a href="#索引" class="headerlink" title="索引"></a>索引</h2><h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><blockquote>
+<p>帮助SQL获取数据的数据结构,类比“目录”</p>
+</blockquote>
+<h3 id="优"><a href="#优" class="headerlink" title="优"></a>优</h3><ul>
+<li>减少扫描数据量</li>
+<li>避免排序，临时表</li>
+<li>随机IO变顺序IO</li>
+<li>提供锁场景</li>
+</ul>
+<h3 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h3><ul>
+<li>写入效率低（同步建立索引）</li>
+<li>占用额外的磁盘空间</li>
+<li>对于同列内大量重复数据索引效果差</li>
+<li>小表意义不大，直接全表扫描更高效</li>
+</ul>
+<h3 id="类型"><a href="#类型" class="headerlink" title="类型"></a>类型</h3><ol>
+<li><p>按功能：</p>
+<table>
+<thead>
+<tr>
+<th>索引</th>
+<th>名称</th>
+<th>作用</th>
+<th>场景</th>
+<th>注意</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>INDEX</td>
+<td>普通索引</td>
+<td>加快访问速度</td>
+<td>查询条件常用字段</td>
+<td></td>
+</tr>
+<tr>
+<td>UNIQUE</td>
+<td>唯一索引</td>
+<td>唯一值但允许空值重复,组合索引必须组合唯一</td>
+<td>字段唯一性,例如：身份证号</td>
+<td></td>
+</tr>
+<tr>
+<td>PRIMARY</td>
+<td>主键索引</td>
+<td>唯一不允许空值，单表仅一个</td>
+<td>关系数据的唯一标识,例如：ID</td>
+<td></td>
+</tr>
+<tr>
+<td>FULL_TEXT</td>
+<td>全文索引</td>
+<td>全文检索时的加速访问</td>
+<td>like左右双%时索引失效，对于一些需要检索全文内容的查询场景使用</td>
+<td>Innodb引擎5.6版本后才支持且新版必须在建立索引时声明ngram插件( WITH PARSER ngram)</td>
+</tr>
+</tbody></table>
+</li>
+<li><p>按物理实现</p>
+<table>
+<thead>
+<tr>
+<th>索引</th>
+<th>名称</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>CLUSTERED</td>
+<td>聚集索引</td>
+<td>查询效率更高,写入效率更低<br />索引顺序与行记录顺序一致<br />单表只有一个聚集索引,有主键索引选主键索引,无主键选第一个唯一索引,都没有则生成一个隐式的聚集索引</td>
+</tr>
+<tr>
+<td>NON-CLUSTERED</td>
+<td>非聚集索引</td>
+<td>索引顺序存储,指向内容随机存储,系统维护索引表来存储索引<br />索引叶子节点存储的是数据地址,查询会进行两次查询：找索引-&gt;找数据<br />又称”二级索引”,”辅助索引”</td>
+</tr>
+</tbody></table>
+</li>
+<li><p>按数量</p>
+<table>
+<thead>
+<tr>
+<th>索引</th>
+<th>名称</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>ONLY</td>
+<td>单一索引</td>
+<td>单字段对应的独立的单一索引</td>
+</tr>
+<tr>
+<td>UNION</td>
+<td>联合索引</td>
+<td>多字段联合,遵循最左原则：<br />按照最左优先的顺序进行索引匹配<br />对于联合索引(x,y,z)等价于三个索引：x,y,z    x,y     x<br />联合索引场景下，使用的索引字段越多，效率越高，这由于Mysql查询优化器的执行顺序决定</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>联合索引生效比对：x,y,z </p>
+</blockquote>
+<ul>
+<li><p><input checked="" disabled="" type="checkbox"> 
+where x&#x3D;1 and y&#x3D;1 and z&#x3D;1</p>
+</li>
+<li><p><input checked="" disabled="" type="checkbox"> 
+where x&#x3D;1 and y&#x3D;1</p>
+</li>
+<li><p><input checked="" disabled="" type="checkbox"> 
+where x&#x3D;1</p>
+</li>
+<li><p><input disabled="" type="checkbox"> 
+where y&#x3D;1 and z&#x3D;1</p>
+</li>
+<li><p><input disabled="" type="checkbox"> 
+where x&#x3D;1 and z&#x3D;1 <a href="%E4%BB%85%E5%AF%B9x%E5%AD%97%E6%AE%B5%E7%94%9F%E6%95%88"></a></p>
+</li>
+<li><p><input disabled="" type="checkbox"> 
+where y&#x3D;1</p>
+</li>
+<li><p><input disabled="" type="checkbox"> 
+where z&#x3D;1</p>
+</li>
+</ul>
+</li>
+<li><p>按结构</p>
+<blockquote>
+<p>B+树索引 Hash索引 FULLTEXT索引</p>
+</blockquote>
+</li>
+</ol>
+<h3 id="索引选择"><a href="#索引选择" class="headerlink" title="索引选择"></a>索引选择</h3><ol>
+<li>MySQL 优化器根据搜索条件，找出所有可能使用的索引</li>
+<li>计算全表扫描的代价</li>
+<li>计算使用不同索引执行查询的代价</li>
+<li>对比各种执行方案的代价，找出成本最低的那一个</li>
+</ol>
+<h3 id="索引场景"><a href="#索引场景" class="headerlink" title="索引场景"></a>索引场景</h3><ul>
+<li>WHERE, GROUP BY, ORDER BY 子句中的字段</li>
+<li>多列联合场景多，使用联合场景，注意最左匹配原则</li>
+<li>多表连接JOIN时的连接字段</li>
+<li>SELECT 列表存在不在索引中的字段，会先通过索引查到满足条件的主键值再“回表”查询其余字段，如果SELECT列表字段较少可以全加索引<sup>面试八股</sup></li>
+<li>索引字段越多，存储和维护成本越高</li>
+</ul>
+<p><strong>不使用场景</strong></p>
+<ul>
+<li>数据量小的表</li>
+<li>大量重复数据的字段</li>
+<li>频繁更新的字段</li>
+</ul>
+<p><strong>失效场景</strong></p>
+<ul>
+<li>使用函数或者表达式计算</li>
+<li>OR条件中存在无索引字段,存在索引的其余字段失效</li>
+<li><kbd>&gt;</kbd><kbd>&lt;</kbd>条件的命中数量，依据配置决定，命中比例过高索引失效，选择全表扫描</li>
+<li><kbd>!=</kbd><kbd>&lt;&gt;</kbd>不等于条件</li>
+<li>LIKE值以<kbd>%</kbd>开头</li>
+</ul>
+<p><strong>什么时候不用自增主键</strong></p>
+<blockquote>
+<p><strong>从性能和存储空间方面考量，自增主键往往是更合理的选择</strong></p>
+</blockquote>
+<p>但符合以下典型的 KV 场景时不必使用自增主键</p>
+<blockquote>
+<ul>
+<li>只有一个索引</li>
+<li>该索引必须是唯一索引</li>
+</ul>
+</blockquote>
+<p><strong>change buffer</strong></p>
+<ul>
+<li><p>场景</p>
+<blockquote>
+<p>当需要更新一个数据页时，如果数据页在内存中就直接更新，而如果这个数据页还没有在内存中的话，在不影响数据一致性的前提下，InooDB 会将这些更新操    作缓存在 change buffer 中，这样就不需要从磁盘中读入这个数据页了。在下次查询需要访问这个数据页的时候，将数据页读入内存，然后执行 change buffer     中与这个页有关的操作。通过这种方式就能保证这个数据逻辑的正确性。</p>
+</blockquote>
+<p>对于写多读少的业务来说，页面在写完以后马上被访问到的概率比较小，此时 change buffer 的使用效果最好。</p>
+<p>这种业务模型常见的就是账单类、日志类的系统。</p>
+</li>
+<li><p>定义</p>
+<p>​    实际上它是可以持久化的数据。也就是说，change buffer 在内存中有拷贝，也会被写入到磁盘上</p>
+<p>​    只限于用在普通索引的场景下，而不适用于唯一索引。</p>
+</li>
+</ul>
+<p>​	<strong>redo log 主要节省的是随机写磁盘的 IO 消耗(转成顺序写)，而 change buffer 主要节省的则是随机读磁盘 的 IO 消耗</strong></p>
+<h3 id="扩展问题"><a href="#扩展问题" class="headerlink" title="扩展问题"></a>扩展问题</h3><ul>
+<li><p><strong>mysql有时会选错索引</strong></p>
+<ol>
+<li>采用 force index 强行选择一个索引</li>
+<li>修改语句，引导 MySQL 使用我们期望的索引</li>
+<li>新建一个更合适的索引，来提供给优化器做选择或删掉误用的索引。</li>
+</ol>
+</li>
+<li><p><strong>如何给字符串加索引</strong></p>
+<ul>
+<li><p><strong>前缀索引</strong></p>
+<blockquote>
+<p>MySQL是支持前缀索引的,可以定义字符串的一部分作为索引 <code>index(column(count))</code>,示例：<code>index_email(email(6))</code></p>
+</blockquote>
+<p><strong>使用前缀索引，定义好长度，就可以做到既节省空间，又不用额外增加太多的查询成本。</strong></p>
+<p>如何建立前缀索引：取决于<strong>区分度</strong></p>
+<p>区分度越高，意味着重复的键值越少，索引命中扫描量越小</p>
+<p><del>判断步骤</del></p>
+<ul>
+<li><p>计算列中不同值数量</p>
+<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select count(distinct email) as L from SUser;</span><br></pre></td></tr></table></figure></div>
+</li>
+<li><p>依次选取不同长度的前缀判断区分度</p>
+<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">select </span><br><span class="line">count(distinct left(email,4)）as L4,</span><br><span class="line">count(distinct left(email,5)）as L5,</span><br><span class="line">count(distinct left(email,6)）as L6,</span><br><span class="line">count(distinct left(email,7)）as L7,</span><br><span class="line">from SUser;</span><br></pre></td></tr></table></figure></div>
+</li>
+<li><p>选择</p>
+<p>预先设定一个可以接受的损失比例，比如5%。然后，在返回的L4~L7中，找出不小于 L * 95%的值，假设这里L6、L7都满足，你就可以选择前缀长度为6。</p>
+</li>
+</ul>
+</li>
+<li><p><strong>倒序存储</strong></p>
+<p>拿身份证号来举例的话，同区域内前缀相同，区分度很低无法使用前缀索引</p>
+<p>这时可以在存储时倒序存储身份证号，对字段操作时(查询，更新等)使用<code>reverse</code>函数翻转</p>
+<p>这样身份证号的后N位提供了很好的区分度可以以此加前缀索引</p>
+</li>
+<li><p><strong>hash字段</strong></p>
+<p>在表上再创建一个整数字段，来保存身份证的校验码，同时在这个字段上创建索引。</p>
+<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">alter table t add id_card_crc int unsigned, add index(id_card_crc);</span><br></pre></td></tr></table></figure></div>
+
+<p>每次插入新记录的时候，都同时用crc32()这个函数得到校验码填到这个新字段</p>
+<p>由于校验码可能存在冲突，也就是说两个不同的身份证号通过crc32()函数得到的结果可能是相同的，查询语句where部分要判断id_card的值是否精确相同</p>
+<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select field_list from t where id_card_crc=crc32(&#x27;input_id_card_string&#x27;) and id_card=&#x27;input_id_card_string&#x27;</span><br></pre></td></tr></table></figure></div>
+</li>
+<li><p><strong>总结</strong></p>
+<ol>
+<li>直接创建完整索引，这样可能比较占用空间</li>
+<li>创建前缀索引，节省空间，但会增加查询扫描次数，并且不能使用覆盖索引</li>
+<li>倒序存储，再创建前缀索引，用于绕过字符串本身前缀的区分度不够的问题</li>
+<li>创建hash字段索引，查询性能稳定，有额外的存储和计算消耗，跟第三种方式一样，都不支持范围扫描</li>
+</ol>
+</li>
+</ul>
+</li>
+<li><p><strong>为什么SQL语句有时会慢</strong></p>
+<blockquote>
+<p>当内存数据页跟磁盘数据页内容不一致的时候，我们称这个内存页为”脏页”。</p>
+<p>内存数据写入到磁盘后，内存和磁盘上的数据页的内容就一致了，称为”干净页”。</p>
+</blockquote>
+<p>刷脏页（flush）时会拉慢SQL执行，下述产生场景</p>
+<ol>
+<li><strong>InnoDB的redo log写满了，这时候系统会停止所有更新操作，把 checkpoint 往前推进，redo log 留出空间才可以继续写</strong></li>
+<li><strong>系统内存不足当，需要新的内存页，而内存不够用的时候，就要淘汰一些数据页，空出内存给别的数据页使用。如果淘汰的是”脏页”，就要先将脏页写到磁盘。</strong></li>
+<li><strong>MySQL认为系统空闲的时候，进行flush操作</strong></li>
+<li><strong>MySQL关闭的时候会把内存的脏页都flush到磁盘上</strong></li>
+</ol>
+<p>InnoDB的刷脏页控制策略</p>
+<ol>
+<li><p>使用<code>innodb_io_capacity</code> 这个参数，它会告诉 InnoDB 你的磁盘能力。这个值应该设置成磁盘的 IOPS。磁盘的 IOPS 可以通过 fio 工具来测试。如果这个参数设置的过低，InnoDB会认为系统能力差，导致刷脏页刷的特别慢从而影响查询和更新的性能。</p>
+</li>
+<li><p>多关注脏页比例，不要经常接近75%。脏页比例通过 <code>Innodb_buffer_pool_pages_dirty/Innodb_buffer_pool_pages_total</code>得到</p>
+</li>
+<li><p>InnoDB刷脏页产生时会连坐（如果这个数据页旁边的数据页刚好是脏页，就会把这个邻居也带着一起刷掉）</p>
+<p><code>innodb_flush_neighbors</code>参数就是用来控制这个行为的，mysql8.0中<code>innodb_flush_neighbors</code>参数的默认值已经是 0 了，用于防止连坐</p>
+</li>
+</ol>
+</li>
+<li><p><strong>为什么表数据删除一半文件大小却不变</strong></p>
+<blockquote>
+<p>delete 命令其实只是把记录的位置，或者数据页标记为了“可复用”，磁盘文件的大小是不会变的</p>
+<p>通过 delete 命令是不能回收表空间的。这些可以复用，而没有被使用的空间，看起来就像是“空洞”</p>
+</blockquote>
+<p><strong>去除“空洞”才能达到收缩表空间的目的</strong></p>
+<p>方案：重建表数据迁出</p>
+</li>
+<li><p><strong>Online DDL</strong></p>
+<p>5.6后引入，为了对<strong>之前MySQL 从主表往临时表插入数据的过程不支持主表数据更新</strong>做优化</p>
+<p><del>流程</del></p>
+<ol>
+<li>建立一个临时文件，扫描表 A 主键的所有数据页</li>
+<li>用数据页中表 A 的记录生成 B+ 树，存储到临时文件中</li>
+<li>生成临时文件的过程中，将所有对 A 的操作记录在一个日志文件(row log)中</li>
+<li>临时文件生成后，将日志文件中的操作应用到临时文件，得到一个逻辑数据上与表 A 相同的数据文件</li>
+<li>用临时文件替换表 A 的数据文件</li>
+</ol>
+<blockquote>
+<p>Online 和 inplace的区别</p>
+</blockquote>
+<p>DDL 过程如果是 Online 的，就一定是 inplace 的；inplace 的 DDL，有可能不是 Online 的。</p>
+<p>（整个 DDL 过程都在 InnoDB 内部完成。对于 server 层来说，没有把数据挪动到临时表，是一个<code>原地</code>操作，这就是<code>inplace</code>名称的来源）</p>
+</li>
+<li><p><strong>count聚合函数实现原理</strong></p>
+<p>对于性能而言：</p>
+<blockquote>
+<p>count(*) ≈ count(1) &gt; count(主键)  &gt; count(字段)</p>
+</blockquote>
+<p>不同引擎对于count的处理方式不同</p>
+<ul>
+<li><p>MyISAM 引擎把一个表的总行数存在了磁盘上，因此执行 <code>count(*)</code>的时候会直接返回这个数，效率很高</p>
+<p>如果加了 where 条件的话，MyISAM 表也是不能返回得这么快的</p>
+</li>
+<li><p>InnoDB 引擎执行<code>count(*)</code>的时候，需要把数据一行一行地从引擎里面读出来，然后累积计数。</p>
+</li>
+</ul>
+<p>InnoDB的优化：寻找最小的索引树进行遍历</p>
+<blockquote>
+<p>用 show table status 命令输出结果里面也有一个 TABLE_ROWS 能代替 count(*) 吗？</p>
+</blockquote>
+<p>索引统计的值是通过采样来估算的。实际上，TABLE_ROWS 就是从这个采样估算得来的，因此它也很不准。官方文档说误差可能达到 40% 到 50%。所以，<strong>show table status 命令显示的行数也不能直接使用。</strong></p>
+<p><strong>总结</strong></p>
+<ul>
+<li>MyISAM 表虽然 <code>count(*)</code>很快，但是不支持事务</li>
+<li>show table status· 命令虽然返回很快，但是不准确</li>
+<li>InnoDB 表直接 <code>count(*)</code>会遍历全表，虽然结果准确，但会导致性能问题</li>
+</ul>
+<p><strong>方案</strong></p>
+<ul>
+<li><strong>用缓存系统保存计数</strong></li>
+<li><strong>在数据库保存计数</strong></li>
+</ul>
+</li>
+<li><p><strong>order by的工作原理</strong></p>
+<blockquote>
+<p>全字段排序</p>
+</blockquote>
+<ol>
+<li>初始化 sort_buffer，确定放入查询字段</li>
+<li>从索引 找到第一个满足条件的主键 id</li>
+<li>取查询字段值,存入 sort_buffer 中</li>
+<li>从索引取下一个记录的主键 id</li>
+<li>重复步骤 3、4 直到不满足查询条件为止</li>
+<li>对 sort_buffer 中的数据按照排序字段做快速排序</li>
+<li>返回结果</li>
+</ol>
+<p>第6步这个动作，可能在内存中完成，也可能需要使用外部排序(磁盘)，这取决于排序所需的内存和参数 <code>sort_buffer_size</code></p>
+<p><code>sort_buffer_size</code>是 MySQL 为排序开辟的内存(sort_buffer)的大小</p>
+<blockquote>
+<p>rowid排序</p>
+</blockquote>
+<p>与上述步骤区别：在sort_buffer只存入排序字段与主键,最后返回结果时再通过主键“回表”取值</p>
+<p>一般情况下，mysql通过判断排序内存来决定使用哪种排序方式</p>
+<p>对于 InnoDB 表来说，rowid 排序会要求回表多造成磁盘读，因此不会被优先选择</p>
+<blockquote>
+<p>显示随机信息时要避免使用<code>order by rand()</code>,这需要Using temporary 和 Using filesort</p>
+<p>采取自己设计的随机算法</p>
+</blockquote>
+</li>
+<li><p><strong>SQL调优</strong></p>
+<p>尽量不要对索引字段使用聚合函数，这会让优化器放弃走树搜索</p>
+<p>条件判断时类型必须一致,比如连表的 varchar2与integer对比,无论是否存在索引均会放弃</p>
+<p>字符编码问题,连表时确保所有表的字符编码集相同,比如A表utf8，B表是utf8mb4，也会放弃索引</p>
+<p><strong>连接过程中要求在被驱动表的索引字段上加函数操作</strong>，是直接导致对被驱动表做全表扫描的原因</p>
+</li>
+<li><p><strong>查询慢的场景</strong></p>
+<blockquote>
+<p>等MDL锁，等flush，等锁</p>
+</blockquote>
+<p><strong>“饮鸩止渴”提高性能(短链接风暴)</strong></p>
+<ol>
+<li>处理掉占着连接不工作的线程</li>
+<li>减少连接过程的消耗(比如跳过权限验证等)</li>
+</ol>
+<p><strong>QPS突增</strong></p>
+<ol>
+<li>业务下掉功能</li>
+<li>触发高频用户禁用</li>
+<li>改写SQL语句为select 1</li>
+</ol>
+</li>
+<li><p><strong>JOIN场景</strong></p>
+<p>小表<sup>小表定义</sup>驱动大表，连接字段使用索引连接</p>
+</li>
+</ul>
+<p>[面试八股] 为什么SELECT要避免<kbd>*</kbd>,避免回表 </p>
+<p>[小表定义] 条件查询后的扫描行数量</p>
+<h2 id="锁"><a href="#锁" class="headerlink" title="锁"></a>锁</h2><ul>
+<li><p>按机制</p>
+<blockquote>
+<p>共享锁（读锁）：其他事务可读不可写</p>
+<p>排他锁（写锁）：其他事务不可读不可写 </p>
+</blockquote>
+</li>
+<li><p>按粒度</p>
+<blockquote>
+<p>BDB引擎下：页面锁，表锁</p>
+<p>INNODB引擎下：行级锁，表锁</p>
+</blockquote>
+<p><strong>概览</strong></p>
+<blockquote>
+<p>表级锁</p>
+<blockquote>
+<p>开销小，加锁快；不会出现死锁；锁定粒度大，发生锁冲突的概率最高，并发度最低</p>
+<p>这些存储引擎通过总是一次性同时获取所有需要的锁以及总是按相同的顺序获取表锁来避免死锁</p>
+<p>表级锁更适合于以查询为主，并发用户少，只有少量按索引条件更新数据的应用，如Web 应用</p>
+</blockquote>
+<p>行级锁</p>
+<blockquote>
+<p>开销大，加锁慢；会出现死锁；锁定粒度最小，发生锁冲突的概率最低，并发度也最高。</p>
+<p>最大程度的支持并发，同时也带来了最大的锁开销。</p>
+<p>在 InnoDB 中，除单个 SQL 组成的事务外，<br>锁是逐步获得的，这就决定了在 InnoDB 中发生死锁是可能的。</p>
+<p>行级锁只在存储引擎层实现，而Mysql服务器层没有实现。 行级锁更适合于有大量按索引条件并发更新少量不同数据，同时又有并发查询的应用，如一些在线事务处理（OLTP）系统</p>
+</blockquote>
+<p>页面锁</p>
+<blockquote>
+<p>开销和加锁时间界于表锁和行锁之间；会出现死锁；锁定粒度界于表锁和行锁之间，并发度一般</p>
+</blockquote>
+</blockquote>
+<p>间隙锁：用范围条件而不是相等条件索引数据</p>
+</li>
+<li><p>按行为</p>
+<blockquote>
+<p>乐观锁：假设不会发生并发冲突，只在提交操作时检查是否违反数据完整性。 乐观锁不能解决脏读的问题</p>
+<p>悲观锁：假定会发生并发冲突，屏蔽一切可能的违反数据完整性操作</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h3><ul>
+<li><p>读锁（S 锁，共享锁）：<code>lock in share mode</code></p>
+<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select k from t where id=1 lock in share mode; </span><br></pre></td></tr></table></figure></div>
+</li>
+<li><p>写锁（X 锁，排他锁）：<code>for update</code></p>
+<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select k from t where id=1 for update;</span><br></pre></td></tr></table></figure></div></li>
+</ul>
+<h2 id="语句"><a href="#语句" class="headerlink" title="语句"></a>语句</h2><h3 id="系统级"><a href="#系统级" class="headerlink" title="系统级"></a>系统级</h3><p><strong>此处语句仅针对特定版本，目前视为mysql5.6-8.0同比mariadb10~</strong></p>
+<h4 id="读"><a href="#读" class="headerlink" title="读"></a>读</h4><div class="code-container" data-rel="Sql"><figure class="iseeu highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">#查看最大连接数</span><br><span class="line"><span class="keyword">show</span> variables <span class="keyword">like</span> &quot;max_connections&quot;;</span><br><span class="line">#连接超时时间</span><br><span class="line"><span class="keyword">show</span> <span class="keyword">global</span> variables <span class="keyword">like</span> <span class="string">&#x27;wait_timeout&#x27;</span>;</span><br><span class="line">#查看当前进程</span><br><span class="line"><span class="keyword">SHOW</span> <span class="keyword">FULL</span> PROCESSLIST;</span><br><span class="line">#查看索引策略行数(限定<span class="keyword">IN</span> <span class="keyword">OR</span>数量)</span><br><span class="line"><span class="keyword">show</span> variables <span class="keyword">like</span> <span class="string">&#x27;%eq_range_index_dive_limit%&#x27;</span>;</span><br><span class="line">#查看空间占用</span><br><span class="line"><span class="keyword">SELECT</span> TABLE_NAME,DATA_LENGTH,INDEX_LENGTH,(DATA_LENGTH<span class="operator">+</span>INDEX_LENGTH) <span class="keyword">as</span> length,TABLE_ROWS,concat(round((DATA_LENGTH<span class="operator">+</span>INDEX_LENGTH)<span class="operator">/</span><span class="number">1024</span><span class="operator">/</span><span class="number">1024</span>,<span class="number">3</span>), <span class="string">&#x27;MB&#x27;</span>) <span class="keyword">as</span> total_size <span class="keyword">FROM</span> information_schema.TABLES <span class="keyword">WHERE</span> TABLE_SCHEMA<span class="operator">=</span><span class="string">&#x27;bswas&#x27;</span> <span class="keyword">order</span> <span class="keyword">by</span> length <span class="keyword">desc</span>;</span><br><span class="line">#查看当前锁定事务</span><br><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> INFORMATION_SCHEMA.INNODB_LOCKS;</span><br><span class="line">#查看所有的等待事务ID</span><br><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> INFORMATION_SCHEMA.INNODB_TRX;</span><br><span class="line">#查询操作日志</span><br><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">from</span> mysql.general_log <span class="keyword">ORDER</span> <span class="keyword">BY</span> event_time <span class="keyword">DESC</span>;</span><br><span class="line">#查看是否自动<span class="keyword">COMMIT</span>(Mysql的<span class="keyword">commit</span>取决于你的引擎于设置)<span class="comment">--OFF(否) ON(是)</span></span><br><span class="line"><span class="keyword">show</span> variables <span class="keyword">like</span> <span class="string">&#x27;%autocommit%&#x27;</span>;</span><br><span class="line">#查看当前数据库的事务隔离级别</span><br><span class="line"><span class="keyword">show</span> variables <span class="keyword">like</span> <span class="string">&#x27;tx_isolation&#x27;</span>;</span><br><span class="line"></span><br><span class="line">$死锁时先去查被锁定的事务 拿lock_trx_id去INNODB_TRX找对应的trx_id取其trx_mysql_thread_id将其kill掉</span><br></pre></td></tr></table></figure></div>
+
+<h4 id="写"><a href="#写" class="headerlink" title="写"></a>写</h4><div class="code-container" data-rel="Sql"><figure class="iseeu highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">#临时修改最大连接数,完全修改需要改my.cnf重启DB</span><br><span class="line"><span class="keyword">set</span> <span class="keyword">GLOBAL</span> max_connections<span class="operator">=</span><span class="number">300</span>;</span><br><span class="line">#杀死进程</span><br><span class="line">kill &#123;PROCESS_ID&#125;;</span><br><span class="line">#临时设置开启<span class="operator">/</span>关闭日志（<span class="keyword">ON</span><span class="operator">/</span>OFF）</span><br><span class="line"><span class="keyword">SET</span> <span class="keyword">GLOBAL</span> log_output <span class="operator">=</span> <span class="string">&#x27;TABLE&#x27;</span>;<span class="keyword">SET</span> <span class="keyword">GLOBAL</span> general_log <span class="operator">=</span> <span class="string">&#x27;ON&#x27;</span>;</span><br></pre></td></tr></table></figure></div>
+
+<h3 id="普通级"><a href="#普通级" class="headerlink" title="普通级"></a>普通级</h3><h4 id="读-1"><a href="#读-1" class="headerlink" title="读"></a>读</h4><div class="code-container" data-rel="Sql"><figure class="iseeu highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">#行级，排他，悲观锁(<span class="keyword">FOR</span> <span class="keyword">UPDATE</span>),必须命中索引，否则表锁，读多场景勿用，容易死锁</span><br><span class="line"><span class="keyword">select</span> <span class="keyword">column</span> <span class="keyword">from</span> <span class="keyword">table</span> <span class="keyword">where</span> &#123;索引列&#125; <span class="operator">=</span> &#123;val&#125; <span class="keyword">FOR</span> <span class="keyword">UPDATE</span>;</span><br><span class="line">#查询存储过程内容</span><br><span class="line"><span class="keyword">select</span> <span class="keyword">column</span> <span class="keyword">FROM</span> <span class="keyword">table</span> <span class="keyword">where</span> name <span class="operator">=</span> &#123;procedure_name&#125; <span class="keyword">order</span> <span class="keyword">by</span> line;</span><br><span class="line"></span><br></pre></td></tr></table></figure></div>
+
+<h4 id="写-1"><a href="#写-1" class="headerlink" title="写"></a>写</h4><div class="code-container" data-rel="Sql"><figure class="iseeu highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">#修改时与原值运算(不需要额外查询一次)</span><br><span class="line"><span class="keyword">UPDATE</span> <span class="keyword">table</span> <span class="keyword">SET</span> <span class="keyword">column</span> <span class="operator">=</span> <span class="keyword">column</span> <span class="operator">-</span> <span class="number">1</span>;</span><br><span class="line">#删除A表存在B表不存在的数据<span class="operator">-</span>根据主键(避免MYSQL8禁止子查询含本表)</span><br><span class="line"><span class="keyword">DELETE</span> A <span class="keyword">FROM</span> A <span class="keyword">LEFT</span> <span class="keyword">JOIN</span> B <span class="keyword">ON</span> A.id <span class="operator">=</span> B.id <span class="keyword">WHERE</span> B.id <span class="keyword">IS</span> <span class="keyword">NULL</span></span><br></pre></td></tr></table></figure></div>
+
+<h2 id="执行与函数"><a href="#执行与函数" class="headerlink" title="执行与函数"></a>执行与函数</h2><blockquote>
+<p>group by时 having与where的区别 执行级别：where先于聚合函数，所以 where是对分组前数据进行筛选,having是对分组后数据进行筛选</p>
+</blockquote>
+<h1 id="Oracle"><a href="#Oracle" class="headerlink" title="Oracle"></a>Oracle</h1><h2 id="语句-1"><a href="#语句-1" class="headerlink" title="语句"></a>语句</h2><h3 id="普通级-1"><a href="#普通级-1" class="headerlink" title="普通级"></a>普通级</h3><h4 id="写-2"><a href="#写-2" class="headerlink" title="写"></a>写</h4><div class="code-container" data-rel="Sql"><figure class="iseeu highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">#插入一条记录<span class="keyword">and</span>标记</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">ALL</span> <span class="keyword">INTO</span> <span class="keyword">table</span> (column1,column2...) <span class="keyword">VALUES</span>(value1,value2...) <span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> DUAL</span><br><span class="line">#存在则更新不存在则插入</span><br><span class="line"><span class="keyword">MERGE</span> <span class="keyword">INTO</span> <span class="keyword">table</span> t1</span><br><span class="line">                <span class="keyword">USING</span>(<span class="keyword">SELECT</span> column1,column2,column3 <span class="keyword">FROM</span> DUAL) t2</span><br><span class="line">        <span class="keyword">ON</span>(t1.column1<span class="operator">=</span>t2.column1)</span><br><span class="line">        <span class="keyword">WHEN</span> MATCHED <span class="keyword">THEN</span></span><br><span class="line">            <span class="keyword">UPDATE</span> <span class="keyword">SET</span> t1.column2<span class="operator">=</span>t2.column2,t1.column3<span class="operator">=</span>t2.column3</span><br><span class="line">        <span class="keyword">WHEN</span> <span class="keyword">NOT</span> MATCHED <span class="keyword">THEN</span></span><br><span class="line">            <span class="keyword">INSERT</span>(column1,column2,column3...)</span><br><span class="line">            <span class="keyword">VALUES</span>(t2.column1,t2.column2,t2.column3...)</span><br></pre></td></tr></table></figure></div>
+
+<h1 id="Other"><a href="#Other" class="headerlink" title="Other"></a>Other</h1><h2 id="ISSUE"><a href="#ISSUE" class="headerlink" title="ISSUE"></a>ISSUE</h2><ul>
+<li><p>Q：主键抉择</p>
+<blockquote>
+<p>我的抉择角度为,有独立唯一字段直接使用,没有的话建立主键是否采用自增序列还是流水号与UUID等其他散列序列值取决于主键字段的业务使用角度<br>如果它仅是内部一个隐性关联字段 则自增序列,如果它具备可读性（例如订单号等）则自定义函数生成一般由日期+业务号组成<br>如果其分库分表存在归档等 则优先选用UUID</p>
+</blockquote>
+</li>
+</ul>
+
+		</div>
+
+		
+		<div class="post-copyright-info w-full my-8 px-2 sm:px-6 md:px-8">
+			<div class="article-copyright-info-container">
+    <ul>
+        <li><strong>标题:</strong> SQL基础</li>
+        <li><strong>作者:</strong> 不易</li>
+        <li><strong>创建于
+                :</strong> 2025-03-12 22:07:05</li>
+        
+            <li>
+                <strong>更新于
+                    :</strong> 2025-03-27 16:13:34
+            </li>
+        
+        <li>
+            <strong>链接:</strong> https://github.com/ourdreams0722/2025/03/12/SQL/
+        </li>
+        <li>
+            <strong>
+                版权声明:
+            </strong>
+            
+
+            
+                本文章采用 <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0">CC BY-NC-SA 4.0</a> 进行许可。
+            
+        </li>
+    </ul>
+</div>
+
+		</div>
+		
+
+		
+		<ul class="post-tags-box text-lg mt-1.5 flex-wrap justify-center flex md:hidden">
+			
+			<li class="tag-item mx-0.5">
+				<a href="/tags/mysql/">#mysql</a>&nbsp;
+			</li>
+			
+			<li class="tag-item mx-0.5">
+				<a href="/tags/oracle/">#oracle</a>&nbsp;
+			</li>
+			
+		</ul>
+		
+
+		
+
+		
+		<div class="article-nav my-8 flex justify-between items-center px-2 sm:px-6 md:px-8">
+			
+			<div class="article-prev border-border-color shadow-redefine-flat shadow-shadow-color-2 rounded-medium px-4 py-2 hover:shadow-redefine-flat-hover hover:shadow-shadow-color-2">
+				<a class="prev" rel="prev" href="/2025/03/12/SPRINGBOOT%20%E6%8E%A5%E5%8F%A3%E5%B9%82%E7%AD%89%E9%AA%8C%E8%AF%81/">
+					<span class="left arrow-icon flex justify-center items-center">
+						<i class="fa-solid fa-chevron-left"></i>
+					</span>
+					<span class="title flex justify-center items-center">
+						<span class="post-nav-title-item">Spring接口幂等验证</span>
+						<span class="post-nav-item">上一篇</span>
+					</span>
+				</a>
+			</div>
+			
+			
+			<div class="article-next border-border-color shadow-redefine-flat shadow-shadow-color-2 rounded-medium px-4 py-2 hover:shadow-redefine-flat-hover hover:shadow-shadow-color-2">
+				<a class="next" rel="next" href="/2025/03/12/Spring%20Cloud%20Alibaba%20%E9%95%BF%E8%AE%A1%E7%AE%97SEE%E9%80%9A%E4%BF%A1%EF%BC%88%E7%B1%BBChatGPT%E5%9B%9E%E5%A4%8D%E5%93%8D%E5%BA%94%EF%BC%89/">
+					<span class="title flex justify-center items-center">
+						<span class="post-nav-title-item">Spring长通信SEE</span>
+						<span class="post-nav-item">下一篇</span>
+					</span>
+					<span class="right arrow-icon flex justify-center items-center">
+						<i class="fa-solid fa-chevron-right"></i>
+					</span>
+				</a>
+			</div>
+			
+		</div>
+		
+
+
+		
+		<div class="comment-container px-2 sm:px-6 md:px-8 pb-8">
+			<div class="comments-container mt-10 w-full ">
+    <div id="comment-anchor" class="w-full h-2.5"></div>
+    <div class="comment-area-title w-full my-1.5 md:my-2.5 text-xl md:text-3xl font-bold">
+        评论
+    </div>
+    
+
+        
+            
+    <div id="waline"></div>
+    <script type="module" data-swup-reload-script>
+      import { init } from '/js/libs/waline.mjs';
+
+      function loadWaline() {
+        init({
+          el: '#waline',
+          serverURL: 'https://example.example.com',
+          lang: 'zh-CN',
+          dark: 'body[class~="dark-mode"]',
+          reaction: false,
+          requiredMeta: ['nick', 'mail'],
+          emoji: [],
+          
+          
+        });
+      }
+
+      if (typeof swup !== 'undefined') {
+        loadWaline();
+      } else {
+        window.addEventListener('DOMContentLoaded', loadWaline);
+      }
+    </script>
+
+
+
+        
+    
+</div>
+
+		</div>
+		
+	</div>
+
+	
+	<div class="toc-content-container">
+		<div class="post-toc-wrap">
+	<div class="post-toc">
+		<div class="toc-title">目录</div>
+		<div class="page-title">SQL基础</div>
+		<ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Mysql"><span class="nav-text">Mysql</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9F%BA%E7%A1%80%E6%9E%B6%E6%9E%84"><span class="nav-text">基础架构</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Server%E5%B1%82"><span class="nav-text">Server层</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AD%98%E5%82%A8%E5%BC%95%E6%93%8E"><span class="nav-text">存储引擎</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%97%A5%E5%BF%97%E6%A8%A1%E5%9D%97"><span class="nav-text">日志模块</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8B%E5%8A%A1"><span class="nav-text">事务</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%9A%94%E7%A6%BB%E6%80%A7%E5%92%8C%E9%9A%94%E7%A6%BB%E7%BA%A7%E5%88%AB"><span class="nav-text">隔离性和隔离级别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%90%AF%E5%8A%A8%E6%96%B9%E5%BC%8F"><span class="nav-text">启动方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%97%AE%E9%A2%98"><span class="nav-text">问题</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%B4%A2%E5%BC%95"><span class="nav-text">索引</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E4%B9%89"><span class="nav-text">定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BC%98"><span class="nav-text">优</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BC%BA%E7%82%B9"><span class="nav-text">缺点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%B1%BB%E5%9E%8B"><span class="nav-text">类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%B4%A2%E5%BC%95%E9%80%89%E6%8B%A9"><span class="nav-text">索引选择</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%B4%A2%E5%BC%95%E5%9C%BA%E6%99%AF"><span class="nav-text">索引场景</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%89%A9%E5%B1%95%E9%97%AE%E9%A2%98"><span class="nav-text">扩展问题</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%94%81"><span class="nav-text">锁</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%A4%BA%E4%BE%8B"><span class="nav-text">示例</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AF%AD%E5%8F%A5"><span class="nav-text">语句</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%B3%BB%E7%BB%9F%E7%BA%A7"><span class="nav-text">系统级</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%99%AE%E9%80%9A%E7%BA%A7"><span class="nav-text">普通级</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%89%A7%E8%A1%8C%E4%B8%8E%E5%87%BD%E6%95%B0"><span class="nav-text">执行与函数</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Oracle"><span class="nav-text">Oracle</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AF%AD%E5%8F%A5-1"><span class="nav-text">语句</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%99%AE%E9%80%9A%E7%BA%A7-1"><span class="nav-text">普通级</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Other"><span class="nav-text">Other</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#ISSUE"><span class="nav-text">ISSUE</span></a></li></ol></li></ol>
+
+	</div>
+</div>
+	</div>
+	
+</div>
+			</div>
+
+			
+		</div>
+
+		<div class="main-content-footer">
+			<footer class="footer mt-5 py-5 h-auto text-base text-third-text-color relative border-t-2 border-t-border-color">
+    <div class="info-container py-3 text-center">
+        
+        <div class="text-center">
+            &copy;
+            
+              <span>2025</span>
+              -
+            
+            2025<!--&nbsp;<i class="fa-solid fa-heart fa-beat" style="--fa-animation-duration: 0.5s; color: #f54545"></i>&nbsp;&nbsp;<a href="/">不易</a>-->
+            
+        </div>
+        
+        <!--<div class="relative text-center lg:absolute lg:left-[20px] lg:top-1/2 lg:-translate-y-1/2 lg:text-left">
+            <span class="lg:block text-sm">由 <?xml version="1.0" encoding="utf-8"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"><svg class="relative top-[2px] inline-block align-baseline" version="1.1" id="圖層_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="1rem" height="1rem" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve"><path fill="#0E83CD" d="M256.4,25.8l-200,115.5L56,371.5l199.6,114.7l200-115.5l0.4-230.2L256.4,25.8z M349,354.6l-18.4,10.7l-18.6-11V275H200v79.6l-18.4,10.7l-18.6-11v-197l18.5-10.6l18.5,10.8V237h112v-79.6l18.5-10.6l18.5,10.8V354.6z"/></svg><a target="_blank" class="text-base" href="https://hexo.io">Hexo</a> 驱动</span>
+            <span class="text-sm lg:block">主题&nbsp;<a class="text-base" target="_blank" href="https://github.com/EvanNotFound/hexo-theme-redefine">Redefine v2.8.2</a></span>
+        </div>-->
+        
+        
+            <div>
+                博客已运行 <span class="odometer" id="runtime_days" ></span> 天 <span class="odometer" id="runtime_hours"></span> 小时 <span class="odometer" id="runtime_minutes"></span> 分钟 <span class="odometer" id="runtime_seconds"></span> 秒
+            </div>
+        
+        
+            <script data-swup-reload-script>
+                try {
+                    function odometer_init() {
+                    const elements = document.querySelectorAll('.odometer');
+                    elements.forEach(el => {
+                        new Odometer({
+                            el,
+                            format: '( ddd).dd',
+                            duration: 200
+                        });
+                    });
+                    }
+                    odometer_init();
+                } catch (error) {}
+            </script>
+        
+        
+        
+    </div>  
+</footer>
+		</div>
+	</div>
+
+	
+	<div class="post-tools">
+		<div class="post-tools-container">
+	<ul class="article-tools-list">
+		<!-- TOC aside toggle -->
+		
+		<li class="right-bottom-tools page-aside-toggle">
+			<i class="fa-regular fa-outdent"></i>
+		</li>
+		
+
+		<!-- go comment -->
+		
+		<li class="go-comment">
+			<i class="fa-regular fa-comments"></i>
+		</li>
+		
+	</ul>
+</div>
+	</div>
+	
+
+	<div class="right-side-tools-container">
+		<div class="side-tools-container">
+	<ul class="hidden-tools-list">
+		<li class="right-bottom-tools tool-font-adjust-plus flex justify-center items-center">
+			<i class="fa-regular fa-magnifying-glass-plus"></i>
+		</li>
+
+		<li class="right-bottom-tools tool-font-adjust-minus flex justify-center items-center">
+			<i class="fa-regular fa-magnifying-glass-minus"></i>
+		</li>
+
+		<li class="right-bottom-tools tool-dark-light-toggle flex justify-center items-center">
+			<i class="fa-regular fa-moon"></i>
+		</li>
+
+		<!-- rss -->
+		
+
+		
+
+		<li class="right-bottom-tools tool-scroll-to-bottom flex justify-center items-center">
+			<i class="fa-regular fa-arrow-down"></i>
+		</li>
+	</ul>
+
+	<ul class="visible-tools-list">
+		<li class="right-bottom-tools toggle-tools-list flex justify-center items-center">
+			<i class="fa-regular fa-cog fa-spin"></i>
+		</li>
+		
+		<li class="right-bottom-tools tool-scroll-to-top flex justify-center items-center">
+			<i class="arrow-up fas fa-arrow-up"></i>
+			<span class="percent"></span>
+		</li>
+		
+		
+	</ul>
+</div>
+	</div>
+
+	<div class="image-viewer-container">
+	<img src="">
+</div>
+
+	
+	<div class="search-pop-overlay">
+	<div class="popup search-popup">
+		<div class="search-header">
+			<span class="search-input-field-pre">
+				<i class="fa-solid fa-keyboard"></i>
+			</span>
+			<div class="search-input-container">
+				<input autocomplete="off" autocorrect="off" autocapitalize="off" placeholder="站内搜索您需要的内容..." spellcheck="false" type="search" class="search-input">
+			</div>
+			<span class="popup-btn-close">
+				<i class="fa-solid fa-times"></i>
+			</span>
+		</div>
+		<div id="search-result">
+			<div id="no-result">
+				<i class="fa-solid fa-spinner fa-spin-pulse fa-5x fa-fw"></i>
+			</div>
+		</div>
+	</div>
+</div>
+	
+
+</main>
+
+
+<script  src="https://evan.beee.top/projects/hexo-theme-redefine@2.8.2/source/js/build/libs/Swup.min.js" ></script><script  src="https://evan.beee.top/projects/hexo-theme-redefine@2.8.2/source/js/build/libs/SwupSlideTheme.min.js" ></script><script  src="https://evan.beee.top/projects/hexo-theme-redefine@2.8.2/source/js/build/libs/SwupScriptsPlugin.min.js" ></script><script  src="https://evan.beee.top/projects/hexo-theme-redefine@2.8.2/source/js/build/libs/SwupProgressPlugin.min.js" ></script><script  src="https://evan.beee.top/projects/hexo-theme-redefine@2.8.2/source/js/build/libs/SwupScrollPlugin.min.js" ></script><script  src="https://evan.beee.top/projects/hexo-theme-redefine@2.8.2/source/js/build/libs/SwupPreloadPlugin.min.js" ></script>
+<script>
+    const swup = new Swup({
+        plugins: [
+            new SwupScriptsPlugin({
+                optin: true,
+            }),
+            new SwupProgressPlugin(),
+            new SwupScrollPlugin({
+                offset: 80,
+            }),
+            new SwupSlideTheme({
+                mainElement: ".main-content-body",
+            }),
+            new SwupPreloadPlugin(),
+        ],
+        containers: ["#swup"],
+    });
+</script>
+
+
+
+
+	<script type="module" src="https://evan.beee.top/projects/hexo-theme-redefine@2.8.2/source/js/build/tools/imageViewer.js" ></script><script type="module" src="https://evan.beee.top/projects/hexo-theme-redefine@2.8.2/source/js/build/utils.js" ></script><script type="module" src="https://evan.beee.top/projects/hexo-theme-redefine@2.8.2/source/js/build/main.js" ></script><script type="module" src="https://evan.beee.top/projects/hexo-theme-redefine@2.8.2/source/js/build/layouts/navbarShrink.js" ></script><script type="module" src="https://evan.beee.top/projects/hexo-theme-redefine@2.8.2/source/js/build/tools/scrollTopBottom.js" ></script><script type="module" src="https://evan.beee.top/projects/hexo-theme-redefine@2.8.2/source/js/build/tools/lightDarkSwitch.js" ></script><script type="module" src="https://evan.beee.top/projects/hexo-theme-redefine@2.8.2/source/js/build/layouts/categoryList.js" ></script>
+
+
+    <script type="module" src="https://evan.beee.top/projects/hexo-theme-redefine@2.8.2/source/js/build/tools/localSearch.js" ></script>
+
+
+
+    <script type="module" src="https://evan.beee.top/projects/hexo-theme-redefine@2.8.2/source/js/build/tools/codeBlock.js" ></script>
+
+
+
+    <script type="module" src="https://evan.beee.top/projects/hexo-theme-redefine@2.8.2/source/js/build/layouts/lazyload.js" ></script>
+
+
+
+    <script  src="https://evan.beee.top/projects/hexo-theme-redefine@2.8.2/source/js/build/tools/runtime.js" ></script>
+    <script  src="https://evan.beee.top/projects/hexo-theme-redefine@2.8.2/source/js/build/libs/odometer.min.js" ></script>
+    <link rel="stylesheet" href="https://evan.beee.top/projects/hexo-theme-redefine@2.8.2/source/assets/odometer-theme-minimal.css">
+
+
+
+  <script  src="https://evan.beee.top/projects/hexo-theme-redefine@2.8.2/source/js/build/libs/Typed.min.js" ></script>
+  <script type="module" src="https://evan.beee.top/projects/hexo-theme-redefine@2.8.2/source/js/build/plugins/typed.js" ></script>
+
+
+
+
+
+
+
+    <script  src="https://evan.beee.top/projects/hexo-theme-redefine@2.8.2/source/js/build/libs/anime.min.js" ></script>
+
+
+
+
+    <script type="module" src="https://evan.beee.top/projects/hexo-theme-redefine@2.8.2/source/js/build/tools/tocToggle.js" data-swup-reload-script></script><script type="module" src="https://evan.beee.top/projects/hexo-theme-redefine@2.8.2/source/js/build/layouts/toc.js" data-swup-reload-script></script><script type="module" src="https://evan.beee.top/projects/hexo-theme-redefine@2.8.2/source/js/build/plugins/tabs.js" data-swup-reload-script></script>
+
+
+<script  src="https://evan.beee.top/projects/hexo-theme-redefine@2.8.2/source/js/build/libs/moment-with-locales.min.js" data-swup-reload-script></script>
+<script type="module" src="https://evan.beee.top/projects/hexo-theme-redefine@2.8.2/source/js/build/layouts/essays.js" data-swup-reload-script></script>
+
+
+
+
+	
+</body>
+
+</html>

@@ -1,0 +1,779 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords" content="Hexo Theme Redefine">
+    
+    <meta name="author" content="不易">
+    <!-- preconnect -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    
+        
+        
+        
+            <link rel="preconnect" href="https://evan.beee.top" crossorigin>
+        
+    
+    <!--- Seo Part-->
+    
+    <link rel="canonical" href="http://example.com/2025/03/12/一些软件设计原则/"/>
+    <meta name="robots" content="index,follow">
+    <meta name="googlebot" content="index,follow">
+    <meta name="revisit-after" content="1 days">
+    
+    
+    
+        
+        <meta name="description" content="Hexo Theme Redefine, Redefine Your Hexo Journey.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="一些软件设计原则">
+<meta property="og:url" content="http://example.com/2025/03/12/%E4%B8%80%E4%BA%9B%E8%BD%AF%E4%BB%B6%E8%AE%BE%E8%AE%A1%E5%8E%9F%E5%88%99/index.html">
+<meta property="og:site_name" content="ourdreams">
+<meta property="og:description" content="Hexo Theme Redefine, Redefine Your Hexo Journey.">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/images/redefine-og.webp">
+<meta property="article:published_time" content="2025-03-12T14:07:05.000Z">
+<meta property="article:modified_time" content="2025-03-27T08:24:35.161Z">
+<meta property="article:author" content="不易">
+<meta property="article:tag" content="设计架构">
+<meta property="article:tag" content="软件基础">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/images/redefine-og.webp">
+    
+    
+    <!--- Icon Part-->
+    <link rel="icon" type="image/png" href="/images/redefine-favicon.svg" sizes="192x192">
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/redefine-favicon.svg">
+    <meta name="theme-color" content="#A31F34">
+    <link rel="shortcut icon" href="/images/redefine-favicon.svg">
+    <!--- Page Info-->
+    
+    <title>
+        
+            一些软件设计原则 | ourdreams
+        
+    </title>
+
+    <link rel="stylesheet" href="https://evan.beee.top/projects/hexo-theme-redefine@2.8.2/source/fonts/Chillax/chillax.css">
+
+    <!--- Inject Part-->
+    
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    
+        <link rel="stylesheet" href="https://evan.beee.top/projects/hexo-theme-redefine@2.8.2/source/css/build/tailwind.css">
+    
+
+    <link rel="stylesheet" href="https://evan.beee.top/projects/hexo-theme-redefine@2.8.2/source/fonts/GeistMono/geist-mono.css">
+    <link rel="stylesheet" href="https://evan.beee.top/projects/hexo-theme-redefine@2.8.2/source/fonts/Geist/geist.css">
+    <!--- Font Part-->
+    
+    
+    
+    
+    
+    
+
+    <script id="hexo-configurations">
+    window.config = {"hostname":"example.com","root":"/","language":"zh-CN","path":"search.xml"};
+    window.theme = {"articles":{"style":{"font_size":"16px","line_height":1.5,"image_border_radius":"14px","image_alignment":"center","image_caption":false,"link_icon":true,"delete_mask":false,"title_alignment":"left","headings_top_spacing":{"h1":"3.2rem","h2":"2.4rem","h3":"1.9rem","h4":"1.6rem","h5":"1.4rem","h6":"1.3rem"}},"word_count":{"enable":true,"count":true,"min2read":true},"author_label":{"enable":true,"auto":false,"list":["不全的全栈"]},"code_block":{"copy":true,"style":"mac","highlight_theme":{"light":"github","dark":"vs2015"},"font":{"enable":false,"family":null,"url":null}},"toc":{"enable":true,"max_depth":3,"number":false,"expand":true,"init_open":true},"copyright":{"enable":true,"default":"cc_by_nc_sa"},"lazyload":true,"pangu_js":false,"recommendation":{"enable":false,"title":"推荐阅读","limit":3,"mobile_limit":2,"placeholder":"/images/wallhaven-wqery6-light.webp","skip_dirs":[]}},"colors":{"primary":"#A31F34","secondary":null,"default_mode":"light"},"global":{"fonts":{"chinese":{"enable":false,"family":null,"url":null},"english":{"enable":false,"family":null,"url":null},"title":{"enable":false,"family":null,"url":null}},"content_max_width":"1000px","sidebar_width":"210px","hover":{"shadow":true,"scale":false},"scroll_progress":{"bar":false,"percentage":true},"website_counter":{"url":"https://cn.vercount.one/js","enable":false,"site_pv":true,"site_uv":true,"post_pv":true},"single_page":true,"preloader":{"enable":false,"custom_message":null},"open_graph":{"enable":true,"image":"/images/redefine-og.webp","description":"Hexo Theme Redefine, Redefine Your Hexo Journey."},"google_analytics":{"enable":false,"id":null}},"home_banner":{"enable":true,"style":"fixed","image":{"light":"/images/wallhaven-wqery6-light.webp","dark":"/images/wallhaven-wqery6-dark.webp"},"title":"Easy to know, easy to be ignorant","subtitle":{"text":["Easier said than done."],"hitokoto":{"enable":false,"show_author":false,"api":"https://v1.hitokoto.cn"},"typing_speed":100,"backing_speed":80,"starting_delay":500,"backing_delay":1500,"loop":false,"smart_backspace":false},"text_color":{"light":"#fff","dark":"#d1d1b6"},"text_style":{"title_size":"2.8rem","subtitle_size":"1.5rem","line_height":1.2},"custom_font":{"enable":false,"family":null,"url":null},"social_links":{"enable":false,"style":"default","links":{"github":null,"instagram":null,"zhihu":null,"twitter":null,"email":null},"qrs":{"weixin":null}}},"plugins":{"feed":{"enable":false},"aplayer":{"enable":false,"type":"fixed","audios":[{"name":null,"artist":null,"url":null,"cover":null,"lrc":null}]},"mermaid":{"enable":false,"version":"11.4.1"}},"version":"2.8.2","navbar":{"auto_hide":false,"color":{"left":"#f78736","right":"#367df7","transparency":35},"width":{"home":"1200px","pages":"1000px"},"links":{"Home":{"path":"/","icon":"fa-regular fa-house"}},"search":{"enable":true,"preload":true}},"page_templates":{"friends_column":2,"tags_style":"blur"},"home":{"sidebar":{"enable":true,"position":"left","first_item":"menu","announcement":null,"show_on_mobile":true,"links":null},"article_date_format":"auto","excerpt_length":200,"categories":{"enable":true,"limit":3},"tags":{"enable":true,"limit":3}},"footerStart":"2025/3/12 11:45:14"};
+    window.lang_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 个月前","year":"%s 年前"};
+    window.data = {"masonry":false};
+  </script>
+    
+    <!--- Fontawesome Part-->
+    <link rel="stylesheet" href="https://evan.beee.top/projects/hexo-theme-redefine@2.8.2/source/fontawesome/fontawesome.min.css">
+    <link rel="stylesheet" href="https://evan.beee.top/projects/hexo-theme-redefine@2.8.2/source/fontawesome/brands.min.css">
+    <link rel="stylesheet" href="https://evan.beee.top/projects/hexo-theme-redefine@2.8.2/source/fontawesome/solid.min.css">
+    <link rel="stylesheet" href="https://evan.beee.top/projects/hexo-theme-redefine@2.8.2/source/fontawesome/regular.min.css">
+    
+    
+    
+    
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+
+<body>
+	<div class="progress-bar-container">
+	
+
+	
+	<span class="pjax-progress-bar"></span>
+	<!--        <span class="swup-progress-icon">-->
+	<!--            <i class="fa-solid fa-circle-notch fa-spin"></i>-->
+	<!--        </span>-->
+	
+</div>
+
+<main class="page-container" id="swup">
+
+	
+
+	<div class="main-content-container flex flex-col justify-between min-h-dvh">
+		<div class="main-content-header">
+			<header class="navbar-container px-6 md:px-12">
+    <div class="navbar-content transition-navbar ">
+        <div class="left">
+            
+            <a class="logo-title" href="/">
+                
+                ourdreams
+                
+            </a>
+        </div>
+
+        <div class="right">
+            <!-- PC -->
+            <div class="desktop">
+                <ul class="navbar-list">
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class=""
+                                   href="/"
+                                        >
+                                    <i class="fa-regular fa-house fa-fw"></i>
+                                    首页
+                                    
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                    
+                        <li class="navbar-item search search-popup-trigger">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <!-- Mobile -->
+            <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fa-solid fa-magnifying-glass"></i>
+                    </div>
+                
+                <div class="icon-item navbar-bar">
+                    <div class="navbar-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mobile sheet -->
+    <div class="navbar-drawer h-dvh w-full absolute top-0 left-0 bg-background-color flex flex-col justify-between">
+        <ul class="drawer-navbar-list flex flex-col px-4 justify-center items-start">
+            
+                
+                    
+
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                           href="/"
+                        >
+                            <span>
+                                首页
+                            </span>
+                            
+                                <i class="fa-regular fa-house fa-sm fa-fw"></i>
+                            
+                        </a>
+                        
+
+                        
+                    </li>
+            
+
+            
+            
+        </ul>
+
+        <div class="statistics flex justify-around my-2.5">
+    <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/tags">
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">28</div>
+        <div class="label text-third-text-color text-sm">标签</div>
+    </a>
+    <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/categories">
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">9</div>
+        <div class="label text-third-text-color text-sm">分类</div>
+    </a>
+    <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/archives">
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">46</div>
+        <div class="label text-third-text-color text-sm">文章</div>
+    </a>
+</div>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+		</div>
+
+		<div class="main-content-body transition-fade-up">
+			
+
+			<div class="main-content">
+				<div class="post-page-container flex relative justify-between box-border w-full h-full">
+	<div class="article-content-container">
+
+		<div class="article-title relative w-full">
+			
+			<div class="w-full flex items-center pt-6 justify-start">
+				<h1 class="article-title-regular text-second-text-color tracking-tight text-4xl md:text-6xl font-semibold px-2 sm:px-6 md:px-8 py-3">一些软件设计原则</h1>
+			</div>
+			
+		</div>
+
+		
+		<div class="article-header flex flex-row gap-2 items-center px-2 sm:px-6 md:px-8">
+			<div class="avatar w-[46px] h-[46px] flex-shrink-0 rounded-medium border border-border-color p-[1px]">
+				<img src="/images/redefine-avatar.jpg">
+			</div>
+			<div class="info flex flex-col justify-between">
+				<div class="author flex items-center">
+					<span class="name text-default-text-color text-lg font-semibold">不易</span>
+					
+					<span class="author-label ml-1.5 text-xs px-2 py-0.5 rounded-small text-third-text-color border border-shadow-color-1">不全的全栈</span>
+					
+				</div>
+				<div class="meta-info">
+					<div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fa-regular fa-pen-fancy"></i>&nbsp;
+        <span class="desktop">2025-03-12 22:07:05</span>
+        <span class="mobile">2025-03-12 22:07:05</span>
+        <span class="hover-info">创建</span>
+    </span>
+    
+        <span class="article-date article-meta-item">
+            <i class="fa-regular fa-wrench"></i>&nbsp;
+            <span class="desktop">2025-03-27 16:24:35</span>
+            <span class="mobile">2025-03-27 16:24:35</span>
+            <span class="hover-info">更新</span>
+        </span>
+    
+
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fa-regular fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/%E8%AE%BE%E8%AE%A1%E6%9E%B6%E6%9E%84/">设计架构</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        | <a href="/tags/%E8%BD%AF%E4%BB%B6%E5%9F%BA%E7%A1%80/">软件基础</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+    
+    
+</div>
+
+				</div>
+			</div>
+		</div>
+		
+
+		
+
+
+		<div class="article-content markdown-body px-2 sm:px-6 md:px-8 pb-8">
+			<p>原则可能有些学院派，也可能太为理论。由理论到应用的过程建议</p>
+<ol>
+<li>你可以先粗浅或是表面地知道这些原则。</li>
+<li>但不要急着马上就使用。</li>
+<li>在工作学习中观察和总结别人或自己的设计。</li>
+<li>再回过头来了回顾一下这些原则，相信你会有一些自己的心得。</li>
+<li>有适度地去实践一下。</li>
+<li>Goto第 3步。</li>
+</ol>
+<h2 id="Don’t-Repeat-Yourself-DRY-重用性"><a href="#Don’t-Repeat-Yourself-DRY-重用性" class="headerlink" title="Don’t Repeat Yourself (DRY)	-	重用性"></a>Don’t Repeat Yourself (DRY)	-	重用性</h2><p>DRY 是一个最简单的法则，也是最容易被理解的。但它也可能是最难被应用的（因为要做到这样，我们需要在泛型设计上做相当的努力，这并不是一件容易的事）。它意味着，当我们在两个或多个地方的时候发现一些相似的代码的时候，我们需要把他们的共性抽象出来形一个唯一的新方法，并且改变现有的地方的代码让他们以一些合适的参数调用这个新的方法。</p>
+<h2 id="Keep-It-Simple-Stupid-KISS-不要复杂化"><a href="#Keep-It-Simple-Stupid-KISS-不要复杂化" class="headerlink" title="Keep It Simple, Stupid (KISS)	-	不要复杂化"></a>Keep It Simple, Stupid (KISS)	-	不要复杂化</h2><p>KISS原则在设计上可能最被推崇的，在家装设计，界面设计 ，操作设计上，复杂的东西越来越被众人所BS了，而简单的东西越来越被人所认可，比如<a class="link"   target="_blank" rel="noopener" href="https://coolshell.cn/articles/1907.html" >这些UI的设计<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a>和我们<a class="link"   target="_blank" rel="noopener" href="https://coolshell.cn/articles/3605.html" >中国网页<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a>（尤其是<a class="link"   target="_blank" rel="noopener" href="https://coolshell.cn/articles/3872.html" >新浪的网页<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a>）者是负面的例子。“宜家”（IKEA）简约、效率的家居设计、生产思路；“微软”（Microsoft）“所见即所得”的理念；“谷歌”（Google)简约、直接的商业风格，无一例外的遵循了“kiss”原则，也正是“kiss”原则，成就了这些看似神奇的商业经典。而苹果公司的iPhone&#x2F;iPad将这个原则实践到了极至。</p>
+<p>把一个事情搞复杂是一件简单的事，但要把一个复杂的事变简单，这是一件复杂的事。</p>
+<h2 id="Program-to-an-interface-not-an-implementation-注重接口-而非实现"><a href="#Program-to-an-interface-not-an-implementation-注重接口-而非实现" class="headerlink" title="Program to an interface, not an implementation	-	注重接口,而非实现"></a>Program to an interface, not an implementation	-	注重接口,而非实现</h2><p>这是设计模式中最根本的哲学，注重接口，而不是实现，依赖接口，而不是实现。接口是抽象是稳定的，实现则是多种多样的。以后面我们会面向对象的SOLID原则中会提到我们的依赖倒置原则，就是这个原则的的另一种样子。还有一条原则叫 <strong>Composition over inheritance</strong>（喜欢组合而不是继承），这两条是那23个经典设计模式中的设计原则。</p>
+<h2 id="Command-Query-Separation-CQS-命令-查询分离原则"><a href="#Command-Query-Separation-CQS-命令-查询分离原则" class="headerlink" title="Command-Query Separation (CQS)	-	命令-查询分离原则"></a>Command-Query Separation (CQS)	-	命令-查询分离原则</h2><ul>
+<li>查询：当一个方法返回一个值来回应一个问题的时候，它就具有查询的性质；</li>
+<li>命令：当一个方法要改变对象的状态的时候，它就具有命令的性质；</li>
+</ul>
+<p>通常，一个方法可能是纯的Command模式或者是纯的Query模式，或者是两者的混合体。在设计接口时，如果可能，应该尽量使接口单一化，保证方法的行为严格的是命令或者是查询，这样查询方法不会改变对象的状态，没有副作用，而会改变对象的状态的方法不可能有返回值。也就是说：如果我们要问一个问题，那么就不应该影响到它的答案。实际应用，要视具体情况而定，语义的清晰性和使用的简单性之间需要权衡。将Command和Query功能合并入一个方法，方便了客户的使用，但是，降低了清晰性，而且，可能不便于基于断言的程序设计并且需要一个变量来保存查询结果。</p>
+<p>在系统设计中，很多系统也是以这样原则设计的，查询的功能和命令功能的系统分离，这样有则于系统性能，也有利于系统的安全性。</p>
+<h2 id="You-Ain’t-Gonna-Need-It-YAGNI-最小化产品-MVP"><a href="#You-Ain’t-Gonna-Need-It-YAGNI-最小化产品-MVP" class="headerlink" title="You Ain’t Gonna Need It (YAGNI)	-	最小化产品(MVP)"></a>You Ain’t Gonna Need It (YAGNI)	-	最小化产品(MVP)</h2><p>这个原则简而言之为——只考虑和设计必须的功能，避免过度设计。只实现目前需要的功能，在以后您需要更多功能时，可以再进行添加。</p>
+<ul>
+<li>如无必要，勿增复杂性。</li>
+<li>软件开发先是一场沟通博弈。</li>
+</ul>
+<p>请避免过度重构。WebSphere的设计者就<a class="link"   target="_blank" rel="noopener" href="https://www.bbc.co.uk/news/business-11944966" >表示过他过度设计了这个产品<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a>。我们的程序员或是架构师在设计系统的时候，会考虑很多扩展性的东西，导致在架构与设计方面使用了大量折衷，最后导致项目失败。这是个令人感到讽刺的教训，因为本来希望尽可能延长项目的生命周期，结果反而缩短了生命周期。</p>
+<h2 id="Law-of-Demeter-LoD-迪米特法则"><a href="#Law-of-Demeter-LoD-迪米特法则" class="headerlink" title="Law of Demeter (LoD)	-	迪米特法则"></a>Law of Demeter (LoD)	-	迪米特法则</h2><p>迪米特法则(Law of Demeter)，又称“最少知识原则”（Principle of Least Knowledge），其来源于1987年荷兰大学的一个叫做Demeter的项目。Craig Larman把Law of Demeter又称作“不要和陌生人说话”。在《程序员修炼之道》中讲LoD的那一章叫作“解耦合与迪米特法则”。关于迪米特法则有一些很形象的比喻：</p>
+<ul>
+<li>如果你想让你的狗跑的话，你会对狗狗说还是对四条狗腿说？</li>
+<li>如果你去店里买东西，你会把钱交给店员，还是会把钱包交给店员让他自己拿？</li>
+</ul>
+<p>和狗的四肢说话？让店员自己从钱包里拿钱？这听起来有点荒唐，不过在我们的代码里这几乎是见怪不怪的事情了。</p>
+<p>对于LoD，正式的表述如下：</p>
+<blockquote>
+<p>对于对象 ‘O’ 中一个方法’M’，M应该只能够访问以下对象中的方法：</p>
+<ol>
+<li>对象O；</li>
+<li>与O直接相关的Component Object；</li>
+<li>由方法M创建或者实例化的对象；</li>
+<li>作为方法M的参数的对象。</li>
+</ol>
+</blockquote>
+<p>在《Clean Code》一书中，有一段Apache framework中的一段违反了LoD的代码：</p>
+<p>final String outputDir &#x3D; ctxt.getOptions().getScratchDir().getAbsolutePath();</p>
+<p>这么长的一串对其它对象的细节，以及细节的细节，细节的细节的细节……的调用，增加了耦合，使得代码结构复杂、僵化，难以扩展和维护。</p>
+<p>在《重构》一书中的代码的环味道中有一种叫做“Feature Envy”(依恋情结），形象的描述了一种违反了LoC的情况。Feature Envy就是说一个对象对其它对象的内容更有兴趣，也就是说老是羡慕别的对象的成员、结构或者功能，大老远的调用人家的东西。这样的结构显然是不合理的。我们的程序应该写得比较“害羞”。不能像前面例子中的那个不把自己当外人的店员一样，拿过客人的钱包自己把钱拿出来。“害羞”的程序只和自己最近的朋友交谈。这种情况下应该调整程序的结构，让那个对象自己拥有它羡慕的feature，或者使用合理的设计模式（例如Facade和Mediator）。</p>
+<h2 id="面向对象的S-O-L-I-D-原则"><a href="#面向对象的S-O-L-I-D-原则" class="headerlink" title="面向对象的S.O.L.I.D 原则"></a>面向对象的S.O.L.I.D 原则</h2><p>一般来说这是面向对象的五大设计原则，但是，我觉得这些原则可适用于所有的软件开发。</p>
+<h3 id="Single-Responsibility-Principle-SRP-职责单一原则"><a href="#Single-Responsibility-Principle-SRP-职责单一原则" class="headerlink" title="Single Responsibility Principle (SRP) 	-	职责单一原则"></a>Single Responsibility Principle (SRP) 	-	职责单一原则</h3><p>关于单一职责原则，其核心的思想是：<strong>一个类，只做一件事，并把这件事做好，其只有一个引起它变化的原因</strong>。单一职责原则可以看作是低耦合、高内聚在面向对象原则上的引申，将职责定义为引起变化的原因，以提高内聚性来减少引起变化的原因。职责过多，可能引起它变化的原因就越多，这将导致职责依赖，相互之间就产生影响，从而极大的损伤其内聚性和耦合度。单一职责，通常意味着单一的功能，因此不要为一个模块实现过多的功能点，以保证实体只有一个引起它变化的原因。</p>
+<ul>
+<li>Unix&#x2F;Linux是这一原则的完美体现者。各个程序都独立负责一个单一的事。</li>
+<li>Windows是这一原则的反面示例。几乎所有的程序都交织耦合在一起。</li>
+</ul>
+<h3 id="Open-Closed-Principle-OCP-开闭原则"><a href="#Open-Closed-Principle-OCP-开闭原则" class="headerlink" title="Open&#x2F;Closed Principle (OCP) 	-	开闭原则"></a>Open&#x2F;Closed Principle (OCP) 	-	开闭原则</h3><p>关于开发封闭原则，其核心的思想是：模块是可扩展的，而不可修改的。也就是说，<strong>对扩展是开放的，而对修改是封闭的</strong>。</p>
+<ul>
+<li>对扩展开放，意味着有新的需求或变化时，可以对现有代码进行扩展，以适应新的情况。</li>
+<li>对修改封闭，意味着类一旦设计完成，就可以独立完成其工作，而不要对类进行任何修改。</li>
+</ul>
+<p>对于面向对象来说，需要你依赖抽象，而不是实现，23个经典设计模式中的“策略模式”就是这个实现。对于非面向对象编程，一些API需要你传入一个你可以扩展的函数，比如我们的C 语言的qsort()允许你提供一个“比较器”，STL中的容器类的内存分配，ACE中的多线程的各种锁。对于软件方面，浏览器的各种插件属于这个原则的实践。</p>
+<h3 id="Liskov-substitution-principle-LSP-里氏代换原则"><a href="#Liskov-substitution-principle-LSP-里氏代换原则" class="headerlink" title="Liskov substitution principle (LSP)	-	里氏代换原则"></a>Liskov substitution principle (LSP)	-	<strong>里氏代换原则</strong></h3><p>软件工程大师Robert C. Martin把里氏代换原则最终简化为一句话：“Subtypes must be substitutable for their base types”。也就是，子类必须能够替换成它们的基类。即：子类应该可以替换任何基类能够出现的地方，并且经过替换以后，代码还能正常工作。另外，不应该在代码中出现if&#x2F;else之类对子类类型进行判断的条件。里氏替换原则LSP是使代码符合开闭原则的一个重要保证。正是由于子类型的可替换性才使得父类型的模块在无需修改的情况下就可以扩展。</p>
+<p>这么说来，似乎有点教条化，我非常建议大家看看这个原则个两个最经典的案例——“正方形不是长方形”和“鸵鸟不是鸟”。通过这两个案例，你会明白《墨子 小取》中说的 ——“娣，美人也，爱娣，非爱美人也….盗，人也；恶盗，非恶人也。”——妹妹虽然是美人，但喜欢妹妹并不代表喜欢美人。盗贼是人，但讨厌盗贼也并不代表就讨厌人类。<strong>这个原则让你考虑的不是语义上对象的间的关系，而是实际需求的环境</strong>。</p>
+<p>在很多情况下，在设计初期我们类之间的关系不是很明确，LSP则给了我们一个判断和设计类之间关系的基准：需不需要继承，以及怎样设计继承关系。</p>
+<h3 id="Interface-Segregation-Principle-ISP-接口隔离原则"><a href="#Interface-Segregation-Principle-ISP-接口隔离原则" class="headerlink" title="Interface Segregation Principle (ISP)	-	接口隔离原则"></a>Interface Segregation Principle (ISP)	-	接口隔离原则</h3><p>接口隔离原则意思是把功能实现在接口中，而不是类中，使用多个专门的接口比使用单一的总接口要好。</p>
+<p>举个例子，我们对电脑有不同的使用方式，比如：写作，通讯，看电影，打游戏，上网，编程，计算，数据等，如果我们把这些功能都声明在电脑的抽类里面，那么，我们的上网本，PC机，服务器，笔记本的实现类都要实现所有的这些接口，这就显得太复杂了。所以，我们可以把其这些功能接口隔离开来，比如：工作学习接口，编程开发接口，上网娱乐接口，计算和数据服务接口，这样，我们的不同功能的电脑就可以有所选择地继承这些接口。</p>
+<p>这个原则可以提升我们“搭积木式”的软件开发。对于设计来说，Java中的各种Event Listener和Adapter，对于软件开发来说，不同的用户权限有不同的功能，不同的版本有不同的功能，都是这个原则的应用。</p>
+<h3 id="Dependency-Inversion-Principle-DIP-依赖倒置原则"><a href="#Dependency-Inversion-Principle-DIP-依赖倒置原则" class="headerlink" title="Dependency Inversion Principle (DIP)	-	依赖倒置原则"></a>Dependency Inversion Principle (DIP)	-	依赖倒置原则</h3><p>高层模块不应该依赖于低层模块的实现，而是依赖于高层抽象。</p>
+<p>举个例子，墙面的开关不应该依赖于电灯的开关实现，而是应该依赖于一个抽象的开关的标准接口，这样，当我们扩展程序的时候，我们的开关同样可以控制其它不同的灯，甚至不同的电器。也就是说，电灯和其它电器继承并实现我们的标准开关接口，而我们的开关产商就可不需要关于其要控制什么样的设备，只需要关心那个标准的开关标准。这就是依赖倒置原则。</p>
+<p>这就好像浏览器并不依赖于后面的web服务器，其只依赖于HTTP协议。这个原则实在是太重要了，社会的分工化，标准化都是这个设计原则的体现。</p>
+<h2 id="Common-Closure-Principle（CCP）-共同封闭原则"><a href="#Common-Closure-Principle（CCP）-共同封闭原则" class="headerlink" title="Common Closure Principle（CCP）	-	共同封闭原则"></a>Common Closure Principle（CCP）	-	共同封闭原则</h2><p>一个包中所有的类应该对同一种类型的变化关闭。一个变化影响一个包，便影响了包中所有的类。一个更简短的说法是：一起修改的类，应该组合在一起（同一个包里）。如果必须修改应用程序里的代码，我们希望所有的修改都发生在一个包里（修改关闭），而不是遍布在很多包里。CCP原则就是把因为某个同样的原因而需要修改的所有类组合进一个包里。如果2个类从物理上或者从概念上联系得非常紧密，它们通常一起发生改变，那么它们应该属于同一个包。</p>
+<p>CCP延伸了开闭原则（OCP）的“关闭”概念，当因为某个原因需要修改时，把需要修改的范围限制在一个最小范围内的包里。</p>
+<h2 id="Common-Reuse-Principle-CRP-共同重用原则"><a href="#Common-Reuse-Principle-CRP-共同重用原则" class="headerlink" title="Common Reuse Principle (CRP) 	-	共同重用原则"></a>Common Reuse Principle (CRP) 	-	共同重用原则</h2><p>包的所有类被一起重用。如果你重用了其中的一个类，就重用全部。换个说法是，没有被一起重用的类不应该被组合在一起。CRP原则帮助我们决定哪些类应该被放到同一个包里。依赖一个包就是依赖这个包所包含的一切。当一个包发生了改变，并发布新的版本，使用这个包的所有用户都必须在新的包环境下验证他们的工作，即使被他们使用的部分没有发生任何改变。因为如果包中包含有未被使用的类，即使用户不关心该类是否改变，但用户还是不得不升级该包并对原来的功能加以重新测试。</p>
+<p>CCP则让系统的维护者受益。CCP让包尽可能大（CCP原则加入功能相关的类），CRP则让包尽可能小（CRP原则剔除不使用的类）。它们的出发点不一样，但不相互冲突。</p>
+<h2 id="Hollywood-Principle-好莱坞原则"><a href="#Hollywood-Principle-好莱坞原则" class="headerlink" title="Hollywood Principle	-	好莱坞原则"></a>Hollywood Principle	-	好莱坞原则</h2><p>好莱坞原则就是一句话——“don’t call us, we’ll call you.”。意思是，好莱坞的经纪人们不希望你去联系他们，而是他们会在需要的时候来联系你。也就是说，所有的组件都是被动的，所有的组件初始化和调用都由容器负责。组件处在一个容器当中，由容器负责管理。</p>
+<p>简单的来讲，就是由容器控制程序之间的关系，而非传统实现中，由程序代码直接操控。这也就是所谓“控制反转”的概念所在：</p>
+<ol>
+<li>不创建对象，而是描述创建对象的方式。</li>
+<li>在代码中，对象与服务没有直接联系，而是容器负责将这些联系在一起。</li>
+</ol>
+<p>控制权由应用代码中转到了外部容器，控制权的转移，是所谓反转。</p>
+<p>好莱坞原则就是IoC（Inversion of Control）或DI（Dependency Injection ）的基础原则。这个原则很像依赖倒置原则，依赖接口，而不是实例，但是这个原则要解决的是怎么把这个实例传入调用类中？你可能把其声明成成员，你可以通过构造函数，你可以通过函数参数。但是 IoC可以让你通过配置文件，一个由Service Container 读取的配置文件来产生实际配置的类。但是程序也有可能变得不易读了，程序的性能也有可能还会下降。</p>
+<h2 id="High-Cohesion-Low-Loose-coupling-高内聚-低耦合"><a href="#High-Cohesion-Low-Loose-coupling-高内聚-低耦合" class="headerlink" title="High Cohesion &amp; Low&#x2F;Loose coupling 	-	 高内聚,低耦合"></a>High Cohesion &amp; Low&#x2F;Loose coupling 	-	 高内聚,低耦合</h2><p>这个原则是UNIX操作系统设计的经典原则，把模块间的耦合降到最低，而努力让一个模块做到精益求精。</p>
+<ul>
+<li>内聚：一个模块内各个元素彼此结合的紧密程度</li>
+<li>耦合：一个软件结构内不同模块之间互连程度的度量</li>
+</ul>
+<p>内聚意味着重用和独立，耦合意味着多米诺效应牵一发动全身。</p>
+<h2 id="Convention-over-Configuration（CoC）-惯例优于配置原则"><a href="#Convention-over-Configuration（CoC）-惯例优于配置原则" class="headerlink" title="Convention over Configuration（CoC）	-	 惯例优于配置原则"></a>Convention over Configuration（CoC）	-	 惯例优于配置原则</h2><p>简单点说，就是将一些公认的配置方式和信息作为内部缺省的规则来使用。例如，Hibernate的映射文件，如果约定字段名和类属性一致的话，基本上就可以不要这个配置文件了。你的应用只需要指定不convention的信息即可，从而减少了大量convention而又不得不花时间和精力啰里啰嗦的东东。配置文件很多时候相当的影响开发效率。</p>
+<p>Rails 中很少有配置文件（但不是没有，数据库连接就是一个配置文件），Rails 的fans号称期开发效率是 java 开发的 10 倍，估计就是这个原因。Maven也使用了CoC原则，当你执行mvn -compile命令的时候，不需要指源文件放在什么地方，而编译以后的class文件放置在什么地方也没有指定，这就是CoC原则。</p>
+<h2 id="Separation-of-Concerns-SoC-关注点分离"><a href="#Separation-of-Concerns-SoC-关注点分离" class="headerlink" title="Separation of Concerns (SoC) 	-	关注点分离"></a>Separation of Concerns (SoC) 	-	关注点分离</h2><p>SoC 是计算机科学中最重要的努力目标之一。这个原则，就是在软件开发中，通过各种手段，将问题的各个关注点分开。如果一个问题能分解为独立且较小的问题，就是相对较易解决的。问题太过于复杂，要解决问题需要关注的点太多，而程序员的能力是有限的，不能同时关注于问题的各个方面。正如程序员的记忆力相对于计算机知识来说那么有限一样，程序员解决问题的能力相对于要解决的问题的复杂性也是一样的非常有限。在我们分析问题的时候，如果我们把所有的东西混在一起讨论，那么就只会有一个结果——乱。</p>
+<p>我记得在上一家公司有一个项目，讨论就讨论了1年多，项目本来不复杂，但是没有使用SoC，全部的东西混为一谈，再加上一堆程序员注入了各种不同的观点和想法，整个项目一下子就失控了。最后，本来一个1年的项目做了3年。</p>
+<p>实现关注点分离的方法主要有两种，一种是标准化，另一种是抽象与包装。标准化就是制定一套标准，让使用者都遵守它，将人们的行为统一起来，这样使用标准的人就不用担心别人会有很多种不同的实现，使自己的程序不能和别人的配合。Java EE就是一个标准的大集合。每个开发者只需要关注于标准本身和他所在做的事情就行了。就像是开发镙丝钉的人只专注于开发镙丝钉就行了，而不用关注镙帽是怎么生产的，反正镙帽和镙丝钉按标来就一定能合得上。不断地把程序的某些部分抽像差包装起来，也是实现关注点分离的好方法。一旦一个函数被抽像出来并实现了，那么使用函数的人就不用关心这个函数是如何实现的，同样的，一旦一个类被抽像并实现了，类的使用者也不用再关注于这个类的内部是如何实现的。诸如组件，分层，面向服务，等等这些概念都是在不同的层次上做抽像和包装，以使得使用者不用关心它的内部实现细节。</p>
+<p>说白了还是“高内聚，低耦合”。</p>
+<h2 id="Design-by-Contract-DbC-契约式设计"><a href="#Design-by-Contract-DbC-契约式设计" class="headerlink" title="Design by Contract (DbC) 	-	契约式设计"></a>Design by Contract (DbC) 	-	契约式设计</h2><p>DbC的核心思想是对软件系统中的元素之间相互合作以及“责任”与“义务”的比喻。这种比喻从商业活动中“客户”与“供应商”达成“契约”而得来。例如：</p>
+<ul>
+<li>供应商必须提供某种产品（责任），并且他有权期望客户已经付款（权利）。</li>
+<li>客户必须付款（责任），并且有权得到产品（权利）。</li>
+<li>契约双方必须履行那些对所有契约都有效的责任，如法律和规定等。</li>
+</ul>
+<p>同样的，如果在程序设计中一个模块提供了某种功能，那么它要：</p>
+<ul>
+<li>期望所有调用它的客户模块都保证一定的进入条件：这就是模块的先验条件（客户的义务和供应商的权利，这样它就不用去处理不满足先验条件的情况）。</li>
+<li>保证退出时给出特定的属性：这就是模块的后验条件——（供应商的义务，显然也是客户的权利）。</li>
+<li>在进入时假定，并在退出时保持一些特定的属性：不变式。</li>
+</ul>
+<p>契约就是这些权利和义务的正式形式。我们可以用“三个问题”来总结DbC，并且作为设计者要经常问：</p>
+<ul>
+<li>它期望的是什么？</li>
+<li>它要保证的是什么？</li>
+<li>它要保持的是什么？</li>
+</ul>
+<p>根据Bertrand Meyer氏提出的DBC概念的描述，对于类的一个方法，都有一个前提条件以及一个后续条件，前提条件说明方法接受什么样的参数数据等，只有前提条件得到满足时，这个方法才能被调用；同时后续条件用来说明这个方法完成时的状态，如果一个方法的执行会导致这个方法的后续条件不成立，那么这个方法也不应该正常返回。</p>
+<p>现在把前提条件以及后续条件应用到继承子类中，子类方法应该满足：</p>
+<ol>
+<li>前提条件不强于基类．</li>
+<li>后续条件不弱于基类．</li>
+</ol>
+<p>换句话说，通过基类的接口调用一个对象时，用户只知道基类前提条件以及后续条件。因此继承类不得要求用户提供比基类方法要求的更强的前提条件，亦即，继承类方法必须接受任何基类方法能接受的任何条件（参数）。同样，继承类必须顺从基类的所有后续条件，亦即，继承类方法的行为和输出不得违反由基类建立起来的任何约束，不能让用户对继承类方法的输出感到困惑。</p>
+<p>这样，我们就有了基于契约的LSP，基于契约的LSP是LSP的一种强化。</p>
+<h2 id="Acyclic-Dependencies-Principle-ADP-无环依赖原则"><a href="#Acyclic-Dependencies-Principle-ADP-无环依赖原则" class="headerlink" title="Acyclic Dependencies Principle (ADP) 	-	无环依赖原则"></a>Acyclic Dependencies Principle (ADP) 	-	无环依赖原则</h2><p>包之间的依赖结构必须是一个直接的无环图形，也就是说，在依赖结构中不允许出现环（循环依赖）。如果包的依赖形成了环状结构，怎么样打破这种循环依赖呢？有2种方法可以打破这种循环依赖关系：第一种方法是创建新的包，如果A、B、C形成环路依赖，那么把这些共同类抽出来放在一个新的包D里。这样就把C依赖A变成了C依赖D以及A依赖D，从而打破了循环依赖关系。第二种方法是使用DIP（依赖倒置原则）和ISP（接口分隔原则）设计原则。</p>
+<p>无环依赖原则（ADP）为我们解决包之间的关系耦合问题。在设计模块时，不能有循环依赖。</p>
+
+		</div>
+
+		
+		<div class="post-copyright-info w-full my-8 px-2 sm:px-6 md:px-8">
+			<div class="article-copyright-info-container">
+    <ul>
+        <li><strong>标题:</strong> 一些软件设计原则</li>
+        <li><strong>作者:</strong> 不易</li>
+        <li><strong>创建于
+                :</strong> 2025-03-12 22:07:05</li>
+        
+            <li>
+                <strong>更新于
+                    :</strong> 2025-03-27 16:24:35
+            </li>
+        
+        <li>
+            <strong>链接:</strong> https://github.com/ourdreams0722/2025/03/12/一些软件设计原则/
+        </li>
+        <li>
+            <strong>
+                版权声明:
+            </strong>
+            
+
+            
+                本文章采用 <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0">CC BY-NC-SA 4.0</a> 进行许可。
+            
+        </li>
+    </ul>
+</div>
+
+		</div>
+		
+
+		
+		<ul class="post-tags-box text-lg mt-1.5 flex-wrap justify-center flex md:hidden">
+			
+			<li class="tag-item mx-0.5">
+				<a href="/tags/%E8%AE%BE%E8%AE%A1%E6%9E%B6%E6%9E%84/">#设计架构</a>&nbsp;
+			</li>
+			
+			<li class="tag-item mx-0.5">
+				<a href="/tags/%E8%BD%AF%E4%BB%B6%E5%9F%BA%E7%A1%80/">#软件基础</a>&nbsp;
+			</li>
+			
+		</ul>
+		
+
+		
+
+		
+		<div class="article-nav my-8 flex justify-between items-center px-2 sm:px-6 md:px-8">
+			
+			<div class="article-prev border-border-color shadow-redefine-flat shadow-shadow-color-2 rounded-medium px-4 py-2 hover:shadow-redefine-flat-hover hover:shadow-shadow-color-2">
+				<a class="prev" rel="prev" href="/2025/03/12/%E5%86%85%E5%AD%98%E6%BA%A2%E5%87%BA%E6%8E%92%E6%9F%A5/">
+					<span class="left arrow-icon flex justify-center items-center">
+						<i class="fa-solid fa-chevron-left"></i>
+					</span>
+					<span class="title flex justify-center items-center">
+						<span class="post-nav-title-item">Jvm内存溢出排查</span>
+						<span class="post-nav-item">上一篇</span>
+					</span>
+				</a>
+			</div>
+			
+			
+			<div class="article-next border-border-color shadow-redefine-flat shadow-shadow-color-2 rounded-medium px-4 py-2 hover:shadow-redefine-flat-hover hover:shadow-shadow-color-2">
+				<a class="next" rel="next" href="/2025/03/12/%E5%86%85%E7%BD%91%E6%9C%BA%E8%BD%AC%E5%8F%91%E5%85%AC%E7%BD%91%E6%9C%BA%E9%82%AE%E4%BB%B6%E5%8F%91%E9%80%81SMTP/">
+					<span class="title flex justify-center items-center">
+						<span class="post-nav-title-item">Java-Nginx堡垒机的转发邮件SMTP</span>
+						<span class="post-nav-item">下一篇</span>
+					</span>
+					<span class="right arrow-icon flex justify-center items-center">
+						<i class="fa-solid fa-chevron-right"></i>
+					</span>
+				</a>
+			</div>
+			
+		</div>
+		
+
+
+		
+		<div class="comment-container px-2 sm:px-6 md:px-8 pb-8">
+			<div class="comments-container mt-10 w-full ">
+    <div id="comment-anchor" class="w-full h-2.5"></div>
+    <div class="comment-area-title w-full my-1.5 md:my-2.5 text-xl md:text-3xl font-bold">
+        评论
+    </div>
+    
+
+        
+            
+    <div id="waline"></div>
+    <script type="module" data-swup-reload-script>
+      import { init } from '/js/libs/waline.mjs';
+
+      function loadWaline() {
+        init({
+          el: '#waline',
+          serverURL: 'https://example.example.com',
+          lang: 'zh-CN',
+          dark: 'body[class~="dark-mode"]',
+          reaction: false,
+          requiredMeta: ['nick', 'mail'],
+          emoji: [],
+          
+          
+        });
+      }
+
+      if (typeof swup !== 'undefined') {
+        loadWaline();
+      } else {
+        window.addEventListener('DOMContentLoaded', loadWaline);
+      }
+    </script>
+
+
+
+        
+    
+</div>
+
+		</div>
+		
+	</div>
+
+	
+	<div class="toc-content-container">
+		<div class="post-toc-wrap">
+	<div class="post-toc">
+		<div class="toc-title">目录</div>
+		<div class="page-title">一些软件设计原则</div>
+		<ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Don%E2%80%99t-Repeat-Yourself-DRY-%E9%87%8D%E7%94%A8%E6%80%A7"><span class="nav-text">Don’t Repeat Yourself (DRY)	-	重用性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Keep-It-Simple-Stupid-KISS-%E4%B8%8D%E8%A6%81%E5%A4%8D%E6%9D%82%E5%8C%96"><span class="nav-text">Keep It Simple, Stupid (KISS)	-	不要复杂化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Program-to-an-interface-not-an-implementation-%E6%B3%A8%E9%87%8D%E6%8E%A5%E5%8F%A3-%E8%80%8C%E9%9D%9E%E5%AE%9E%E7%8E%B0"><span class="nav-text">Program to an interface, not an implementation	-	注重接口,而非实现</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Command-Query-Separation-CQS-%E5%91%BD%E4%BB%A4-%E6%9F%A5%E8%AF%A2%E5%88%86%E7%A6%BB%E5%8E%9F%E5%88%99"><span class="nav-text">Command-Query Separation (CQS)	-	命令-查询分离原则</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#You-Ain%E2%80%99t-Gonna-Need-It-YAGNI-%E6%9C%80%E5%B0%8F%E5%8C%96%E4%BA%A7%E5%93%81-MVP"><span class="nav-text">You Ain’t Gonna Need It (YAGNI)	-	最小化产品(MVP)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Law-of-Demeter-LoD-%E8%BF%AA%E7%B1%B3%E7%89%B9%E6%B3%95%E5%88%99"><span class="nav-text">Law of Demeter (LoD)	-	迪米特法则</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%9A%84S-O-L-I-D-%E5%8E%9F%E5%88%99"><span class="nav-text">面向对象的S.O.L.I.D 原则</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Single-Responsibility-Principle-SRP-%E8%81%8C%E8%B4%A3%E5%8D%95%E4%B8%80%E5%8E%9F%E5%88%99"><span class="nav-text">Single Responsibility Principle (SRP) 	-	职责单一原则</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Open-Closed-Principle-OCP-%E5%BC%80%E9%97%AD%E5%8E%9F%E5%88%99"><span class="nav-text">Open&#x2F;Closed Principle (OCP) 	-	开闭原则</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Liskov-substitution-principle-LSP-%E9%87%8C%E6%B0%8F%E4%BB%A3%E6%8D%A2%E5%8E%9F%E5%88%99"><span class="nav-text">Liskov substitution principle (LSP)	-	里氏代换原则</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Interface-Segregation-Principle-ISP-%E6%8E%A5%E5%8F%A3%E9%9A%94%E7%A6%BB%E5%8E%9F%E5%88%99"><span class="nav-text">Interface Segregation Principle (ISP)	-	接口隔离原则</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Dependency-Inversion-Principle-DIP-%E4%BE%9D%E8%B5%96%E5%80%92%E7%BD%AE%E5%8E%9F%E5%88%99"><span class="nav-text">Dependency Inversion Principle (DIP)	-	依赖倒置原则</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Common-Closure-Principle%EF%BC%88CCP%EF%BC%89-%E5%85%B1%E5%90%8C%E5%B0%81%E9%97%AD%E5%8E%9F%E5%88%99"><span class="nav-text">Common Closure Principle（CCP）	-	共同封闭原则</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Common-Reuse-Principle-CRP-%E5%85%B1%E5%90%8C%E9%87%8D%E7%94%A8%E5%8E%9F%E5%88%99"><span class="nav-text">Common Reuse Principle (CRP) 	-	共同重用原则</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Hollywood-Principle-%E5%A5%BD%E8%8E%B1%E5%9D%9E%E5%8E%9F%E5%88%99"><span class="nav-text">Hollywood Principle	-	好莱坞原则</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#High-Cohesion-Low-Loose-coupling-%E9%AB%98%E5%86%85%E8%81%9A-%E4%BD%8E%E8%80%A6%E5%90%88"><span class="nav-text">High Cohesion &amp; Low&#x2F;Loose coupling 	-	 高内聚,低耦合</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Convention-over-Configuration%EF%BC%88CoC%EF%BC%89-%E6%83%AF%E4%BE%8B%E4%BC%98%E4%BA%8E%E9%85%8D%E7%BD%AE%E5%8E%9F%E5%88%99"><span class="nav-text">Convention over Configuration（CoC）	-	 惯例优于配置原则</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Separation-of-Concerns-SoC-%E5%85%B3%E6%B3%A8%E7%82%B9%E5%88%86%E7%A6%BB"><span class="nav-text">Separation of Concerns (SoC) 	-	关注点分离</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Design-by-Contract-DbC-%E5%A5%91%E7%BA%A6%E5%BC%8F%E8%AE%BE%E8%AE%A1"><span class="nav-text">Design by Contract (DbC) 	-	契约式设计</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Acyclic-Dependencies-Principle-ADP-%E6%97%A0%E7%8E%AF%E4%BE%9D%E8%B5%96%E5%8E%9F%E5%88%99"><span class="nav-text">Acyclic Dependencies Principle (ADP) 	-	无环依赖原则</span></a></li></ol>
+
+	</div>
+</div>
+	</div>
+	
+</div>
+			</div>
+
+			
+		</div>
+
+		<div class="main-content-footer">
+			<footer class="footer mt-5 py-5 h-auto text-base text-third-text-color relative border-t-2 border-t-border-color">
+    <div class="info-container py-3 text-center">
+        
+        <div class="text-center">
+            &copy;
+            
+              <span>2025</span>
+              -
+            
+            2025<!--&nbsp;<i class="fa-solid fa-heart fa-beat" style="--fa-animation-duration: 0.5s; color: #f54545"></i>&nbsp;&nbsp;<a href="/">不易</a>-->
+            
+        </div>
+        
+        <!--<div class="relative text-center lg:absolute lg:left-[20px] lg:top-1/2 lg:-translate-y-1/2 lg:text-left">
+            <span class="lg:block text-sm">由 <?xml version="1.0" encoding="utf-8"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"><svg class="relative top-[2px] inline-block align-baseline" version="1.1" id="圖層_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="1rem" height="1rem" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve"><path fill="#0E83CD" d="M256.4,25.8l-200,115.5L56,371.5l199.6,114.7l200-115.5l0.4-230.2L256.4,25.8z M349,354.6l-18.4,10.7l-18.6-11V275H200v79.6l-18.4,10.7l-18.6-11v-197l18.5-10.6l18.5,10.8V237h112v-79.6l18.5-10.6l18.5,10.8V354.6z"/></svg><a target="_blank" class="text-base" href="https://hexo.io">Hexo</a> 驱动</span>
+            <span class="text-sm lg:block">主题&nbsp;<a class="text-base" target="_blank" href="https://github.com/EvanNotFound/hexo-theme-redefine">Redefine v2.8.2</a></span>
+        </div>-->
+        
+        
+            <div>
+                博客已运行 <span class="odometer" id="runtime_days" ></span> 天 <span class="odometer" id="runtime_hours"></span> 小时 <span class="odometer" id="runtime_minutes"></span> 分钟 <span class="odometer" id="runtime_seconds"></span> 秒
+            </div>
+        
+        
+            <script data-swup-reload-script>
+                try {
+                    function odometer_init() {
+                    const elements = document.querySelectorAll('.odometer');
+                    elements.forEach(el => {
+                        new Odometer({
+                            el,
+                            format: '( ddd).dd',
+                            duration: 200
+                        });
+                    });
+                    }
+                    odometer_init();
+                } catch (error) {}
+            </script>
+        
+        
+        
+    </div>  
+</footer>
+		</div>
+	</div>
+
+	
+	<div class="post-tools">
+		<div class="post-tools-container">
+	<ul class="article-tools-list">
+		<!-- TOC aside toggle -->
+		
+		<li class="right-bottom-tools page-aside-toggle">
+			<i class="fa-regular fa-outdent"></i>
+		</li>
+		
+
+		<!-- go comment -->
+		
+		<li class="go-comment">
+			<i class="fa-regular fa-comments"></i>
+		</li>
+		
+	</ul>
+</div>
+	</div>
+	
+
+	<div class="right-side-tools-container">
+		<div class="side-tools-container">
+	<ul class="hidden-tools-list">
+		<li class="right-bottom-tools tool-font-adjust-plus flex justify-center items-center">
+			<i class="fa-regular fa-magnifying-glass-plus"></i>
+		</li>
+
+		<li class="right-bottom-tools tool-font-adjust-minus flex justify-center items-center">
+			<i class="fa-regular fa-magnifying-glass-minus"></i>
+		</li>
+
+		<li class="right-bottom-tools tool-dark-light-toggle flex justify-center items-center">
+			<i class="fa-regular fa-moon"></i>
+		</li>
+
+		<!-- rss -->
+		
+
+		
+
+		<li class="right-bottom-tools tool-scroll-to-bottom flex justify-center items-center">
+			<i class="fa-regular fa-arrow-down"></i>
+		</li>
+	</ul>
+
+	<ul class="visible-tools-list">
+		<li class="right-bottom-tools toggle-tools-list flex justify-center items-center">
+			<i class="fa-regular fa-cog fa-spin"></i>
+		</li>
+		
+		<li class="right-bottom-tools tool-scroll-to-top flex justify-center items-center">
+			<i class="arrow-up fas fa-arrow-up"></i>
+			<span class="percent"></span>
+		</li>
+		
+		
+	</ul>
+</div>
+	</div>
+
+	<div class="image-viewer-container">
+	<img src="">
+</div>
+
+	
+	<div class="search-pop-overlay">
+	<div class="popup search-popup">
+		<div class="search-header">
+			<span class="search-input-field-pre">
+				<i class="fa-solid fa-keyboard"></i>
+			</span>
+			<div class="search-input-container">
+				<input autocomplete="off" autocorrect="off" autocapitalize="off" placeholder="站内搜索您需要的内容..." spellcheck="false" type="search" class="search-input">
+			</div>
+			<span class="popup-btn-close">
+				<i class="fa-solid fa-times"></i>
+			</span>
+		</div>
+		<div id="search-result">
+			<div id="no-result">
+				<i class="fa-solid fa-spinner fa-spin-pulse fa-5x fa-fw"></i>
+			</div>
+		</div>
+	</div>
+</div>
+	
+
+</main>
+
+
+<script  src="https://evan.beee.top/projects/hexo-theme-redefine@2.8.2/source/js/build/libs/Swup.min.js" ></script><script  src="https://evan.beee.top/projects/hexo-theme-redefine@2.8.2/source/js/build/libs/SwupSlideTheme.min.js" ></script><script  src="https://evan.beee.top/projects/hexo-theme-redefine@2.8.2/source/js/build/libs/SwupScriptsPlugin.min.js" ></script><script  src="https://evan.beee.top/projects/hexo-theme-redefine@2.8.2/source/js/build/libs/SwupProgressPlugin.min.js" ></script><script  src="https://evan.beee.top/projects/hexo-theme-redefine@2.8.2/source/js/build/libs/SwupScrollPlugin.min.js" ></script><script  src="https://evan.beee.top/projects/hexo-theme-redefine@2.8.2/source/js/build/libs/SwupPreloadPlugin.min.js" ></script>
+<script>
+    const swup = new Swup({
+        plugins: [
+            new SwupScriptsPlugin({
+                optin: true,
+            }),
+            new SwupProgressPlugin(),
+            new SwupScrollPlugin({
+                offset: 80,
+            }),
+            new SwupSlideTheme({
+                mainElement: ".main-content-body",
+            }),
+            new SwupPreloadPlugin(),
+        ],
+        containers: ["#swup"],
+    });
+</script>
+
+
+
+
+	<script type="module" src="https://evan.beee.top/projects/hexo-theme-redefine@2.8.2/source/js/build/tools/imageViewer.js" ></script><script type="module" src="https://evan.beee.top/projects/hexo-theme-redefine@2.8.2/source/js/build/utils.js" ></script><script type="module" src="https://evan.beee.top/projects/hexo-theme-redefine@2.8.2/source/js/build/main.js" ></script><script type="module" src="https://evan.beee.top/projects/hexo-theme-redefine@2.8.2/source/js/build/layouts/navbarShrink.js" ></script><script type="module" src="https://evan.beee.top/projects/hexo-theme-redefine@2.8.2/source/js/build/tools/scrollTopBottom.js" ></script><script type="module" src="https://evan.beee.top/projects/hexo-theme-redefine@2.8.2/source/js/build/tools/lightDarkSwitch.js" ></script><script type="module" src="https://evan.beee.top/projects/hexo-theme-redefine@2.8.2/source/js/build/layouts/categoryList.js" ></script>
+
+
+    <script type="module" src="https://evan.beee.top/projects/hexo-theme-redefine@2.8.2/source/js/build/tools/localSearch.js" ></script>
+
+
+
+    <script type="module" src="https://evan.beee.top/projects/hexo-theme-redefine@2.8.2/source/js/build/tools/codeBlock.js" ></script>
+
+
+
+    <script type="module" src="https://evan.beee.top/projects/hexo-theme-redefine@2.8.2/source/js/build/layouts/lazyload.js" ></script>
+
+
+
+    <script  src="https://evan.beee.top/projects/hexo-theme-redefine@2.8.2/source/js/build/tools/runtime.js" ></script>
+    <script  src="https://evan.beee.top/projects/hexo-theme-redefine@2.8.2/source/js/build/libs/odometer.min.js" ></script>
+    <link rel="stylesheet" href="https://evan.beee.top/projects/hexo-theme-redefine@2.8.2/source/assets/odometer-theme-minimal.css">
+
+
+
+  <script  src="https://evan.beee.top/projects/hexo-theme-redefine@2.8.2/source/js/build/libs/Typed.min.js" ></script>
+  <script type="module" src="https://evan.beee.top/projects/hexo-theme-redefine@2.8.2/source/js/build/plugins/typed.js" ></script>
+
+
+
+
+
+
+
+    <script  src="https://evan.beee.top/projects/hexo-theme-redefine@2.8.2/source/js/build/libs/anime.min.js" ></script>
+
+
+
+
+    <script type="module" src="https://evan.beee.top/projects/hexo-theme-redefine@2.8.2/source/js/build/tools/tocToggle.js" data-swup-reload-script></script><script type="module" src="https://evan.beee.top/projects/hexo-theme-redefine@2.8.2/source/js/build/layouts/toc.js" data-swup-reload-script></script><script type="module" src="https://evan.beee.top/projects/hexo-theme-redefine@2.8.2/source/js/build/plugins/tabs.js" data-swup-reload-script></script>
+
+
+<script  src="https://evan.beee.top/projects/hexo-theme-redefine@2.8.2/source/js/build/libs/moment-with-locales.min.js" data-swup-reload-script></script>
+<script type="module" src="https://evan.beee.top/projects/hexo-theme-redefine@2.8.2/source/js/build/layouts/essays.js" data-swup-reload-script></script>
+
+
+
+
+	
+</body>
+
+</html>

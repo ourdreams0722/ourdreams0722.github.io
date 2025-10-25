@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords" content="Hexo Theme Redefine">
+    
+    <meta name="author" content="不易">
+    <!-- preconnect -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    
+        
+        
+        
+            <link rel="preconnect" href="https://evan.beee.top" crossorigin>
+        
+    
+    <!--- Seo Part-->
+    
+    <link rel="canonical" href="http://example.com/2025/03/12/基于android9 jdk1.8的网络请求封装/"/>
+    <meta name="robots" content="index,follow">
+    <meta name="googlebot" content="index,follow">
+    <meta name="revisit-after" content="1 days">
+    
+    
+    
+        
+        <meta name="description" content="Hexo Theme Redefine, Redefine Your Hexo Journey.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Android的网络请求封装-装饰">
+<meta property="og:url" content="http://example.com/2025/03/12/%E5%9F%BA%E4%BA%8EAndroid9%20JDK1.8%E7%9A%84%E7%BD%91%E7%BB%9C%E8%AF%B7%E6%B1%82%E5%B0%81%E8%A3%85/index.html">
+<meta property="og:site_name" content="ourdreams">
+<meta property="og:description" content="Hexo Theme Redefine, Redefine Your Hexo Journey.">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/images/redefine-og.webp">
+<meta property="article:published_time" content="2025-03-12T14:07:05.000Z">
+<meta property="article:modified_time" content="2025-03-27T08:18:28.863Z">
+<meta property="article:author" content="不易">
+<meta property="article:tag" content="android">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/images/redefine-og.webp">
+    
+    
+    <!--- Icon Part-->
+    <link rel="icon" type="image/png" href="/images/redefine-favicon.svg" sizes="192x192">
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/redefine-favicon.svg">
+    <meta name="theme-color" content="#A31F34">
+    <link rel="shortcut icon" href="/images/redefine-favicon.svg">
+    <!--- Page Info-->
+    
+    <title>
+        
+            Android的网络请求封装-装饰 | ourdreams
+        
+    </title>
+
+    <link rel="stylesheet" href="https://evan.beee.top/projects/hexo-theme-redefine@2.8.2/source/fonts/Chillax/chillax.css">
+
+    <!--- Inject Part-->
+    
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    
+        <link rel="stylesheet" href="https://evan.beee.top/projects/hexo-theme-redefine@2.8.2/source/css/build/tailwind.css">
+    
+
+    <link rel="stylesheet" href="https://evan.beee.top/projects/hexo-theme-redefine@2.8.2/source/fonts/GeistMono/geist-mono.css">
+    <link rel="stylesheet" href="https://evan.beee.top/projects/hexo-theme-redefine@2.8.2/source/fonts/Geist/geist.css">
+    <!--- Font Part-->
+    
+    
+    
+    
+    
+    
+
+    <script id="hexo-configurations">
+    window.config = {"hostname":"example.com","root":"/","language":"zh-CN","path":"search.xml"};
+    window.theme = {"articles":{"style":{"font_size":"16px","line_height":1.5,"image_border_radius":"14px","image_alignment":"center","image_caption":false,"link_icon":true,"delete_mask":false,"title_alignment":"left","headings_top_spacing":{"h1":"3.2rem","h2":"2.4rem","h3":"1.9rem","h4":"1.6rem","h5":"1.4rem","h6":"1.3rem"}},"word_count":{"enable":true,"count":true,"min2read":true},"author_label":{"enable":true,"auto":false,"list":["不全的全栈"]},"code_block":{"copy":true,"style":"mac","highlight_theme":{"light":"github","dark":"vs2015"},"font":{"enable":false,"family":null,"url":null}},"toc":{"enable":true,"max_depth":3,"number":false,"expand":true,"init_open":true},"copyright":{"enable":true,"default":"cc_by_nc_sa"},"lazyload":true,"pangu_js":false,"recommendation":{"enable":false,"title":"推荐阅读","limit":3,"mobile_limit":2,"placeholder":"/images/wallhaven-wqery6-light.webp","skip_dirs":[]}},"colors":{"primary":"#A31F34","secondary":null,"default_mode":"light"},"global":{"fonts":{"chinese":{"enable":false,"family":null,"url":null},"english":{"enable":false,"family":null,"url":null},"title":{"enable":false,"family":null,"url":null}},"content_max_width":"1000px","sidebar_width":"210px","hover":{"shadow":true,"scale":false},"scroll_progress":{"bar":false,"percentage":true},"website_counter":{"url":"https://cn.vercount.one/js","enable":false,"site_pv":true,"site_uv":true,"post_pv":true},"single_page":true,"preloader":{"enable":false,"custom_message":null},"open_graph":{"enable":true,"image":"/images/redefine-og.webp","description":"Hexo Theme Redefine, Redefine Your Hexo Journey."},"google_analytics":{"enable":false,"id":null}},"home_banner":{"enable":true,"style":"fixed","image":{"light":"/images/wallhaven-wqery6-light.webp","dark":"/images/wallhaven-wqery6-dark.webp"},"title":"Easy to know, easy to be ignorant","subtitle":{"text":["Easier said than done."],"hitokoto":{"enable":false,"show_author":false,"api":"https://v1.hitokoto.cn"},"typing_speed":100,"backing_speed":80,"starting_delay":500,"backing_delay":1500,"loop":false,"smart_backspace":false},"text_color":{"light":"#fff","dark":"#d1d1b6"},"text_style":{"title_size":"2.8rem","subtitle_size":"1.5rem","line_height":1.2},"custom_font":{"enable":false,"family":null,"url":null},"social_links":{"enable":false,"style":"default","links":{"github":null,"instagram":null,"zhihu":null,"twitter":null,"email":null},"qrs":{"weixin":null}}},"plugins":{"feed":{"enable":false},"aplayer":{"enable":false,"type":"fixed","audios":[{"name":null,"artist":null,"url":null,"cover":null,"lrc":null}]},"mermaid":{"enable":false,"version":"11.4.1"}},"version":"2.8.2","navbar":{"auto_hide":false,"color":{"left":"#f78736","right":"#367df7","transparency":35},"width":{"home":"1200px","pages":"1000px"},"links":{"Home":{"path":"/","icon":"fa-regular fa-house"}},"search":{"enable":true,"preload":true}},"page_templates":{"friends_column":2,"tags_style":"blur"},"home":{"sidebar":{"enable":true,"position":"left","first_item":"menu","announcement":null,"show_on_mobile":true,"links":null},"article_date_format":"auto","excerpt_length":200,"categories":{"enable":true,"limit":3},"tags":{"enable":true,"limit":3}},"footerStart":"2025/3/12 11:45:14"};
+    window.lang_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 个月前","year":"%s 年前"};
+    window.data = {"masonry":false};
+  </script>
+    
+    <!--- Fontawesome Part-->
+    <link rel="stylesheet" href="https://evan.beee.top/projects/hexo-theme-redefine@2.8.2/source/fontawesome/fontawesome.min.css">
+    <link rel="stylesheet" href="https://evan.beee.top/projects/hexo-theme-redefine@2.8.2/source/fontawesome/brands.min.css">
+    <link rel="stylesheet" href="https://evan.beee.top/projects/hexo-theme-redefine@2.8.2/source/fontawesome/solid.min.css">
+    <link rel="stylesheet" href="https://evan.beee.top/projects/hexo-theme-redefine@2.8.2/source/fontawesome/regular.min.css">
+    
+    
+    
+    
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+
+<body>
+	<div class="progress-bar-container">
+	
+
+	
+	<span class="pjax-progress-bar"></span>
+	<!--        <span class="swup-progress-icon">-->
+	<!--            <i class="fa-solid fa-circle-notch fa-spin"></i>-->
+	<!--        </span>-->
+	
+</div>
+
+<main class="page-container" id="swup">
+
+	
+
+	<div class="main-content-container flex flex-col justify-between min-h-dvh">
+		<div class="main-content-header">
+			<header class="navbar-container px-6 md:px-12">
+    <div class="navbar-content transition-navbar ">
+        <div class="left">
+            
+            <a class="logo-title" href="/">
+                
+                ourdreams
+                
+            </a>
+        </div>
+
+        <div class="right">
+            <!-- PC -->
+            <div class="desktop">
+                <ul class="navbar-list">
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class=""
+                                   href="/"
+                                        >
+                                    <i class="fa-regular fa-house fa-fw"></i>
+                                    首页
+                                    
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                    
+                        <li class="navbar-item search search-popup-trigger">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <!-- Mobile -->
+            <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fa-solid fa-magnifying-glass"></i>
+                    </div>
+                
+                <div class="icon-item navbar-bar">
+                    <div class="navbar-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mobile sheet -->
+    <div class="navbar-drawer h-dvh w-full absolute top-0 left-0 bg-background-color flex flex-col justify-between">
+        <ul class="drawer-navbar-list flex flex-col px-4 justify-center items-start">
+            
+                
+                    
+
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                           href="/"
+                        >
+                            <span>
+                                首页
+                            </span>
+                            
+                                <i class="fa-regular fa-house fa-sm fa-fw"></i>
+                            
+                        </a>
+                        
+
+                        
+                    </li>
+            
+
+            
+            
+        </ul>
+
+        <div class="statistics flex justify-around my-2.5">
+    <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/tags">
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">28</div>
+        <div class="label text-third-text-color text-sm">标签</div>
+    </a>
+    <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/categories">
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">9</div>
+        <div class="label text-third-text-color text-sm">分类</div>
+    </a>
+    <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/archives">
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">46</div>
+        <div class="label text-third-text-color text-sm">文章</div>
+    </a>
+</div>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+		</div>
+
+		<div class="main-content-body transition-fade-up">
+			
+
+			<div class="main-content">
+				<div class="post-page-container flex relative justify-between box-border w-full h-full">
+	<div class="article-content-container">
+
+		<div class="article-title relative w-full">
+			
+			<div class="w-full flex items-center pt-6 justify-start">
+				<h1 class="article-title-regular text-second-text-color tracking-tight text-4xl md:text-6xl font-semibold px-2 sm:px-6 md:px-8 py-3">Android的网络请求封装-装饰</h1>
+			</div>
+			
+		</div>
+
+		
+		<div class="article-header flex flex-row gap-2 items-center px-2 sm:px-6 md:px-8">
+			<div class="avatar w-[46px] h-[46px] flex-shrink-0 rounded-medium border border-border-color p-[1px]">
+				<img src="/images/redefine-avatar.jpg">
+			</div>
+			<div class="info flex flex-col justify-between">
+				<div class="author flex items-center">
+					<span class="name text-default-text-color text-lg font-semibold">不易</span>
+					
+					<span class="author-label ml-1.5 text-xs px-2 py-0.5 rounded-small text-third-text-color border border-shadow-color-1">不全的全栈</span>
+					
+				</div>
+				<div class="meta-info">
+					<div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fa-regular fa-pen-fancy"></i>&nbsp;
+        <span class="desktop">2025-03-12 22:07:05</span>
+        <span class="mobile">2025-03-12 22:07:05</span>
+        <span class="hover-info">创建</span>
+    </span>
+    
+        <span class="article-date article-meta-item">
+            <i class="fa-regular fa-wrench"></i>&nbsp;
+            <span class="desktop">2025-03-27 16:18:28</span>
+            <span class="mobile">2025-03-27 16:18:28</span>
+            <span class="hover-info">更新</span>
+        </span>
+    
+
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fa-regular fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/android/">android</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+    
+    
+</div>
+
+				</div>
+			</div>
+		</div>
+		
+
+		
+
+
+		<div class="article-content markdown-body px-2 sm:px-6 md:px-8 pb-8">
+			<blockquote>
+<p>主体：okhttp3   retrofit2   rxjava2</p>
+</blockquote>
+<p>说明：请求框架   封装请求   订阅发布器</p>
+<blockquote>
+<p>插件：rxandroid   adapter-rxjava2   converter-gson</p>
+</blockquote>
+<p>说明：规范流，rxjava适配器，gson转换器</p>
+<blockquote>
+<p>下方示例一个登录请求，与其余请求携带令牌被拒后的重新登录统一处理回调</p>
+</blockquote>
+<p><strong>注意：</strong></p>
+<blockquote>
+<p>此处的网络连接为全局单例对象</p>
+<p>假设你在登录请求时使用了这个单例，又根据其响应结果去更新了其一些参数：例如HEADER的TOKEN等</p>
+<p>这个时候你必须要在登录请求结束后清除这个单例对象让它重新构建，否则你的 网络请求对象 将会按初始参数请求</p>
+</blockquote>
+<ol>
+<li><p><strong>基础包</strong></p>
+<blockquote>
+<p>网络权限</p>
+</blockquote>
+<div class="code-container" data-rel="Xml"><figure class="iseeu highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># AndroidManifest.xml</span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">uses-permission</span> <span class="attr">android:name</span>=<span class="string">&quot;android.permission.ACCESS_NETWORK_STATE&quot;</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">uses-permission</span> <span class="attr">android:name</span>=<span class="string">&quot;android.permission.INTERNET&quot;</span> /&gt;</span></span><br></pre></td></tr></table></figure></div>
+
+
+
+<blockquote>
+<p>App容器 用以获取主Activity的上下文</p>
+</blockquote>
+<div class="code-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 全局上下文获取器</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> Zhendong Zhou</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@date</span>   2021/12/3 15:53</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">App</span> <span class="keyword">extends</span> <span class="title class_">Application</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> App mContext;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">onCreate</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="built_in">super</span>.onCreate();</span><br><span class="line">        mContext = <span class="built_in">this</span>;</span><br><span class="line"></span><br><span class="line">        registerActivityLifecycleCallbacks(<span class="keyword">new</span> <span class="title class_">ActivityLifecycleCallbacks</span>() &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">onActivityCreated</span><span class="params">(Activity activity, Bundle savedInstanceState)</span> &#123;</span><br><span class="line"></span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">onActivityStarted</span><span class="params">(Activity activity)</span> &#123;</span><br><span class="line"></span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">onActivityResumed</span><span class="params">(Activity activity)</span> &#123;</span><br><span class="line">                MyActivityManager.getInstance().setCurrentActivity(activity);</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">onActivityPaused</span><span class="params">(Activity activity)</span> &#123;</span><br><span class="line"></span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">onActivityStopped</span><span class="params">(Activity activity)</span> &#123;</span><br><span class="line"></span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">onActivitySaveInstanceState</span><span class="params">(Activity activity, Bundle outState)</span> &#123;</span><br><span class="line"></span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">onActivityDestroyed</span><span class="params">(Activity activity)</span> &#123;</span><br><span class="line"></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> Context <span class="title function_">getAppContext</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> mContext;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+
+<blockquote>
+<p>全局变量</p>
+</blockquote>
+<div class="code-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 网络请求全局变量</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> Zhendong Zhou</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@date</span> 2021/12/3 14:12</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Constant</span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="type">String</span> <span class="variable">VERSION_CODE</span> <span class="operator">=</span> <span class="string">&quot;v1&quot;</span>;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="type">String</span> <span class="variable">BASE_URL</span> <span class="operator">=</span> <span class="string">&quot;https://xxx/api/&quot;</span>+VERSION_CODE+<span class="string">&quot;/&quot;</span>;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="type">String</span> <span class="variable">CACHE_NAME</span> <span class="operator">=</span> <span class="string">&quot;cache_channel&quot;</span>;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="type">int</span> <span class="variable">DEFAULT_CONNECT_TIMEOUT</span> <span class="operator">=</span> <span class="number">60</span>;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="type">int</span> <span class="variable">DEFAULT_WRITE_TIMEOUT</span> <span class="operator">=</span> <span class="number">60</span>;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="type">int</span> <span class="variable">DEFAULT_READ_TIMEOUT</span> <span class="operator">=</span> <span class="number">60</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+
+<blockquote>
+<p>网络工具</p>
+</blockquote>
+<div class="code-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 网络相关工具</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> Zhendong Zhou</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@date</span>   2021/12/3 15:53</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">NetUtil</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="type">boolean</span> <span class="title function_">isNetworkConnected</span><span class="params">(Context context)</span> &#123;</span><br><span class="line">        <span class="type">ConnectivityManager</span> <span class="variable">mConnectivityManager</span> <span class="operator">=</span> (ConnectivityManager) context</span><br><span class="line">                .getSystemService(Context.CONNECTIVITY_SERVICE);</span><br><span class="line">        <span class="keyword">if</span> (mConnectivityManager != <span class="literal">null</span>) &#123;</span><br><span class="line">            <span class="type">NetworkInfo</span> <span class="variable">mNetworkInfo</span> <span class="operator">=</span> mConnectivityManager.getActiveNetworkInfo();</span><br><span class="line">            <span class="keyword">if</span> (mNetworkInfo != <span class="literal">null</span>) &#123;</span><br><span class="line">                <span class="keyword">return</span> mNetworkInfo.isAvailable();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+
+<blockquote>
+<p>缓存拦截器</p>
+</blockquote>
+<div class="code-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 请求Cache拦截器</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> Zhendong Zhou</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@date</span>   2021/12/3 15:54</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">CacheInterceptor</span> <span class="keyword">implements</span> <span class="title class_">Interceptor</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> Context mContext;</span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">CacheInterceptor</span><span class="params">(Context context)</span> &#123;</span><br><span class="line">        mContext = context;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@NotNull</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> Response <span class="title function_">intercept</span><span class="params">(<span class="meta">@NotNull</span> Chain chain)</span> <span class="keyword">throws</span> IOException &#123;</span><br><span class="line">        <span class="type">Request</span> <span class="variable">request</span> <span class="operator">=</span> chain.request();</span><br><span class="line">        <span class="keyword">if</span> (!NetUtil.isNetworkConnected(mContext)) &#123;</span><br><span class="line">            request = request.newBuilder()</span><br><span class="line">                    .cacheControl(CacheControl.FORCE_CACHE)</span><br><span class="line">                    .build();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="type">Response</span> <span class="variable">response</span> <span class="operator">=</span> chain.proceed(request);</span><br><span class="line">        <span class="keyword">if</span> (NetUtil.isNetworkConnected(mContext)) &#123;</span><br><span class="line">            <span class="type">int</span> <span class="variable">maxAge</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line">            <span class="comment">// 有网络时 设置缓存超时时间0个小时</span></span><br><span class="line">            response.newBuilder()</span><br><span class="line">                    .header(<span class="string">&quot;Cache-Control&quot;</span>, <span class="string">&quot;public, max-age=&quot;</span> + maxAge)</span><br><span class="line">                    .removeHeader(Constant.CACHE_NAME)<span class="comment">// 清除头信息，因为服务器如果不支持，会返回一些干扰信息，不清除下面无法生效</span></span><br><span class="line">                    .build();</span><br><span class="line">        &#125;  <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="comment">// 无网络时，设置超时为4周</span></span><br><span class="line">            <span class="type">int</span> <span class="variable">maxStale</span> <span class="operator">=</span> <span class="number">60</span> * <span class="number">60</span> * <span class="number">24</span> * <span class="number">28</span>;</span><br><span class="line">            response.newBuilder()</span><br><span class="line">                    .header(<span class="string">&quot;Cache-Control&quot;</span>, <span class="string">&quot;public, only-if-cached, max-stale=&quot;</span> + maxStale)</span><br><span class="line">                    .removeHeader(Constant.CACHE_NAME)</span><br><span class="line">                    .build();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> response;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+
+<blockquote>
+<p>Header拦截器</p>
+</blockquote>
+<div class="code-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 请求Headers拦截器</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> Zhendong Zhou</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@date</span>   2021/12/3 15:54</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">HeaderInterceptor</span> <span class="keyword">implements</span> <span class="title class_">Interceptor</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> Map&lt;String, String&gt; params;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">HeaderInterceptor</span><span class="params">(Map&lt;String, String&gt; p)</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.params = p;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@NotNull</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> Response <span class="title function_">intercept</span><span class="params">(<span class="meta">@NotNull</span> Chain chain)</span> <span class="keyword">throws</span> IOException &#123;</span><br><span class="line">        <span class="type">Request</span> <span class="variable">originalRequest</span> <span class="operator">=</span> chain.request();</span><br><span class="line">        <span class="comment">//设置头部信息</span></span><br><span class="line">        Request.<span class="type">Builder</span> <span class="variable">requestBuilder</span> <span class="operator">=</span> originalRequest.newBuilder();</span><br><span class="line">        <span class="keyword">if</span> (params != <span class="literal">null</span> &amp;&amp; params.size() &gt; <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">for</span> (Map.Entry&lt;String, String&gt; entry : params.entrySet()) &#123;</span><br><span class="line">                <span class="type">String</span> <span class="variable">value</span> <span class="operator">=</span> entry.getValue();</span><br><span class="line">                <span class="keyword">if</span> (TextUtils.isEmpty(value) || <span class="string">&quot;null&quot;</span>.equals(value)) &#123;</span><br><span class="line">                    value = <span class="string">&quot;&quot;</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                requestBuilder.addHeader(entry.getKey(), value);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        requestBuilder.method(originalRequest.method(), originalRequest.body());</span><br><span class="line">        <span class="type">Request</span> <span class="variable">request</span> <span class="operator">=</span> requestBuilder.build();</span><br><span class="line"></span><br><span class="line">        <span class="comment">//打印请求信息，正式项目中可以注释掉</span></span><br><span class="line">        <span class="comment">/*RequestBody requestBody = request.body();</span></span><br><span class="line"><span class="comment">        String body = null;</span></span><br><span class="line"><span class="comment">        if (requestBody != null) &#123;</span></span><br><span class="line"><span class="comment">            Buffer buffer = new Buffer();</span></span><br><span class="line"><span class="comment">            requestBody.writeTo(buffer);</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">            body = buffer.readString(StandardCharsets.UTF_8);</span></span><br><span class="line"><span class="comment">        &#125;</span></span><br><span class="line"><span class="comment">        Log.e(&quot;METHOD&quot;,request.method());</span></span><br><span class="line"><span class="comment">        Log.e(&quot;URL&quot;, String.valueOf(request.url()));</span></span><br><span class="line"><span class="comment">        Log.e(&quot;HEADERS&quot;, String.valueOf(request.headers()));</span></span><br><span class="line"><span class="comment">        Log.e(&quot;BODY&quot;,&quot;body:&quot;+body);*/</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> chain.proceed(request);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></div>
+</li>
+<li><p><strong>api接口</strong></p>
+<div class="code-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * API ROUTER</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> Zhendong Zhou</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@date</span>   2021/12/3 15:55</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title class_">Api</span> &#123;</span><br><span class="line">    <span class="meta">@POST(&quot;login&quot;)</span></span><br><span class="line">    <span class="meta">@FormUrlEncoded</span></span><br><span class="line">    Observable&lt;ResponseBody&gt; <span class="title function_">login</span><span class="params">(<span class="meta">@Field(&quot;username&quot;)</span> String username, <span class="meta">@Field(&quot;password&quot;)</span> String password)</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+</li>
+<li><p><strong>HTTP客户端构建器</strong></p>
+<div class="code-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 网络请求构建器</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> Zhendong Zhou</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@date</span>   2021/12/3 15:54</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">NetBuilder</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> OkHttpClient.Builder okHttpBuilder;</span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">NetBuilder</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="comment">//手动创建一个OkHttpClient并设置超时时间</span></span><br><span class="line">        okHttpBuilder = <span class="keyword">new</span> <span class="title class_">OkHttpClient</span>.Builder();</span><br><span class="line">    &#125;</span><br><span class="line">     <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 连接超时</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> outTime</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> NetBuilder <span class="title function_">setConnectTimeout</span><span class="params">(<span class="type">int</span> outTime)</span> &#123;</span><br><span class="line">        okHttpBuilder.connectTimeout(outTime, TimeUnit.SECONDS);</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">this</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 读超时</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> outTime</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> NetBuilder <span class="title function_">setReadTimeout</span><span class="params">(<span class="type">int</span> outTime)</span> &#123;</span><br><span class="line">        okHttpBuilder.readTimeout(outTime, TimeUnit.SECONDS);</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">this</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 写超时</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> outTime</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> NetBuilder <span class="title function_">setWriteTimeout</span><span class="params">(<span class="type">int</span> outTime)</span> &#123;</span><br><span class="line">        okHttpBuilder.writeTimeout(outTime, TimeUnit.SECONDS);</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">this</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 错误重连</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> retry</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> NetBuilder <span class="title function_">setRetryOnConnectionFailure</span><span class="params">(<span class="type">boolean</span> retry)</span> &#123;</span><br><span class="line">        okHttpBuilder.retryOnConnectionFailure(retry);</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">this</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 添加拦截器</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> interceptor</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> NetBuilder <span class="title function_">addInterceptor</span><span class="params">(Interceptor interceptor)</span> &#123;</span><br><span class="line">        okHttpBuilder.addInterceptor(interceptor);</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">this</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 添加倒数第二层拦截器</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> interceptor</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> NetBuilder <span class="title function_">addNetInterceptor</span><span class="params">(Interceptor interceptor)</span> &#123;</span><br><span class="line">        okHttpBuilder.addNetworkInterceptor(interceptor);</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">this</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 添加缓存文件</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> cache</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> NetBuilder <span class="title function_">addCache</span><span class="params">(Cache cache)</span> &#123;</span><br><span class="line">        okHttpBuilder.cache(cache);</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">this</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> Retrofit <span class="title function_">build</span><span class="params">(String url)</span> &#123;</span><br><span class="line">        <span class="comment">//配置证书</span></span><br><span class="line">       <span class="comment">/*try &#123;</span></span><br><span class="line"><span class="comment">            SSLContext sslContext = SSLContext.getInstance(&quot;TLS&quot;);</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">            sslContext.init(null, new X509TrustManager[]&#123;new NetUtil.TrustManager()&#125;, new SecureRandom());</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">            okHttpBuilder.sslSocketFactory(sslContext.getSocketFactory(),new NetUtil.TrustManager()).hostnameVerifier(new HostnameVerifier() &#123;</span></span><br><span class="line"><span class="comment">                @Override</span></span><br><span class="line"><span class="comment">                public boolean verify(String hostname, SSLSession session) &#123;</span></span><br><span class="line"><span class="comment">                    return true;</span></span><br><span class="line"><span class="comment">                &#125;</span></span><br><span class="line"><span class="comment">            &#125;);</span></span><br><span class="line"><span class="comment">        &#125;catch (KeyManagementException | NoSuchAlgorithmException e)&#123;</span></span><br><span class="line"><span class="comment">            Hint.toastShort(App.getAppContext(),&quot;证书失效&quot;,Hint.COMMON);</span></span><br><span class="line"><span class="comment">        &#125;*/</span></span><br><span class="line">       <span class="comment">//构建Retrofit实例</span></span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">Retrofit</span>.Builder()</span><br><span class="line">                .client(okHttpBuilder.build())</span><br><span class="line">                .addConverterFactory(GsonConverterFactory.create())<span class="comment">//json转换成JavaBean</span></span><br><span class="line">                .addCallAdapterFactory(RxJava2CallAdapterFactory.create())</span><br><span class="line">                .baseUrl(url)</span><br><span class="line">                .build();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+</li>
+<li><p><strong>订阅者</strong></p>
+<div class="code-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 基础订阅者</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> Zhendong Zhou</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@date</span> 2021/12/3 14:42</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">BaseSubscribe</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> Api okHttpApi;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> Api <span class="title function_">getOkHttpApi</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (okHttpApi==<span class="literal">null</span>) &#123;</span><br><span class="line">            okHttpApi = newApi(Constant.BASE_URL, getHeaderParams(), Api.class);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> okHttpApi;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 关键方法，可以根据需求产出不同的api</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> baseUrl</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> params</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> apiClass</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> &lt;T&gt;</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> &lt;T&gt;T <span class="title function_">newApi</span><span class="params">(String baseUrl, Map&lt;String, String&gt; params, Class&lt;T&gt; apiClass)</span> &#123;</span><br><span class="line">        <span class="type">NetBuilder</span> <span class="variable">builder</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">NetBuilder</span>()</span><br><span class="line">                .setConnectTimeout(Constant.DEFAULT_CONNECT_TIMEOUT)</span><br><span class="line">                .setReadTimeout(Constant.DEFAULT_READ_TIMEOUT)</span><br><span class="line">                .setWriteTimeout(Constant.DEFAULT_WRITE_TIMEOUT)</span><br><span class="line">                .setRetryOnConnectionFailure(<span class="literal">true</span>);</span><br><span class="line">        <span class="comment">//添加header</span></span><br><span class="line">        <span class="keyword">if</span> (params != <span class="literal">null</span> &amp;&amp; params.size()&gt;<span class="number">0</span>) &#123;</span><br><span class="line">            <span class="type">HeaderInterceptor</span> <span class="variable">headerInterceptor</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">HeaderInterceptor</span>(params);</span><br><span class="line">            builder.addInterceptor(headerInterceptor);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//添加缓存</span></span><br><span class="line">        <span class="type">File</span> <span class="variable">cacheFile</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">File</span>(App.getAppContext().getExternalCacheDir(), Constant.CACHE_NAME);</span><br><span class="line">        <span class="type">Cache</span> <span class="variable">cache</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Cache</span>(cacheFile, <span class="number">1024</span> * <span class="number">1024</span> * <span class="number">50</span>);</span><br><span class="line">        builder.addCache(cache);</span><br><span class="line"></span><br><span class="line">        <span class="comment">//添加缓存拦截器</span></span><br><span class="line">        <span class="type">CacheInterceptor</span> <span class="variable">cacheInterceptor</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">CacheInterceptor</span>(App.getAppContext());</span><br><span class="line">        builder.addInterceptor(cacheInterceptor);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> builder.build(baseUrl).create(apiClass);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//设置表头</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> Map&lt;String, String&gt; <span class="title function_">getHeaderParams</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="comment">//取决于你自己的存储方式，加否与获取取决于自己的业务</span></span><br><span class="line">        <span class="type">String</span> <span class="variable">token</span> <span class="operator">=</span> GlobalStorage.getGlobalStorage().get(<span class="string">&quot;token&quot;</span>);</span><br><span class="line"></span><br><span class="line">        String timestamp;</span><br><span class="line">        timestamp = String.valueOf(System.currentTimeMillis() / <span class="number">1000</span>);</span><br><span class="line">        Map&lt;String, String&gt; params = <span class="keyword">new</span> <span class="title class_">HashMap</span>&lt;&gt;();</span><br><span class="line">        <span class="keyword">if</span> (!TextUtils.isEmpty(token)) &#123;</span><br><span class="line">            params.put(<span class="string">&quot;token&quot;</span>, token);</span><br><span class="line">        &#125;</span><br><span class="line">        params.put(<span class="string">&quot;timestamp&quot;</span>, timestamp);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> params;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 设置订阅 和 所在的线程环境</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> o</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> s</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">toSubscribe</span><span class="params">(Observable&lt;ResponseBody&gt; o, DisposableObserver&lt;ResponseBody&gt; s)</span> &#123;</span><br><span class="line">        o.subscribeOn(Schedulers.io())</span><br><span class="line">                .unsubscribeOn(Schedulers.io())</span><br><span class="line">                .observeOn(AndroidSchedulers.mainThread())</span><br><span class="line">                .retry(<span class="number">1</span>)<span class="comment">//请求失败重连次数</span></span><br><span class="line">                .subscribe(s);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+</li>
+<li><p><strong>订阅</strong></p>
+<div class="code-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * API请求订阅器</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> Zhendong Zhou</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@date</span>   2021/12/3 15:53</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Subscribe</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">login</span><span class="params">(String username, String pwd, DisposableObserver&lt;ResponseBody&gt; subscriber)</span> &#123;</span><br><span class="line">        <span class="comment">//可以在这里对请求参数加一些后置操作</span></span><br><span class="line">        pwd = Base64.encodeToString(pwd.getBytes(),Base64.DEFAULT);<span class="comment">//base64加密</span></span><br><span class="line">        Observable&lt;ResponseBody&gt; observable = BaseSubscribe.getOkHttpApi().login(username,pwd);</span><br><span class="line">        BaseSubscribe.toSubscribe(observable, subscriber);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+</li>
+<li><p><strong>响应回调</strong></p>
+<blockquote>
+<p>回调接口</p>
+</blockquote>
+<div class="code-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * API响应回调接口</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> Zhendong Zhou</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@date</span>   2021/12/3 15:47</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title class_">APICallback</span>&lt;T&gt; &#123;</span><br><span class="line">    <span class="keyword">void</span> <span class="title function_">logout</span><span class="params">()</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">void</span> <span class="title function_">onSuccess</span><span class="params">(T result)</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">void</span> <span class="title function_">onFault</span><span class="params">(<span class="type">int</span> code, String errorMsg)</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">void</span> <span class="title function_">netError</span><span class="params">()</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+
+<blockquote>
+<p>回调处理</p>
+</blockquote>
+<div class="code-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 处理各种业务逻辑及错误</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> Zhendong Zhou</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@date</span>   2021/12/3 15:49</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">class</span> <span class="title class_">NetCallback</span>&lt;T&gt; <span class="keyword">extends</span> <span class="title class_">DisposableObserver</span>&lt;ResponseBody&gt; <span class="keyword">implements</span> <span class="title class_">APICallback</span>&lt;T&gt; &#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">onNext</span><span class="params">(<span class="meta">@NonNull</span> ResponseBody body)</span> &#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="comment">//此处获取响应信息，可以对响应信息做第一层的数据处理</span></span><br><span class="line">            <span class="comment">//比如对于响应码的不同操作</span></span><br><span class="line">            <span class="comment">//下方示例一些操作</span></span><br><span class="line">            <span class="type">String</span> <span class="variable">result</span> <span class="operator">=</span> body.string();</span><br><span class="line">            <span class="type">JSONObject</span> <span class="variable">jsonObject</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">JSONObject</span>(result);</span><br><span class="line">            <span class="type">double</span> <span class="variable">resultCode</span> <span class="operator">=</span> jsonObject.getDouble(<span class="string">&quot;status_code&quot;</span>);</span><br><span class="line">            <span class="keyword">if</span> (resultCode == <span class="number">200.0</span>) &#123;</span><br><span class="line">                <span class="type">Gson</span> <span class="variable">gson</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Gson</span>();</span><br><span class="line">                <span class="type">String</span> <span class="variable">data</span> <span class="operator">=</span> jsonObject.getString(<span class="string">&quot;data&quot;</span>);</span><br><span class="line">                <span class="keyword">if</span> (!TextUtils.isEmpty(data)) &#123;</span><br><span class="line">                    <span class="type">T</span> <span class="variable">t</span> <span class="operator">=</span> gson.fromJson(data, getType());</span><br><span class="line">                    onSuccess(t);<span class="comment">//第一层数据处理完毕将真实响应数据向下抛</span></span><br><span class="line">                &#125;</span><br><span class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> (resultCode == <span class="number">401.0</span>) &#123;</span><br><span class="line">                logout();</span><br><span class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> (resultCode == <span class="number">400.0</span>)&#123;</span><br><span class="line">                onFault(<span class="number">1</span>, jsonObject.getString(<span class="string">&quot;data&quot;</span>));</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="type">String</span> <span class="variable">errorMsg</span> <span class="operator">=</span> jsonObject.getString(<span class="string">&quot;message&quot;</span>);</span><br><span class="line">                onFault(<span class="number">0</span>, errorMsg);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 请求出错，包含网络错误</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> e</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">onError</span><span class="params">(Throwable e)</span></span><br><span class="line">    &#123;</span><br><span class="line">        netError();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">onComplete</span><span class="params">()</span> &#123;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> Type <span class="title function_">getType</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="comment">//获取第一个泛型类型</span></span><br><span class="line">        <span class="type">ParameterizedType</span> <span class="variable">parameterizedType</span> <span class="operator">=</span> (ParameterizedType) getClass().getGenericSuperclass();</span><br><span class="line">        <span class="keyword">assert</span> parameterizedType != <span class="literal">null</span>;</span><br><span class="line">        <span class="keyword">return</span> parameterizedType.getActualTypeArguments()[<span class="number">0</span>];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+</li>
+<li><p><strong>处理第一层的回调信息</strong></p>
+<div class="code-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 统一处理的逻辑，都在类似这样的方法中处理。暴露在每个最外层的callback只处理指定场景下的业务逻辑。</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> Zhendong Zhou</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@date</span>   2021/12/3 15:48</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">class</span> <span class="title class_">HandlerCallback</span>&lt;T&gt; <span class="keyword">extends</span> <span class="title class_">NetCallback</span>&lt;T&gt; &#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">logout</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="type">Context</span> <span class="variable">context</span> <span class="operator">=</span> MyActivityManager.getInstance().getCurrentActivity();</span><br><span class="line">        <span class="type">GlobalStorage</span> <span class="variable">storage</span> <span class="operator">=</span> GlobalStorage.getGlobalStorage();</span><br><span class="line">        androidx.appcompat.app.AlertDialog.<span class="type">Builder</span> <span class="variable">builder</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">AlertDialog</span>.Builder(context);</span><br><span class="line">        builder.setMessage(<span class="string">&quot;登录已过期，请重新登录&quot;</span>)</span><br><span class="line">                .setPositiveButton(<span class="string">&quot;确定&quot;</span>, (dialogInterface, i) -&gt; &#123;</span><br><span class="line">                  <span class="comment">//操作</span></span><br><span class="line">                &#125;).create().show();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">onFault</span><span class="params">(<span class="type">int</span> code, String errorMsg)</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (code==<span class="number">0</span>)&#123;</span><br><span class="line">            Hint.toastShort(App.getAppContext(), errorMsg, Hint.COMMON);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">onError</span><span class="params">(Throwable e)</span> &#123;</span><br><span class="line">        Hint.toastShort(App.getAppContext(), <span class="string">&quot;内部服务器错误&quot;</span>, Hint.ERROR);<span class="comment">//这些操作仅是我的个人业务操作</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+</li>
+<li><p><strong>请求</strong></p>
+<div class="code-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//Login是自定义的bean，通过gson转换器自动转换</span></span><br><span class="line">Subscribe.login(username, password, <span class="keyword">new</span> <span class="title class_">HandlerCallback</span>&lt;Login&gt;() &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">onSuccess</span><span class="params">(Login result)</span> &#123;</span><br><span class="line">                <span class="comment">//成功的操作</span></span><br><span class="line">            &#125;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">onFault</span><span class="params">(<span class="type">int</span> code, String errorMsg)</span>&#123;</span><br><span class="line">                <span class="comment">//失败</span></span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">netError</span><span class="params">()</span> &#123;</span><br><span class="line">                <span class="comment">//错误</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br></pre></td></tr></table></figure></div></li>
+</ol>
+<h1 id="WebSocket"><a href="#WebSocket" class="headerlink" title="WebSocket"></a>WebSocket</h1><ol>
+<li><p><strong>构建客户端</strong></p>
+<div class="code-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * websocket客户端</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> Zhendong Zhou</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@date</span>   2021/12/9 15:24</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">WebSocketClient</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> Request request;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> OkHttpClient client;</span><br><span class="line">    <span class="keyword">private</span> WebSocket webSocket;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">WebSocketClient</span><span class="params">()</span> &#123;</span><br><span class="line">        client = <span class="keyword">new</span> <span class="title class_">OkHttpClient</span>();</span><br><span class="line">        request = <span class="keyword">new</span> <span class="title class_">Request</span>.Builder()</span><br><span class="line">                .url(<span class="string">&quot;wss://xxx/&quot;</span>)</span><br><span class="line">                .build();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">start</span><span class="params">(WebSocketListener listener)</span> &#123;</span><br><span class="line">        client.dispatcher().cancelAll();</span><br><span class="line">        webSocket = client.newWebSocket(request, listener);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">close</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (webSocket != <span class="literal">null</span>) &#123;</span><br><span class="line">            webSocket.close(<span class="number">1000</span>, <span class="literal">null</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        client.dispatcher().executorService().shutdown();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+
+<ol start="2">
+<li><strong>一些常量标识</strong></li>
+</ol>
+<div class="code-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * WEBSOCKET的一些标识</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> Zhendong Zhou</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@date</span> 2021/12/10 14:17</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">WebSocketConstant</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="type">String</span> <span class="variable">CLOSE_SIGN</span> <span class="operator">=</span> <span class="string">&quot;CLOSE&quot;</span>;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="type">String</span> <span class="variable">PULL_SIGN</span> <span class="operator">=</span> <span class="string">&quot;DATA&quot;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+
+<ol start="3">
+<li><strong>连接监听器</strong></li>
+</ol>
+<blockquote>
+<p>此处设定心跳请求，每隔特定时间向服务端发送心跳，接收不到响应就关闭客户端并通知主线程</p>
+<p>所以响应数据分两种格式：正常的推送数据，心跳的监测数据</p>
+</blockquote>
+<div class="code-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * websocket监听程序</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> Zhendong Zhou</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@date</span> 2021/12/9 16:55</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">SsWebSocketListener</span> <span class="keyword">extends</span> <span class="title class_">WebSocketListener</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> <span class="type">int</span> <span class="variable">HEARTBEAT_HZ</span> <span class="operator">=</span> <span class="number">10</span>; <span class="comment">//心跳发送间隔也是关闭通知推送间隔</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> <span class="type">String</span> <span class="variable">SUBSCRIBE</span> <span class="operator">=</span> <span class="string">&quot;&#123;xxx&#125;&quot;</span>;<span class="comment">//心跳订阅信息</span></span><br><span class="line">    <span class="keyword">public</span> <span class="type">boolean</span> <span class="variable">START_STATUS</span> <span class="operator">=</span> <span class="literal">false</span>;<span class="comment">//当前客户端状态</span></span><br><span class="line">    <span class="keyword">public</span> WebSocket webSocket;<span class="comment">//socket客户端</span></span><br><span class="line">    <span class="keyword">public</span> Handler handler;<span class="comment">//主线程消息处理器</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> Long timestamp;<span class="comment">//启动时间戳</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">//构造方法获取主线程的消息处理器</span></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">SsWebSocketListener</span><span class="params">(Handler handler)</span>&#123;</span><br><span class="line">        <span class="built_in">this</span>.timestamp = <span class="keyword">new</span> <span class="title class_">Date</span>().getTime(); <span class="comment">//先记录下尝试启动时的时间戳</span></span><br><span class="line">        <span class="built_in">this</span>.handler = handler;<span class="comment">//主线程消息处理器</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">onOpen</span><span class="params">(<span class="meta">@NotNull</span> WebSocket webSocket, <span class="meta">@NotNull</span> Response response)</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.webSocket = webSocket;<span class="comment">//第一次打开时，赋值socket对象</span></span><br><span class="line">        openTimeTask();<span class="comment">//打开定时任务发送心跳包</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">onMessage</span><span class="params">(<span class="meta">@NotNull</span> WebSocket webSocket, <span class="meta">@NotNull</span> String text)</span> &#123;</span><br><span class="line">        <span class="type">Gson</span> <span class="variable">gson</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Gson</span>();</span><br><span class="line">        <span class="type">Struct</span> <span class="variable">struct</span> <span class="operator">=</span> gson.fromJson(text, Struct.class);</span><br><span class="line">        <span class="keyword">if</span> (isPushMsg(struct))&#123;<span class="comment">//判断是正常的消息推送</span></span><br><span class="line">            <span class="comment">//消息推送给主线程，通知主线程执行UI更新</span></span><br><span class="line">            <span class="type">Message</span> <span class="variable">message</span> <span class="operator">=</span> handler.obtainMessage();</span><br><span class="line">            message.obj = WebSocketConstant.PULL_SIGN;<span class="comment">//标记这是一条正常消息</span></span><br><span class="line">            <span class="type">Bundle</span> <span class="variable">arg</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Bundle</span>();</span><br><span class="line">            arg.putInt(<span class="string">&quot;number&quot;</span>,((Double) struct.getData()).intValue());</span><br><span class="line">            message.setData(arg);</span><br><span class="line">            handler.sendMessage(message);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">onFailure</span><span class="params">(<span class="meta">@NotNull</span> WebSocket webSocket, <span class="meta">@NotNull</span> Throwable t, <span class="meta">@Nullable</span> Response response)</span> &#123;</span><br><span class="line">        closeTimeTask();<span class="comment">//连接失败时关闭定时任务</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">onClosing</span><span class="params">(<span class="meta">@NotNull</span> WebSocket webSocket, <span class="type">int</span> code, <span class="meta">@NotNull</span> String reason)</span> &#123;</span><br><span class="line">        closeTimeTask();<span class="comment">//断开连接时关闭定时任务</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">onClosed</span><span class="params">(<span class="meta">@NotNull</span> WebSocket webSocket, <span class="type">int</span> code, <span class="meta">@NotNull</span> String reason)</span> &#123;</span><br><span class="line">        closeTimeTask();<span class="comment">//关闭连接时关闭定时任务</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">void</span> <span class="title function_">openTimeTask</span><span class="params">()</span>&#123;</span><br><span class="line">        START_STATUS = <span class="literal">true</span>;<span class="comment">//标记客户端状态正常</span></span><br><span class="line">        <span class="keyword">new</span> <span class="title class_">Thread</span>(()-&gt;&#123;<span class="comment">//开启子线程</span></span><br><span class="line">            <span class="keyword">try</span> &#123;</span><br><span class="line">                <span class="keyword">while</span> (START_STATUS)&#123;<span class="comment">//借助上级的标记来循环心跳</span></span><br><span class="line">                    webSocket.send(SUBSCRIBE);</span><br><span class="line">                    Thread.sleep(HEARTBEAT_HZ * <span class="number">1000</span>);<span class="comment">//睡眠间隔</span></span><br><span class="line">                &#125;</span><br><span class="line">            &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">                e.printStackTrace();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;).start();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">void</span> <span class="title function_">closeTimeTask</span><span class="params">()</span>&#123;</span><br><span class="line">        START_STATUS = <span class="literal">false</span>;<span class="comment">//标记客户端关闭，让子线程跳出</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">//如果启动时间至关闭 不足十秒让他sleep 防止频繁的消息推送</span></span><br><span class="line">        <span class="type">long</span> <span class="variable">diff</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Date</span>().getTime()-<span class="built_in">this</span>.timestamp;</span><br><span class="line">        <span class="type">long</span> <span class="variable">touch</span> <span class="operator">=</span> (<span class="type">long</span>) (HEARTBEAT_HZ * <span class="number">1000</span>);</span><br><span class="line">        <span class="keyword">if</span> (diff &lt; touch)&#123;</span><br><span class="line">            <span class="keyword">try</span>&#123;</span><br><span class="line">                Thread.sleep(touch-diff);</span><br><span class="line">            &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">                e.printStackTrace();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//通知主线程 websocket监听被关闭,让它准备重启</span></span><br><span class="line">        <span class="type">Message</span> <span class="variable">message</span> <span class="operator">=</span> handler.obtainMessage();</span><br><span class="line">        message.obj = WebSocketConstant.CLOSE_SIGN;</span><br><span class="line">        handler.sendMessage(message);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//判断响应类型是否为正常数据响应</span></span><br><span class="line">    <span class="keyword">private</span> <span class="type">boolean</span> <span class="title function_">isPushMsg</span><span class="params">(Struct struct)</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;xxx&quot;</span>.equals(struct.getDataType());</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//响应的数据BEAN</span></span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">class</span> <span class="title class_">Struct</span>&#123;</span><br><span class="line">        <span class="keyword">private</span> Object data;</span><br><span class="line">        <span class="keyword">private</span> String dataType;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">public</span> String <span class="title function_">getDataType</span><span class="params">()</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> dataType;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">setDataType</span><span class="params">(String dataType)</span> &#123;</span><br><span class="line">            <span class="built_in">this</span>.dataType = dataType;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">public</span> Object <span class="title function_">getData</span><span class="params">()</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> data;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">setData</span><span class="params">(Object data)</span> &#123;</span><br><span class="line">            <span class="built_in">this</span>.data = data;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+
+<ol start="4">
+<li><strong>在ACTIVITY中使用</strong></li>
+</ol>
+<blockquote>
+<p>Android的Activity生命周期不多赘述</p>
+<p>这里再onResume时和onPause时进行socket操作，以此达到用户切出应用时退出SOCKET，切回再打开</p>
+</blockquote>
+<div class="code-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">startWebSocket</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (webSocketClient == <span class="literal">null</span>) &#123;</span><br><span class="line">            handler();</span><br><span class="line">            webSocketClient = <span class="keyword">new</span> <span class="title class_">WebSocketClient</span>();</span><br><span class="line">        &#125;</span><br><span class="line">        webSocketClient.start(<span class="keyword">new</span> <span class="title class_">SsWebSocketListener</span>(handler));</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">closeSocket</span><span class="params">()</span> &#123;</span><br><span class="line">        webSocketClient.close();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">void</span> <span class="title function_">handler</span><span class="params">()</span>&#123;</span><br><span class="line">        handler = <span class="keyword">new</span> <span class="title class_">Handler</span>(Looper.getMainLooper())&#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">handleMessage</span><span class="params">(Message msg)</span> &#123;</span><br><span class="line">                <span class="built_in">super</span>.handleMessage(msg);</span><br><span class="line">                <span class="type">String</span> <span class="variable">status</span> <span class="operator">=</span> (String) msg.obj;</span><br><span class="line">                <span class="comment">//如果SOCKET监听因为一些原因被关闭，通过消息获取此通知，尝试重启</span></span><br><span class="line">                <span class="keyword">if</span> (status.equals(WebSocketConstant.CLOSE_SIGN))&#123;</span><br><span class="line">                    Toast.makeText(PieceworkActivity.<span class="built_in">this</span>,<span class="string">&quot;服务器连接失败&quot;</span>,Toast.LENGTH_SHORT).show();</span><br><span class="line">                    <span class="comment">//先尝试关闭已有客户端,再重启socketclient</span></span><br><span class="line">                    closeSocket();</span><br><span class="line">                    startWebSocket();<span class="comment">//如果重启失败会在监听器中Sleep十秒后再次发送失败通知来此，以此达到循环效果</span></span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">if</span> (status.equals(WebSocketConstant.PULL_SIGN))&#123;<span class="comment">//正常的消息则消费掉，更新UI</span></span><br><span class="line">                    <span class="type">int</span> <span class="variable">amount</span> <span class="operator">=</span> msg.getData().getInt(<span class="string">&quot;number&quot;</span>);</span><br><span class="line">                    <span class="keyword">if</span> (num.getText().toString().isEmpty() || Integer.parseInt((String) num.getText()) != amount)&#123;</span><br><span class="line">                        num.setText(String.valueOf(amount));</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">protected</span> <span class="keyword">void</span> <span class="title function_">onResume</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="built_in">super</span>.onResume();</span><br><span class="line">        <span class="comment">//启动socket</span></span><br><span class="line">        startWebSocket();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">protected</span> <span class="keyword">void</span> <span class="title function_">onPause</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="built_in">super</span>.onPause();</span><br><span class="line">        <span class="comment">//关闭socket</span></span><br><span class="line">        closeSocket();</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></div></li>
+</ol>
+
+		</div>
+
+		
+		<div class="post-copyright-info w-full my-8 px-2 sm:px-6 md:px-8">
+			<div class="article-copyright-info-container">
+    <ul>
+        <li><strong>标题:</strong> Android的网络请求封装-装饰</li>
+        <li><strong>作者:</strong> 不易</li>
+        <li><strong>创建于
+                :</strong> 2025-03-12 22:07:05</li>
+        
+            <li>
+                <strong>更新于
+                    :</strong> 2025-03-27 16:18:28
+            </li>
+        
+        <li>
+            <strong>链接:</strong> https://github.com/ourdreams0722/2025/03/12/基于Android9 JDK1.8的网络请求封装/
+        </li>
+        <li>
+            <strong>
+                版权声明:
+            </strong>
+            
+
+            
+                本文章采用 <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0">CC BY-NC-SA 4.0</a> 进行许可。
+            
+        </li>
+    </ul>
+</div>
+
+		</div>
+		
+
+		
+		<ul class="post-tags-box text-lg mt-1.5 flex-wrap justify-center flex md:hidden">
+			
+			<li class="tag-item mx-0.5">
+				<a href="/tags/android/">#android</a>&nbsp;
+			</li>
+			
+		</ul>
+		
+
+		
+
+		
+		<div class="article-nav my-8 flex justify-between items-center px-2 sm:px-6 md:px-8">
+			
+			<div class="article-prev border-border-color shadow-redefine-flat shadow-shadow-color-2 rounded-medium px-4 py-2 hover:shadow-redefine-flat-hover hover:shadow-shadow-color-2">
+				<a class="prev" rel="prev" href="/2025/03/12/%E5%86%85%E7%BD%91%E6%9C%BA%E8%BD%AC%E5%8F%91%E5%85%AC%E7%BD%91%E6%9C%BA%E9%82%AE%E4%BB%B6%E5%8F%91%E9%80%81SMTP/">
+					<span class="left arrow-icon flex justify-center items-center">
+						<i class="fa-solid fa-chevron-left"></i>
+					</span>
+					<span class="title flex justify-center items-center">
+						<span class="post-nav-title-item">Java-Nginx堡垒机的转发邮件SMTP</span>
+						<span class="post-nav-item">上一篇</span>
+					</span>
+				</a>
+			</div>
+			
+			
+			<div class="article-next border-border-color shadow-redefine-flat shadow-shadow-color-2 rounded-medium px-4 py-2 hover:shadow-redefine-flat-hover hover:shadow-shadow-color-2">
+				<a class="next" rel="next" href="/2025/03/12/%E5%AE%89%E5%8D%93%E5%9F%BA%E6%9C%AC%E9%9C%80%E6%B1%82/">
+					<span class="title flex justify-center items-center">
+						<span class="post-nav-title-item">Android通用基础功能实现</span>
+						<span class="post-nav-item">下一篇</span>
+					</span>
+					<span class="right arrow-icon flex justify-center items-center">
+						<i class="fa-solid fa-chevron-right"></i>
+					</span>
+				</a>
+			</div>
+			
+		</div>
+		
+
+
+		
+		<div class="comment-container px-2 sm:px-6 md:px-8 pb-8">
+			<div class="comments-container mt-10 w-full ">
+    <div id="comment-anchor" class="w-full h-2.5"></div>
+    <div class="comment-area-title w-full my-1.5 md:my-2.5 text-xl md:text-3xl font-bold">
+        评论
+    </div>
+    
+
+        
+            
+    <div id="waline"></div>
+    <script type="module" data-swup-reload-script>
+      import { init } from '/js/libs/waline.mjs';
+
+      function loadWaline() {
+        init({
+          el: '#waline',
+          serverURL: 'https://example.example.com',
+          lang: 'zh-CN',
+          dark: 'body[class~="dark-mode"]',
+          reaction: false,
+          requiredMeta: ['nick', 'mail'],
+          emoji: [],
+          
+          
+        });
+      }
+
+      if (typeof swup !== 'undefined') {
+        loadWaline();
+      } else {
+        window.addEventListener('DOMContentLoaded', loadWaline);
+      }
+    </script>
+
+
+
+        
+    
+</div>
+
+		</div>
+		
+	</div>
+
+	
+	<div class="toc-content-container">
+		<div class="post-toc-wrap">
+	<div class="post-toc">
+		<div class="toc-title">目录</div>
+		<div class="page-title">Android的网络请求封装-装饰</div>
+		<ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#WebSocket"><span class="nav-text">WebSocket</span></a></li></ol>
+
+	</div>
+</div>
+	</div>
+	
+</div>
+			</div>
+
+			
+		</div>
+
+		<div class="main-content-footer">
+			<footer class="footer mt-5 py-5 h-auto text-base text-third-text-color relative border-t-2 border-t-border-color">
+    <div class="info-container py-3 text-center">
+        
+        <div class="text-center">
+            &copy;
+            
+              <span>2025</span>
+              -
+            
+            2025<!--&nbsp;<i class="fa-solid fa-heart fa-beat" style="--fa-animation-duration: 0.5s; color: #f54545"></i>&nbsp;&nbsp;<a href="/">不易</a>-->
+            
+        </div>
+        
+        <!--<div class="relative text-center lg:absolute lg:left-[20px] lg:top-1/2 lg:-translate-y-1/2 lg:text-left">
+            <span class="lg:block text-sm">由 <?xml version="1.0" encoding="utf-8"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"><svg class="relative top-[2px] inline-block align-baseline" version="1.1" id="圖層_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="1rem" height="1rem" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve"><path fill="#0E83CD" d="M256.4,25.8l-200,115.5L56,371.5l199.6,114.7l200-115.5l0.4-230.2L256.4,25.8z M349,354.6l-18.4,10.7l-18.6-11V275H200v79.6l-18.4,10.7l-18.6-11v-197l18.5-10.6l18.5,10.8V237h112v-79.6l18.5-10.6l18.5,10.8V354.6z"/></svg><a target="_blank" class="text-base" href="https://hexo.io">Hexo</a> 驱动</span>
+            <span class="text-sm lg:block">主题&nbsp;<a class="text-base" target="_blank" href="https://github.com/EvanNotFound/hexo-theme-redefine">Redefine v2.8.2</a></span>
+        </div>-->
+        
+        
+            <div>
+                博客已运行 <span class="odometer" id="runtime_days" ></span> 天 <span class="odometer" id="runtime_hours"></span> 小时 <span class="odometer" id="runtime_minutes"></span> 分钟 <span class="odometer" id="runtime_seconds"></span> 秒
+            </div>
+        
+        
+            <script data-swup-reload-script>
+                try {
+                    function odometer_init() {
+                    const elements = document.querySelectorAll('.odometer');
+                    elements.forEach(el => {
+                        new Odometer({
+                            el,
+                            format: '( ddd).dd',
+                            duration: 200
+                        });
+                    });
+                    }
+                    odometer_init();
+                } catch (error) {}
+            </script>
+        
+        
+        
+    </div>  
+</footer>
+		</div>
+	</div>
+
+	
+	<div class="post-tools">
+		<div class="post-tools-container">
+	<ul class="article-tools-list">
+		<!-- TOC aside toggle -->
+		
+		<li class="right-bottom-tools page-aside-toggle">
+			<i class="fa-regular fa-outdent"></i>
+		</li>
+		
+
+		<!-- go comment -->
+		
+		<li class="go-comment">
+			<i class="fa-regular fa-comments"></i>
+		</li>
+		
+	</ul>
+</div>
+	</div>
+	
+
+	<div class="right-side-tools-container">
+		<div class="side-tools-container">
+	<ul class="hidden-tools-list">
+		<li class="right-bottom-tools tool-font-adjust-plus flex justify-center items-center">
+			<i class="fa-regular fa-magnifying-glass-plus"></i>
+		</li>
+
+		<li class="right-bottom-tools tool-font-adjust-minus flex justify-center items-center">
+			<i class="fa-regular fa-magnifying-glass-minus"></i>
+		</li>
+
+		<li class="right-bottom-tools tool-dark-light-toggle flex justify-center items-center">
+			<i class="fa-regular fa-moon"></i>
+		</li>
+
+		<!-- rss -->
+		
+
+		
+
+		<li class="right-bottom-tools tool-scroll-to-bottom flex justify-center items-center">
+			<i class="fa-regular fa-arrow-down"></i>
+		</li>
+	</ul>
+
+	<ul class="visible-tools-list">
+		<li class="right-bottom-tools toggle-tools-list flex justify-center items-center">
+			<i class="fa-regular fa-cog fa-spin"></i>
+		</li>
+		
+		<li class="right-bottom-tools tool-scroll-to-top flex justify-center items-center">
+			<i class="arrow-up fas fa-arrow-up"></i>
+			<span class="percent"></span>
+		</li>
+		
+		
+	</ul>
+</div>
+	</div>
+
+	<div class="image-viewer-container">
+	<img src="">
+</div>
+
+	
+	<div class="search-pop-overlay">
+	<div class="popup search-popup">
+		<div class="search-header">
+			<span class="search-input-field-pre">
+				<i class="fa-solid fa-keyboard"></i>
+			</span>
+			<div class="search-input-container">
+				<input autocomplete="off" autocorrect="off" autocapitalize="off" placeholder="站内搜索您需要的内容..." spellcheck="false" type="search" class="search-input">
+			</div>
+			<span class="popup-btn-close">
+				<i class="fa-solid fa-times"></i>
+			</span>
+		</div>
+		<div id="search-result">
+			<div id="no-result">
+				<i class="fa-solid fa-spinner fa-spin-pulse fa-5x fa-fw"></i>
+			</div>
+		</div>
+	</div>
+</div>
+	
+
+</main>
+
+
+<script  src="https://evan.beee.top/projects/hexo-theme-redefine@2.8.2/source/js/build/libs/Swup.min.js" ></script><script  src="https://evan.beee.top/projects/hexo-theme-redefine@2.8.2/source/js/build/libs/SwupSlideTheme.min.js" ></script><script  src="https://evan.beee.top/projects/hexo-theme-redefine@2.8.2/source/js/build/libs/SwupScriptsPlugin.min.js" ></script><script  src="https://evan.beee.top/projects/hexo-theme-redefine@2.8.2/source/js/build/libs/SwupProgressPlugin.min.js" ></script><script  src="https://evan.beee.top/projects/hexo-theme-redefine@2.8.2/source/js/build/libs/SwupScrollPlugin.min.js" ></script><script  src="https://evan.beee.top/projects/hexo-theme-redefine@2.8.2/source/js/build/libs/SwupPreloadPlugin.min.js" ></script>
+<script>
+    const swup = new Swup({
+        plugins: [
+            new SwupScriptsPlugin({
+                optin: true,
+            }),
+            new SwupProgressPlugin(),
+            new SwupScrollPlugin({
+                offset: 80,
+            }),
+            new SwupSlideTheme({
+                mainElement: ".main-content-body",
+            }),
+            new SwupPreloadPlugin(),
+        ],
+        containers: ["#swup"],
+    });
+</script>
+
+
+
+
+	<script type="module" src="https://evan.beee.top/projects/hexo-theme-redefine@2.8.2/source/js/build/tools/imageViewer.js" ></script><script type="module" src="https://evan.beee.top/projects/hexo-theme-redefine@2.8.2/source/js/build/utils.js" ></script><script type="module" src="https://evan.beee.top/projects/hexo-theme-redefine@2.8.2/source/js/build/main.js" ></script><script type="module" src="https://evan.beee.top/projects/hexo-theme-redefine@2.8.2/source/js/build/layouts/navbarShrink.js" ></script><script type="module" src="https://evan.beee.top/projects/hexo-theme-redefine@2.8.2/source/js/build/tools/scrollTopBottom.js" ></script><script type="module" src="https://evan.beee.top/projects/hexo-theme-redefine@2.8.2/source/js/build/tools/lightDarkSwitch.js" ></script><script type="module" src="https://evan.beee.top/projects/hexo-theme-redefine@2.8.2/source/js/build/layouts/categoryList.js" ></script>
+
+
+    <script type="module" src="https://evan.beee.top/projects/hexo-theme-redefine@2.8.2/source/js/build/tools/localSearch.js" ></script>
+
+
+
+    <script type="module" src="https://evan.beee.top/projects/hexo-theme-redefine@2.8.2/source/js/build/tools/codeBlock.js" ></script>
+
+
+
+    <script type="module" src="https://evan.beee.top/projects/hexo-theme-redefine@2.8.2/source/js/build/layouts/lazyload.js" ></script>
+
+
+
+    <script  src="https://evan.beee.top/projects/hexo-theme-redefine@2.8.2/source/js/build/tools/runtime.js" ></script>
+    <script  src="https://evan.beee.top/projects/hexo-theme-redefine@2.8.2/source/js/build/libs/odometer.min.js" ></script>
+    <link rel="stylesheet" href="https://evan.beee.top/projects/hexo-theme-redefine@2.8.2/source/assets/odometer-theme-minimal.css">
+
+
+
+  <script  src="https://evan.beee.top/projects/hexo-theme-redefine@2.8.2/source/js/build/libs/Typed.min.js" ></script>
+  <script type="module" src="https://evan.beee.top/projects/hexo-theme-redefine@2.8.2/source/js/build/plugins/typed.js" ></script>
+
+
+
+
+
+
+
+    <script  src="https://evan.beee.top/projects/hexo-theme-redefine@2.8.2/source/js/build/libs/anime.min.js" ></script>
+
+
+
+
+    <script type="module" src="https://evan.beee.top/projects/hexo-theme-redefine@2.8.2/source/js/build/tools/tocToggle.js" data-swup-reload-script></script><script type="module" src="https://evan.beee.top/projects/hexo-theme-redefine@2.8.2/source/js/build/layouts/toc.js" data-swup-reload-script></script><script type="module" src="https://evan.beee.top/projects/hexo-theme-redefine@2.8.2/source/js/build/plugins/tabs.js" data-swup-reload-script></script>
+
+
+<script  src="https://evan.beee.top/projects/hexo-theme-redefine@2.8.2/source/js/build/libs/moment-with-locales.min.js" data-swup-reload-script></script>
+<script type="module" src="https://evan.beee.top/projects/hexo-theme-redefine@2.8.2/source/js/build/layouts/essays.js" data-swup-reload-script></script>
+
+
+
+
+	
+</body>
+
+</html>

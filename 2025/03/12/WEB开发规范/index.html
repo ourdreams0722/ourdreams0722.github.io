@@ -1,0 +1,806 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords" content="Hexo Theme Redefine">
+    
+    <meta name="author" content="不易">
+    <!-- preconnect -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    
+        
+        
+        
+            <link rel="preconnect" href="https://evan.beee.top" crossorigin>
+        
+    
+    <!--- Seo Part-->
+    
+    <link rel="canonical" href="http://example.com/2025/03/12/web开发规范/"/>
+    <meta name="robots" content="index,follow">
+    <meta name="googlebot" content="index,follow">
+    <meta name="revisit-after" content="1 days">
+    
+    
+    
+        
+        <meta name="description" content="Hexo Theme Redefine, Redefine Your Hexo Journey.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Web开发规范">
+<meta property="og:url" content="http://example.com/2025/03/12/WEB%E5%BC%80%E5%8F%91%E8%A7%84%E8%8C%83/index.html">
+<meta property="og:site_name" content="ourdreams">
+<meta property="og:description" content="Hexo Theme Redefine, Redefine Your Hexo Journey.">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/images/redefine-og.webp">
+<meta property="article:published_time" content="2025-03-12T14:07:05.000Z">
+<meta property="article:modified_time" content="2025-03-27T08:15:48.321Z">
+<meta property="article:author" content="不易">
+<meta property="article:tag" content="设计架构">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/images/redefine-og.webp">
+    
+    
+    <!--- Icon Part-->
+    <link rel="icon" type="image/png" href="/images/redefine-favicon.svg" sizes="192x192">
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/redefine-favicon.svg">
+    <meta name="theme-color" content="#A31F34">
+    <link rel="shortcut icon" href="/images/redefine-favicon.svg">
+    <!--- Page Info-->
+    
+    <title>
+        
+            Web开发规范 | ourdreams
+        
+    </title>
+
+    <link rel="stylesheet" href="https://evan.beee.top/projects/hexo-theme-redefine@2.8.2/source/fonts/Chillax/chillax.css">
+
+    <!--- Inject Part-->
+    
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    
+        <link rel="stylesheet" href="https://evan.beee.top/projects/hexo-theme-redefine@2.8.2/source/css/build/tailwind.css">
+    
+
+    <link rel="stylesheet" href="https://evan.beee.top/projects/hexo-theme-redefine@2.8.2/source/fonts/GeistMono/geist-mono.css">
+    <link rel="stylesheet" href="https://evan.beee.top/projects/hexo-theme-redefine@2.8.2/source/fonts/Geist/geist.css">
+    <!--- Font Part-->
+    
+    
+    
+    
+    
+    
+
+    <script id="hexo-configurations">
+    window.config = {"hostname":"example.com","root":"/","language":"zh-CN","path":"search.xml"};
+    window.theme = {"articles":{"style":{"font_size":"16px","line_height":1.5,"image_border_radius":"14px","image_alignment":"center","image_caption":false,"link_icon":true,"delete_mask":false,"title_alignment":"left","headings_top_spacing":{"h1":"3.2rem","h2":"2.4rem","h3":"1.9rem","h4":"1.6rem","h5":"1.4rem","h6":"1.3rem"}},"word_count":{"enable":true,"count":true,"min2read":true},"author_label":{"enable":true,"auto":false,"list":["不全的全栈"]},"code_block":{"copy":true,"style":"mac","highlight_theme":{"light":"github","dark":"vs2015"},"font":{"enable":false,"family":null,"url":null}},"toc":{"enable":true,"max_depth":3,"number":false,"expand":true,"init_open":true},"copyright":{"enable":true,"default":"cc_by_nc_sa"},"lazyload":true,"pangu_js":false,"recommendation":{"enable":false,"title":"推荐阅读","limit":3,"mobile_limit":2,"placeholder":"/images/wallhaven-wqery6-light.webp","skip_dirs":[]}},"colors":{"primary":"#A31F34","secondary":null,"default_mode":"light"},"global":{"fonts":{"chinese":{"enable":false,"family":null,"url":null},"english":{"enable":false,"family":null,"url":null},"title":{"enable":false,"family":null,"url":null}},"content_max_width":"1000px","sidebar_width":"210px","hover":{"shadow":true,"scale":false},"scroll_progress":{"bar":false,"percentage":true},"website_counter":{"url":"https://cn.vercount.one/js","enable":false,"site_pv":true,"site_uv":true,"post_pv":true},"single_page":true,"preloader":{"enable":false,"custom_message":null},"open_graph":{"enable":true,"image":"/images/redefine-og.webp","description":"Hexo Theme Redefine, Redefine Your Hexo Journey."},"google_analytics":{"enable":false,"id":null}},"home_banner":{"enable":true,"style":"fixed","image":{"light":"/images/wallhaven-wqery6-light.webp","dark":"/images/wallhaven-wqery6-dark.webp"},"title":"Easy to know, easy to be ignorant","subtitle":{"text":["Easier said than done."],"hitokoto":{"enable":false,"show_author":false,"api":"https://v1.hitokoto.cn"},"typing_speed":100,"backing_speed":80,"starting_delay":500,"backing_delay":1500,"loop":false,"smart_backspace":false},"text_color":{"light":"#fff","dark":"#d1d1b6"},"text_style":{"title_size":"2.8rem","subtitle_size":"1.5rem","line_height":1.2},"custom_font":{"enable":false,"family":null,"url":null},"social_links":{"enable":false,"style":"default","links":{"github":null,"instagram":null,"zhihu":null,"twitter":null,"email":null},"qrs":{"weixin":null}}},"plugins":{"feed":{"enable":false},"aplayer":{"enable":false,"type":"fixed","audios":[{"name":null,"artist":null,"url":null,"cover":null,"lrc":null}]},"mermaid":{"enable":false,"version":"11.4.1"}},"version":"2.8.2","navbar":{"auto_hide":false,"color":{"left":"#f78736","right":"#367df7","transparency":35},"width":{"home":"1200px","pages":"1000px"},"links":{"Home":{"path":"/","icon":"fa-regular fa-house"}},"search":{"enable":true,"preload":true}},"page_templates":{"friends_column":2,"tags_style":"blur"},"home":{"sidebar":{"enable":true,"position":"left","first_item":"menu","announcement":null,"show_on_mobile":true,"links":null},"article_date_format":"auto","excerpt_length":200,"categories":{"enable":true,"limit":3},"tags":{"enable":true,"limit":3}},"footerStart":"2025/3/12 11:45:14"};
+    window.lang_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 个月前","year":"%s 年前"};
+    window.data = {"masonry":false};
+  </script>
+    
+    <!--- Fontawesome Part-->
+    <link rel="stylesheet" href="https://evan.beee.top/projects/hexo-theme-redefine@2.8.2/source/fontawesome/fontawesome.min.css">
+    <link rel="stylesheet" href="https://evan.beee.top/projects/hexo-theme-redefine@2.8.2/source/fontawesome/brands.min.css">
+    <link rel="stylesheet" href="https://evan.beee.top/projects/hexo-theme-redefine@2.8.2/source/fontawesome/solid.min.css">
+    <link rel="stylesheet" href="https://evan.beee.top/projects/hexo-theme-redefine@2.8.2/source/fontawesome/regular.min.css">
+    
+    
+    
+    
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+
+<body>
+	<div class="progress-bar-container">
+	
+
+	
+	<span class="pjax-progress-bar"></span>
+	<!--        <span class="swup-progress-icon">-->
+	<!--            <i class="fa-solid fa-circle-notch fa-spin"></i>-->
+	<!--        </span>-->
+	
+</div>
+
+<main class="page-container" id="swup">
+
+	
+
+	<div class="main-content-container flex flex-col justify-between min-h-dvh">
+		<div class="main-content-header">
+			<header class="navbar-container px-6 md:px-12">
+    <div class="navbar-content transition-navbar ">
+        <div class="left">
+            
+            <a class="logo-title" href="/">
+                
+                ourdreams
+                
+            </a>
+        </div>
+
+        <div class="right">
+            <!-- PC -->
+            <div class="desktop">
+                <ul class="navbar-list">
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class=""
+                                   href="/"
+                                        >
+                                    <i class="fa-regular fa-house fa-fw"></i>
+                                    首页
+                                    
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                    
+                        <li class="navbar-item search search-popup-trigger">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <!-- Mobile -->
+            <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fa-solid fa-magnifying-glass"></i>
+                    </div>
+                
+                <div class="icon-item navbar-bar">
+                    <div class="navbar-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mobile sheet -->
+    <div class="navbar-drawer h-dvh w-full absolute top-0 left-0 bg-background-color flex flex-col justify-between">
+        <ul class="drawer-navbar-list flex flex-col px-4 justify-center items-start">
+            
+                
+                    
+
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                           href="/"
+                        >
+                            <span>
+                                首页
+                            </span>
+                            
+                                <i class="fa-regular fa-house fa-sm fa-fw"></i>
+                            
+                        </a>
+                        
+
+                        
+                    </li>
+            
+
+            
+            
+        </ul>
+
+        <div class="statistics flex justify-around my-2.5">
+    <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/tags">
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">28</div>
+        <div class="label text-third-text-color text-sm">标签</div>
+    </a>
+    <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/categories">
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">9</div>
+        <div class="label text-third-text-color text-sm">分类</div>
+    </a>
+    <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/archives">
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">46</div>
+        <div class="label text-third-text-color text-sm">文章</div>
+    </a>
+</div>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+		</div>
+
+		<div class="main-content-body transition-fade-up">
+			
+
+			<div class="main-content">
+				<div class="post-page-container flex relative justify-between box-border w-full h-full">
+	<div class="article-content-container">
+
+		<div class="article-title relative w-full">
+			
+			<div class="w-full flex items-center pt-6 justify-start">
+				<h1 class="article-title-regular text-second-text-color tracking-tight text-4xl md:text-6xl font-semibold px-2 sm:px-6 md:px-8 py-3">Web开发规范</h1>
+			</div>
+			
+		</div>
+
+		
+		<div class="article-header flex flex-row gap-2 items-center px-2 sm:px-6 md:px-8">
+			<div class="avatar w-[46px] h-[46px] flex-shrink-0 rounded-medium border border-border-color p-[1px]">
+				<img src="/images/redefine-avatar.jpg">
+			</div>
+			<div class="info flex flex-col justify-between">
+				<div class="author flex items-center">
+					<span class="name text-default-text-color text-lg font-semibold">不易</span>
+					
+					<span class="author-label ml-1.5 text-xs px-2 py-0.5 rounded-small text-third-text-color border border-shadow-color-1">不全的全栈</span>
+					
+				</div>
+				<div class="meta-info">
+					<div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fa-regular fa-pen-fancy"></i>&nbsp;
+        <span class="desktop">2025-03-12 22:07:05</span>
+        <span class="mobile">2025-03-12 22:07:05</span>
+        <span class="hover-info">创建</span>
+    </span>
+    
+        <span class="article-date article-meta-item">
+            <i class="fa-regular fa-wrench"></i>&nbsp;
+            <span class="desktop">2025-03-27 16:15:48</span>
+            <span class="mobile">2025-03-27 16:15:48</span>
+            <span class="hover-info">更新</span>
+        </span>
+    
+
+    
+        <span class="article-categories article-meta-item">
+            <i class="fa-regular fa-folders"></i>&nbsp;
+            <ul>
+                
+                
+                    
+                        
+                        <li>
+                            <a href="/categories/%E8%BD%AF%E4%BB%B6%E5%9F%BA%E7%A1%80/">软件基础</a>&nbsp;
+                        </li>
+                    
+                    
+                
+            </ul>
+        </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fa-regular fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/%E8%AE%BE%E8%AE%A1%E6%9E%B6%E6%9E%84/">设计架构</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+    
+    
+</div>
+
+				</div>
+			</div>
+		</div>
+		
+
+		
+
+
+		<div class="article-content markdown-body px-2 sm:px-6 md:px-8 pb-8">
+			<h2 id="制定并遵循服从标准、规范和最佳实践"><a href="#制定并遵循服从标准、规范和最佳实践" class="headerlink" title="制定并遵循服从标准、规范和最佳实践"></a>制定并遵循服从标准、规范和最佳实践</h2><p>为什么你要服从标准？</p>
+<blockquote>
+<p>只有服从了标准，你的架构才能够有更好的扩展性</p>
+</blockquote>
+<p><strong>概论</strong></p>
+<ul>
+<li><strong>服务间调用的协议标准和规范</strong><br>这其中包括 Restful API路径, HTTP 方法、状态码、标准头、自定义头等，返回数据 JSon Scheme……等</li>
+<li><strong>一些命名的标准和规范</strong><br>这其中包括如：用户 ID，服务名、标签名、状态名、错误码、消息、数据库……等</li>
+<li><strong>日志和监控的规范</strong><br>这其中包括：日志格式，监控数据，采样要求，报警……等</li>
+<li><strong>配置上的规范</strong><br>这其中包括：操作系统配置、中间件配置，软件包……等</li>
+<li><strong>中间件使用的规范</strong><br>数据库，缓存、消息队列……等等</li>
+<li><strong>软件和开发库版本统一</strong><br>整个组织架构内，软件或开发库的版本最好每年都升一次级，然后在各团队内统一</li>
+</ul>
+<h3 id="HTTP-调用的状态返回码"><a href="#HTTP-调用的状态返回码" class="headerlink" title="HTTP 调用的状态返回码"></a>HTTP 调用的状态返回码</h3><p>业内标准：</p>
+<ul>
+<li>200表示成功</li>
+<li>3xx 跳转</li>
+<li>4xx 表示调用端出错</li>
+<li>5xx 表示服务端出错</li>
+</ul>
+<p>错误做法：</p>
+<p>无论成功和失败都返回 200，然后在 body 里指出是否error</p>
+<p>劣处：</p>
+<blockquote>
+<p>监控系统将在一种低效的状态下工作。</p>
+<p>监控系统需要把所有的网络请求包打开后才知道是否是错误，而且完全不知道是调用端出错还是服务端出错，于是一些像重试或熔断这样的控制系统完全不知道怎么搞（如果是 4xx错，那么重试或熔断是没有意义的，只有 5xx 才有意义）</p>
+</blockquote>
+<h3 id="Restful-API-规范"><a href="#Restful-API-规范" class="headerlink" title="Restful API 规范"></a>Restful API 规范</h3><h4 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h4><table>
+<thead>
+<tr>
+<th>方法</th>
+<th>描述</th>
+<th>幂等</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>GET</td>
+<td>用于查询操作，对应于数据库的 <code>select</code> 操作</td>
+<td>✔</td>
+</tr>
+<tr>
+<td>PUT</td>
+<td>用于所有的信息更新，对应于数据库的 <code>update </code>操作</td>
+<td>✔</td>
+</tr>
+<tr>
+<td>DELETE</td>
+<td>用于更新操作，对应于数据库的 <code>delete</code> 操作</td>
+<td>✔</td>
+</tr>
+<tr>
+<td>POST</td>
+<td>用于新增操作，对应于数据库的 <code>insert</code> 操作</td>
+<td>❌</td>
+</tr>
+<tr>
+<td>HEAD</td>
+<td>用于返回一个资源对象的“元数据”，或是用于探测API是否健康</td>
+<td>✔</td>
+</tr>
+<tr>
+<td>PATCH</td>
+<td>局部信息更新，对应数据库<code>update</code>操作</td>
+<td>❌</td>
+</tr>
+<tr>
+<td>OPTIONS</td>
+<td>获取API相关信息</td>
+<td>✔</td>
+</tr>
+</tbody></table>
+<h5 id="PUT与PATCH？"><a href="#PUT与PATCH？" class="headerlink" title="PUT与PATCH？"></a>PUT与PATCH？</h5><p>都是更新业务资源信息，如果资源对象不存在则可以新建一个，但他们两者的区别是，<code>PUT</code> 用于更新一个业务对象的所有完整信息，就像是我们通过表单提交所有的数据，而 <code>PACTH</code> 则对更为API化的数据更新操作，只需要更需要更新的字段（参看 <a class="link"   target="_blank" rel="noopener" href="https://tools.ietf.org/html/rfc5789" >RFC 5789<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a> ）</p>
+<h5 id="严格地按照数据库操作的CRUD来理解API？"><a href="#严格地按照数据库操作的CRUD来理解API？" class="headerlink" title="严格地按照数据库操作的CRUD来理解API？"></a>严格地按照数据库操作的CRUD来理解API？</h5><p>不是。</p>
+<p>假设你有一个登录的API <code>/login</code> 你觉得这个API应该是 <code>GET</code> ，<code>POST</code>，<code>PUT</code> 还是 <code>PATCH</code> ?登录的时候用户需要输入用户名和密码，然后跟数据库里的对比（select操作）后反回一个登录的session token，然后这个token作为用户登录的状态令牌。如果按上面表格来说，应该是 select 操作进行 <code>GET</code> ，但是从语义上来说，登录并不是查询信息，应该是用户状态的更新或是新增操作（新增session），所以还是应该使用 <code>POST</code>，而 <code>/logout</code> 你可以使用 <code>DELETE</code> 。<strong>这里想说明一下，不要机械地通过数据库的CRUD来对应这些动词，很多时候，还是要分析一下业务语义。</strong></p>
+<h5 id="幂等控制？"><a href="#幂等控制？" class="headerlink" title="幂等控制？"></a>幂等控制？</h5><p>**API的幂等对于控制逻辑来说是一件很重要的事。**所谓幂等，就是该API执行多次和执行一次的结果是完全一样的，没有副作用。</p>
+<ul>
+<li><code>POST</code> 用于新增加数据，比如，新增一个交易订单，这肯定不能是幂等的</li>
+<li><code>DELETE</code> 用于删除数据，一个数据删除多次和删除一次的结果是一样的，所以，是幂等的</li>
+<li><code>PUT</code> 用于全部数更新，所以，是幂等的。</li>
+<li><code>PATCH</code>用于局部更新，比如，更新某个字段 cnt &#x3D; cnt+1，明显不可能是幂等操作。</li>
+</ul>
+<p>幂等这个特性对于远程调用是一件非常关键的事，就是说，远程调用有很多时候会因为网络原因导致调用timeout，对于timeout的请求，我们是无法知道服务端是否已经是收到请求并执行了，此时，我们不能贸然重试请求，对于不是幂等的调用来说，这会是灾难性的。比如像转帐这样的业务逻辑，转一次和转多次结果是不一样的，如果重新的话有可能就会多转了一次。所以，这个时候，如果你的API遵从了HTTP动词的规范，那么你写起程序来就可以明白在哪些动词下可以重试，而在哪些动词下不能重试。如果你把所有的API都用POST来表达的话，就完全失控了。</p>
+<h5 id="复杂查询？"><a href="#复杂查询？" class="headerlink" title="复杂查询？"></a>复杂查询？</h5><p>一般来说，对于查询类的API，主要就是要完成四种操作：排序，过滤，搜索，分页。下面是一些相关的规范。参考于两个我觉得写的最好的Restful API的规范文档，<a class="link"   target="_blank" rel="noopener" href="https://github.com/microsoft/api-guidelines/blob/vNext/Guidelines.md" >Microsoft REST API Guidelines<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a>，<a class="link"   target="_blank" rel="noopener" href="https://github.com/paypal/api-standards/blob/master/api-style-guide.md" >Paypal API Design Guidelines<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a>。</p>
+<ul>
+<li><strong>排序</strong>。对于结果集的排序，使用 <code>sort</code> 关键字，以及 <code>&#123;field_name&#125;|&#123;asc|desc&#125;,&#123;field_name&#125;|&#123;asc|desc&#125;</code> 的相关语法。比如，某API需要返回公司的列表，并按照某些字段排序，如：<code>GET /admin/companies?sort=rank|asc</code> 或是 <code>GET /admin/companies?sort=rank|asc,zip_code|desc</code></li>
+<li><strong>过滤</strong>。对于结果集的过滤，使用 <code>filter</code> 关键字，以及 <code>&#123;field_name&#125; op&#123;value&#125;</code> 的语法。比如： <code>GET /companies?category=banking&amp;location=china</code> 。但是，有些时候，我们需要更为灵活的表达式，我们就需要在URL上构造我们的表达式。这里需要定义六个比较操作：<code>=</code>，<code>&lt;</code>，<code>&gt;</code>，<code>&lt;=</code>，<code>&gt;=</code>，以及三个逻辑操作：<code>and</code>，<code>or</code>，<code>not</code>。（表达式中的一些特殊字符需要做一定的转义，比如：<code>&gt;=</code> 转成 <code>ge</code>）于是，我们就会有如下的查询表达式：<code>GET /products?$filter=name eq &#39;Milk&#39; and price lt 2.55</code> 查找所有的价柗小于2.55的牛奶。</li>
+<li><strong>搜索</strong>。对于相关的搜索，使用 <code>search</code> 关键字，以及关键词。如：<code>GET /books/search?description=algorithm</code> 或是直接就是全文搜索 <code>GET /books/search?key=algorithm</code> 。</li>
+<li><strong>分页</strong>。对于结果集进行分页处理，分页必需是一个默认行为，这样不会产生大量的返回数据。<ul>
+<li>使用<code>page</code>和<code>per_page</code>代表页码和每页数据量，比如：<code>GET /books?page=3&amp;per_page=20</code>。</li>
+<li><strong>可选</strong>。上面提到的<code>page</code>方式为使用相对位置来获取数据，可能会存在两个问题：性能（大数据量）与数据偏差（高频更新）。此时可以使用绝对位置来获取数据：事先记录下当前已获取数据里最后一条数据的<code>ID</code>、<code>时间</code>等信息，以此获取 “<strong>该ID之前的数据</strong>” 或 “<strong>该时刻之前的数据</strong>”。示例：<code>GET /news?max_id=23454345&amp;per_page=20</code> 或 <code>GET /news?published_before=2011-01-01T00:00:00Z&amp;per_page=20</code>。</li>
+</ul>
+</li>
+</ul>
+<p>另外，对于一些更为复杂的操作，建议通过分别调用多个API的方式来完成，虽然这样会增加网络请求的次数，但是这样的可以让后端程序和数据耦合度更小，更容易成为微服务的架构。</p>
+<p>最后，如果你想在Rest中使用像GraphQL那样的查询语言，你可以考虑一下类似 <a class="link"   target="_blank" rel="noopener" href="https://www.odata.org/" >OData<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a> 的解决方案。OData 是 Open Data Protocol 的缩写，最初由 Microsoft 于 2007 年开发。它是一种开放协议，使您能够以简单和标准的方式创建和使用可查询和可互操作的 RESTful API。</p>
+<h5 id="“读”时的GET参数超长？"><a href="#“读”时的GET参数超长？" class="headerlink" title="“读”时的GET参数超长？"></a>“读”时的GET参数超长？</h5><p>正常场景下，参数超长对于整个系统应用而言是一种极端个例，你不应该为此付出过多的代价<br>此时较为合适的做法有：</p>
+<ul>
+<li>建立中间层存储查询条件，一次查询请求拆分两次请求，第一次POST去创建请求对象返回唯一标识，第二次GET利用此标识执行查询</li>
+<li>不必严格遵守CURD规范，此个例可以使用POST进行直接查询，其影响对于整个系统而言是“可控的”</li>
+</ul>
+<h4 id="问题-Q"><a href="#问题-Q" class="headerlink" title="问题&#x2F;Q"></a>问题&#x2F;Q</h4><ul>
+<li><p><strong>POST一把梭？</strong></p>
+<p>用POST干一切就像看到了来你家装修工人说，“老子干活就是用钉子钉一切，什么螺丝、螺栓、卡扣、插销……通通不用，钉枪一把梭，方便，快捷，安全，干完早回家……</p>
+</li>
+<li><p><strong>为什么要用不同的HTTP动词？</strong><br>编程世界通常来说有两种逻辑：“<strong>业务逻辑</strong>” 和 “<strong>控制逻辑</strong>”</p>
+<ul>
+<li><p><strong>业务逻辑</strong>。就是你实现业务需求的功能的代码，就是跟用户需求强相关的代码。比如，把用户提交的数据保存起来，查询用户的数据，完成一个订单交易，为用户退款……等等，这些是业务逻辑</p>
+</li>
+<li><p><strong>控制逻辑</strong>。就是我们用于控制程序运行的非功能性的代码。比如，用于控制程序循环的变量和条件，使用多线程或分布式的技术，使用HTTP&#x2F;TCP协议，使用什么样数据库，什么样的中间件……等等，这些跟用户需求完全没关系的东西。</p>
+</li>
+</ul>
+<p>网络协议也是一样的，一般来说，<strong>几乎所有的主流网络协议都有两个部分，一个是协议头，一个是协议体。协议头中是协议自己要用的数据，协议体才是用户的数据。所以，协议头主要是用于协议的控制逻辑，而协议体则是业务逻辑。</strong></p>
+<p>HTTP的动词（或是Method）是在协议头中，所以，其主要用于控制逻辑。</p>
+<p>使用合适的HTTP动词来完善控制逻辑，以增强程序的扩展性，你可能会有如下需求：</p>
+<ul>
+<li><strong>缓存</strong>。通过CDN或是网关对API进行缓存，很显然，我们要在查询<code>GET</code> 操作上建议缓存。</li>
+<li><strong>流控</strong>。你可以通过HTTP的动词进行更粒度的流控，比如：限制API的请用频率，在读操作上和写操作上应该是不一样的。</li>
+<li><strong>路由</strong>。比如：写请求路由到写服务上，读请求路由到读服务上。</li>
+<li><strong>权限</strong>。可以获得更细粒度的权限控制和审计。</li>
+<li><strong>监控</strong>。因为不同的方法的API的性能都不一样，所以，可以区分做性能分析。</li>
+<li><strong>压测</strong>。当你需要压力测试API时，如果没有动词的区分的话，我相信你的压力测试很难搞吧。</li>
+<li>……等等</li>
+</ul>
+</li>
+<li><h5 id="为什么API-要Restful，并符合规范？"><a href="#为什么API-要Restful，并符合规范？" class="headerlink" title="为什么API 要Restful，并符合规范？"></a>为什么API 要Restful，并符合规范？</h5><p>Restful API算是一个HTTP的规范和标准了，你要说是最佳实践也好，总之，它是一个全世界对HTTP API的一个共识。在这个共识上，你可以无成本地享受很多的技术红利，比如：CDN，API网关，服务治理，监控……等等。这些都是可以让你大幅度降低研发成本，避免踩坑的原因</p>
+</li>
+<li><h5 id="为什么“过早优化”不适用于API设计？"><a href="#为什么“过早优化”不适用于API设计？" class="headerlink" title="为什么“过早优化”不适用于API设计？"></a>为什么“过早优化”不适用于API设计？</h5><p>因为API是一种契约，一旦被使用上，就很难再变更了，就算你发行新的版本的API，你还要驱动各种调用方升级他们的调用方式。所以，接口设计就像数据库模式设计一下，一旦设计好了，未来再变更就比较难了。所以，还是要好好设计</p>
+</li>
+<li><h5 id="POST-更安全吗？"><a href="#POST-更安全吗？" class="headerlink" title="POST 更安全吗？"></a>POST 更安全吗？</h5><p>不会。<br>在 <strong>CSRF</strong>这个最常见的安全问题上，则完全就是针对 <code>POST</code> 的。 安全是一件很复杂的事，无论你用哪方法或动词都会不能代表你会更安全。</p>
+</li>
+<li><h5 id="全用-POST-可以节省时间减少沟通吗？"><a href="#全用-POST-可以节省时间减少沟通吗？" class="headerlink" title="全用 POST 可以节省时间减少沟通吗？"></a>全用 POST 可以节省时间减少沟通吗？</h5><p>不但不会，反而更糟糕。</p>
+<ul>
+<li>一种良好的编程风格，可以见名知意</li>
+<li>节约了团队沟通成本，节约了新人的学习成本，当你遵从了业内规范时就代表大多数人与你的项目是“合得来”的</li>
+<li>非规范开发的本身是技术债，在你需要增加控制逻辑时你的review成本将会极其高</li>
+</ul>
+</li>
+</ul>
+
+		</div>
+
+		
+		<div class="post-copyright-info w-full my-8 px-2 sm:px-6 md:px-8">
+			<div class="article-copyright-info-container">
+    <ul>
+        <li><strong>标题:</strong> Web开发规范</li>
+        <li><strong>作者:</strong> 不易</li>
+        <li><strong>创建于
+                :</strong> 2025-03-12 22:07:05</li>
+        
+            <li>
+                <strong>更新于
+                    :</strong> 2025-03-27 16:15:48
+            </li>
+        
+        <li>
+            <strong>链接:</strong> https://github.com/ourdreams0722/2025/03/12/WEB开发规范/
+        </li>
+        <li>
+            <strong>
+                版权声明:
+            </strong>
+            
+
+            
+                本文章采用 <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0">CC BY-NC-SA 4.0</a> 进行许可。
+            
+        </li>
+    </ul>
+</div>
+
+		</div>
+		
+
+		
+		<ul class="post-tags-box text-lg mt-1.5 flex-wrap justify-center flex md:hidden">
+			
+			<li class="tag-item mx-0.5">
+				<a href="/tags/%E8%AE%BE%E8%AE%A1%E6%9E%B6%E6%9E%84/">#设计架构</a>&nbsp;
+			</li>
+			
+		</ul>
+		
+
+		
+
+		
+		<div class="article-nav my-8 flex justify-between items-center px-2 sm:px-6 md:px-8">
+			
+			<div class="article-prev border-border-color shadow-redefine-flat shadow-shadow-color-2 rounded-medium px-4 py-2 hover:shadow-redefine-flat-hover hover:shadow-shadow-color-2">
+				<a class="prev" rel="prev" href="/2025/03/12/VUE%E5%8A%A8%E6%80%81%E8%B7%AF%E7%94%B1%E4%B8%8E%E6%A0%91%E5%BD%A2%E8%8F%9C%E5%8D%95/">
+					<span class="left arrow-icon flex justify-center items-center">
+						<i class="fa-solid fa-chevron-left"></i>
+					</span>
+					<span class="title flex justify-center items-center">
+						<span class="post-nav-title-item">Vue2动态路由与树形菜单的简单实现</span>
+						<span class="post-nav-item">上一篇</span>
+					</span>
+				</a>
+			</div>
+			
+			
+			<div class="article-next border-border-color shadow-redefine-flat shadow-shadow-color-2 rounded-medium px-4 py-2 hover:shadow-redefine-flat-hover hover:shadow-shadow-color-2">
+				<a class="next" rel="next" href="/2025/03/12/vue-element-admin%E7%9A%84%E6%A0%87%E7%AD%BE%E9%A1%B5%E7%BC%93%E5%AD%98/">
+					<span class="title flex justify-center items-center">
+						<span class="post-nav-title-item">基于ElementUI的标签页缓存</span>
+						<span class="post-nav-item">下一篇</span>
+					</span>
+					<span class="right arrow-icon flex justify-center items-center">
+						<i class="fa-solid fa-chevron-right"></i>
+					</span>
+				</a>
+			</div>
+			
+		</div>
+		
+
+
+		
+		<div class="comment-container px-2 sm:px-6 md:px-8 pb-8">
+			<div class="comments-container mt-10 w-full ">
+    <div id="comment-anchor" class="w-full h-2.5"></div>
+    <div class="comment-area-title w-full my-1.5 md:my-2.5 text-xl md:text-3xl font-bold">
+        评论
+    </div>
+    
+
+        
+            
+    <div id="waline"></div>
+    <script type="module" data-swup-reload-script>
+      import { init } from '/js/libs/waline.mjs';
+
+      function loadWaline() {
+        init({
+          el: '#waline',
+          serverURL: 'https://example.example.com',
+          lang: 'zh-CN',
+          dark: 'body[class~="dark-mode"]',
+          reaction: false,
+          requiredMeta: ['nick', 'mail'],
+          emoji: [],
+          
+          
+        });
+      }
+
+      if (typeof swup !== 'undefined') {
+        loadWaline();
+      } else {
+        window.addEventListener('DOMContentLoaded', loadWaline);
+      }
+    </script>
+
+
+
+        
+    
+</div>
+
+		</div>
+		
+	</div>
+
+	
+	<div class="toc-content-container">
+		<div class="post-toc-wrap">
+	<div class="post-toc">
+		<div class="toc-title">目录</div>
+		<div class="page-title">Web开发规范</div>
+		<ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%B6%E5%AE%9A%E5%B9%B6%E9%81%B5%E5%BE%AA%E6%9C%8D%E4%BB%8E%E6%A0%87%E5%87%86%E3%80%81%E8%A7%84%E8%8C%83%E5%92%8C%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5"><span class="nav-text">制定并遵循服从标准、规范和最佳实践</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#HTTP-%E8%B0%83%E7%94%A8%E7%9A%84%E7%8A%B6%E6%80%81%E8%BF%94%E5%9B%9E%E7%A0%81"><span class="nav-text">HTTP 调用的状态返回码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Restful-API-%E8%A7%84%E8%8C%83"><span class="nav-text">Restful API 规范</span></a></li></ol></li></ol>
+
+	</div>
+</div>
+	</div>
+	
+</div>
+			</div>
+
+			
+		</div>
+
+		<div class="main-content-footer">
+			<footer class="footer mt-5 py-5 h-auto text-base text-third-text-color relative border-t-2 border-t-border-color">
+    <div class="info-container py-3 text-center">
+        
+        <div class="text-center">
+            &copy;
+            
+              <span>2025</span>
+              -
+            
+            2025<!--&nbsp;<i class="fa-solid fa-heart fa-beat" style="--fa-animation-duration: 0.5s; color: #f54545"></i>&nbsp;&nbsp;<a href="/">不易</a>-->
+            
+        </div>
+        
+        <!--<div class="relative text-center lg:absolute lg:left-[20px] lg:top-1/2 lg:-translate-y-1/2 lg:text-left">
+            <span class="lg:block text-sm">由 <?xml version="1.0" encoding="utf-8"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"><svg class="relative top-[2px] inline-block align-baseline" version="1.1" id="圖層_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="1rem" height="1rem" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve"><path fill="#0E83CD" d="M256.4,25.8l-200,115.5L56,371.5l199.6,114.7l200-115.5l0.4-230.2L256.4,25.8z M349,354.6l-18.4,10.7l-18.6-11V275H200v79.6l-18.4,10.7l-18.6-11v-197l18.5-10.6l18.5,10.8V237h112v-79.6l18.5-10.6l18.5,10.8V354.6z"/></svg><a target="_blank" class="text-base" href="https://hexo.io">Hexo</a> 驱动</span>
+            <span class="text-sm lg:block">主题&nbsp;<a class="text-base" target="_blank" href="https://github.com/EvanNotFound/hexo-theme-redefine">Redefine v2.8.2</a></span>
+        </div>-->
+        
+        
+            <div>
+                博客已运行 <span class="odometer" id="runtime_days" ></span> 天 <span class="odometer" id="runtime_hours"></span> 小时 <span class="odometer" id="runtime_minutes"></span> 分钟 <span class="odometer" id="runtime_seconds"></span> 秒
+            </div>
+        
+        
+            <script data-swup-reload-script>
+                try {
+                    function odometer_init() {
+                    const elements = document.querySelectorAll('.odometer');
+                    elements.forEach(el => {
+                        new Odometer({
+                            el,
+                            format: '( ddd).dd',
+                            duration: 200
+                        });
+                    });
+                    }
+                    odometer_init();
+                } catch (error) {}
+            </script>
+        
+        
+        
+    </div>  
+</footer>
+		</div>
+	</div>
+
+	
+	<div class="post-tools">
+		<div class="post-tools-container">
+	<ul class="article-tools-list">
+		<!-- TOC aside toggle -->
+		
+		<li class="right-bottom-tools page-aside-toggle">
+			<i class="fa-regular fa-outdent"></i>
+		</li>
+		
+
+		<!-- go comment -->
+		
+		<li class="go-comment">
+			<i class="fa-regular fa-comments"></i>
+		</li>
+		
+	</ul>
+</div>
+	</div>
+	
+
+	<div class="right-side-tools-container">
+		<div class="side-tools-container">
+	<ul class="hidden-tools-list">
+		<li class="right-bottom-tools tool-font-adjust-plus flex justify-center items-center">
+			<i class="fa-regular fa-magnifying-glass-plus"></i>
+		</li>
+
+		<li class="right-bottom-tools tool-font-adjust-minus flex justify-center items-center">
+			<i class="fa-regular fa-magnifying-glass-minus"></i>
+		</li>
+
+		<li class="right-bottom-tools tool-dark-light-toggle flex justify-center items-center">
+			<i class="fa-regular fa-moon"></i>
+		</li>
+
+		<!-- rss -->
+		
+
+		
+
+		<li class="right-bottom-tools tool-scroll-to-bottom flex justify-center items-center">
+			<i class="fa-regular fa-arrow-down"></i>
+		</li>
+	</ul>
+
+	<ul class="visible-tools-list">
+		<li class="right-bottom-tools toggle-tools-list flex justify-center items-center">
+			<i class="fa-regular fa-cog fa-spin"></i>
+		</li>
+		
+		<li class="right-bottom-tools tool-scroll-to-top flex justify-center items-center">
+			<i class="arrow-up fas fa-arrow-up"></i>
+			<span class="percent"></span>
+		</li>
+		
+		
+	</ul>
+</div>
+	</div>
+
+	<div class="image-viewer-container">
+	<img src="">
+</div>
+
+	
+	<div class="search-pop-overlay">
+	<div class="popup search-popup">
+		<div class="search-header">
+			<span class="search-input-field-pre">
+				<i class="fa-solid fa-keyboard"></i>
+			</span>
+			<div class="search-input-container">
+				<input autocomplete="off" autocorrect="off" autocapitalize="off" placeholder="站内搜索您需要的内容..." spellcheck="false" type="search" class="search-input">
+			</div>
+			<span class="popup-btn-close">
+				<i class="fa-solid fa-times"></i>
+			</span>
+		</div>
+		<div id="search-result">
+			<div id="no-result">
+				<i class="fa-solid fa-spinner fa-spin-pulse fa-5x fa-fw"></i>
+			</div>
+		</div>
+	</div>
+</div>
+	
+
+</main>
+
+
+<script  src="https://evan.beee.top/projects/hexo-theme-redefine@2.8.2/source/js/build/libs/Swup.min.js" ></script><script  src="https://evan.beee.top/projects/hexo-theme-redefine@2.8.2/source/js/build/libs/SwupSlideTheme.min.js" ></script><script  src="https://evan.beee.top/projects/hexo-theme-redefine@2.8.2/source/js/build/libs/SwupScriptsPlugin.min.js" ></script><script  src="https://evan.beee.top/projects/hexo-theme-redefine@2.8.2/source/js/build/libs/SwupProgressPlugin.min.js" ></script><script  src="https://evan.beee.top/projects/hexo-theme-redefine@2.8.2/source/js/build/libs/SwupScrollPlugin.min.js" ></script><script  src="https://evan.beee.top/projects/hexo-theme-redefine@2.8.2/source/js/build/libs/SwupPreloadPlugin.min.js" ></script>
+<script>
+    const swup = new Swup({
+        plugins: [
+            new SwupScriptsPlugin({
+                optin: true,
+            }),
+            new SwupProgressPlugin(),
+            new SwupScrollPlugin({
+                offset: 80,
+            }),
+            new SwupSlideTheme({
+                mainElement: ".main-content-body",
+            }),
+            new SwupPreloadPlugin(),
+        ],
+        containers: ["#swup"],
+    });
+</script>
+
+
+
+
+	<script type="module" src="https://evan.beee.top/projects/hexo-theme-redefine@2.8.2/source/js/build/tools/imageViewer.js" ></script><script type="module" src="https://evan.beee.top/projects/hexo-theme-redefine@2.8.2/source/js/build/utils.js" ></script><script type="module" src="https://evan.beee.top/projects/hexo-theme-redefine@2.8.2/source/js/build/main.js" ></script><script type="module" src="https://evan.beee.top/projects/hexo-theme-redefine@2.8.2/source/js/build/layouts/navbarShrink.js" ></script><script type="module" src="https://evan.beee.top/projects/hexo-theme-redefine@2.8.2/source/js/build/tools/scrollTopBottom.js" ></script><script type="module" src="https://evan.beee.top/projects/hexo-theme-redefine@2.8.2/source/js/build/tools/lightDarkSwitch.js" ></script><script type="module" src="https://evan.beee.top/projects/hexo-theme-redefine@2.8.2/source/js/build/layouts/categoryList.js" ></script>
+
+
+    <script type="module" src="https://evan.beee.top/projects/hexo-theme-redefine@2.8.2/source/js/build/tools/localSearch.js" ></script>
+
+
+
+    <script type="module" src="https://evan.beee.top/projects/hexo-theme-redefine@2.8.2/source/js/build/tools/codeBlock.js" ></script>
+
+
+
+    <script type="module" src="https://evan.beee.top/projects/hexo-theme-redefine@2.8.2/source/js/build/layouts/lazyload.js" ></script>
+
+
+
+    <script  src="https://evan.beee.top/projects/hexo-theme-redefine@2.8.2/source/js/build/tools/runtime.js" ></script>
+    <script  src="https://evan.beee.top/projects/hexo-theme-redefine@2.8.2/source/js/build/libs/odometer.min.js" ></script>
+    <link rel="stylesheet" href="https://evan.beee.top/projects/hexo-theme-redefine@2.8.2/source/assets/odometer-theme-minimal.css">
+
+
+
+  <script  src="https://evan.beee.top/projects/hexo-theme-redefine@2.8.2/source/js/build/libs/Typed.min.js" ></script>
+  <script type="module" src="https://evan.beee.top/projects/hexo-theme-redefine@2.8.2/source/js/build/plugins/typed.js" ></script>
+
+
+
+
+
+
+
+    <script  src="https://evan.beee.top/projects/hexo-theme-redefine@2.8.2/source/js/build/libs/anime.min.js" ></script>
+
+
+
+
+    <script type="module" src="https://evan.beee.top/projects/hexo-theme-redefine@2.8.2/source/js/build/tools/tocToggle.js" data-swup-reload-script></script><script type="module" src="https://evan.beee.top/projects/hexo-theme-redefine@2.8.2/source/js/build/layouts/toc.js" data-swup-reload-script></script><script type="module" src="https://evan.beee.top/projects/hexo-theme-redefine@2.8.2/source/js/build/plugins/tabs.js" data-swup-reload-script></script>
+
+
+<script  src="https://evan.beee.top/projects/hexo-theme-redefine@2.8.2/source/js/build/libs/moment-with-locales.min.js" data-swup-reload-script></script>
+<script type="module" src="https://evan.beee.top/projects/hexo-theme-redefine@2.8.2/source/js/build/layouts/essays.js" data-swup-reload-script></script>
+
+
+
+
+	
+</body>
+
+</html>

@@ -1,0 +1,910 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords" content="Hexo Theme Redefine">
+    
+    <meta name="author" content="不易">
+    <!-- preconnect -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    
+        
+        
+        
+            <link rel="preconnect" href="https://evan.beee.top" crossorigin>
+        
+    
+    <!--- Seo Part-->
+    
+    <link rel="canonical" href="http://example.com/2025/03/12/centos php服务器基础环境部署/"/>
+    <meta name="robots" content="index,follow">
+    <meta name="googlebot" content="index,follow">
+    <meta name="revisit-after" content="1 days">
+    
+    
+    
+        
+        <meta name="description" content="Hexo Theme Redefine, Redefine Your Hexo Journey.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Centos下PHP单体基础服务部署">
+<meta property="og:url" content="http://example.com/2025/03/12/centos%20PHP%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%9F%BA%E7%A1%80%E7%8E%AF%E5%A2%83%E9%83%A8%E7%BD%B2/index.html">
+<meta property="og:site_name" content="ourdreams">
+<meta property="og:description" content="Hexo Theme Redefine, Redefine Your Hexo Journey.">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/images/redefine-og.webp">
+<meta property="article:published_time" content="2025-03-12T14:07:05.000Z">
+<meta property="article:modified_time" content="2025-03-27T07:53:41.714Z">
+<meta property="article:author" content="不易">
+<meta property="article:tag" content="运维">
+<meta property="article:tag" content="Linux">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/images/redefine-og.webp">
+    
+    
+    <!--- Icon Part-->
+    <link rel="icon" type="image/png" href="/images/redefine-favicon.svg" sizes="192x192">
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/redefine-favicon.svg">
+    <meta name="theme-color" content="#A31F34">
+    <link rel="shortcut icon" href="/images/redefine-favicon.svg">
+    <!--- Page Info-->
+    
+    <title>
+        
+            Centos下PHP单体基础服务部署 | ourdreams
+        
+    </title>
+
+    <link rel="stylesheet" href="https://evan.beee.top/projects/hexo-theme-redefine@2.8.2/source/fonts/Chillax/chillax.css">
+
+    <!--- Inject Part-->
+    
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    
+        <link rel="stylesheet" href="https://evan.beee.top/projects/hexo-theme-redefine@2.8.2/source/css/build/tailwind.css">
+    
+
+    <link rel="stylesheet" href="https://evan.beee.top/projects/hexo-theme-redefine@2.8.2/source/fonts/GeistMono/geist-mono.css">
+    <link rel="stylesheet" href="https://evan.beee.top/projects/hexo-theme-redefine@2.8.2/source/fonts/Geist/geist.css">
+    <!--- Font Part-->
+    
+    
+    
+    
+    
+    
+
+    <script id="hexo-configurations">
+    window.config = {"hostname":"example.com","root":"/","language":"zh-CN","path":"search.xml"};
+    window.theme = {"articles":{"style":{"font_size":"16px","line_height":1.5,"image_border_radius":"14px","image_alignment":"center","image_caption":false,"link_icon":true,"delete_mask":false,"title_alignment":"left","headings_top_spacing":{"h1":"3.2rem","h2":"2.4rem","h3":"1.9rem","h4":"1.6rem","h5":"1.4rem","h6":"1.3rem"}},"word_count":{"enable":true,"count":true,"min2read":true},"author_label":{"enable":true,"auto":false,"list":["不全的全栈"]},"code_block":{"copy":true,"style":"mac","highlight_theme":{"light":"github","dark":"vs2015"},"font":{"enable":false,"family":null,"url":null}},"toc":{"enable":true,"max_depth":3,"number":false,"expand":true,"init_open":true},"copyright":{"enable":true,"default":"cc_by_nc_sa"},"lazyload":true,"pangu_js":false,"recommendation":{"enable":false,"title":"推荐阅读","limit":3,"mobile_limit":2,"placeholder":"/images/wallhaven-wqery6-light.webp","skip_dirs":[]}},"colors":{"primary":"#A31F34","secondary":null,"default_mode":"light"},"global":{"fonts":{"chinese":{"enable":false,"family":null,"url":null},"english":{"enable":false,"family":null,"url":null},"title":{"enable":false,"family":null,"url":null}},"content_max_width":"1000px","sidebar_width":"210px","hover":{"shadow":true,"scale":false},"scroll_progress":{"bar":false,"percentage":true},"website_counter":{"url":"https://cn.vercount.one/js","enable":false,"site_pv":true,"site_uv":true,"post_pv":true},"single_page":true,"preloader":{"enable":false,"custom_message":null},"open_graph":{"enable":true,"image":"/images/redefine-og.webp","description":"Hexo Theme Redefine, Redefine Your Hexo Journey."},"google_analytics":{"enable":false,"id":null}},"home_banner":{"enable":true,"style":"fixed","image":{"light":"/images/wallhaven-wqery6-light.webp","dark":"/images/wallhaven-wqery6-dark.webp"},"title":"Easy to know, easy to be ignorant","subtitle":{"text":["Easier said than done."],"hitokoto":{"enable":false,"show_author":false,"api":"https://v1.hitokoto.cn"},"typing_speed":100,"backing_speed":80,"starting_delay":500,"backing_delay":1500,"loop":false,"smart_backspace":false},"text_color":{"light":"#fff","dark":"#d1d1b6"},"text_style":{"title_size":"2.8rem","subtitle_size":"1.5rem","line_height":1.2},"custom_font":{"enable":false,"family":null,"url":null},"social_links":{"enable":false,"style":"default","links":{"github":null,"instagram":null,"zhihu":null,"twitter":null,"email":null},"qrs":{"weixin":null}}},"plugins":{"feed":{"enable":false},"aplayer":{"enable":false,"type":"fixed","audios":[{"name":null,"artist":null,"url":null,"cover":null,"lrc":null}]},"mermaid":{"enable":false,"version":"11.4.1"}},"version":"2.8.2","navbar":{"auto_hide":false,"color":{"left":"#f78736","right":"#367df7","transparency":35},"width":{"home":"1200px","pages":"1000px"},"links":{"Home":{"path":"/","icon":"fa-regular fa-house"}},"search":{"enable":true,"preload":true}},"page_templates":{"friends_column":2,"tags_style":"blur"},"home":{"sidebar":{"enable":true,"position":"left","first_item":"menu","announcement":null,"show_on_mobile":true,"links":null},"article_date_format":"auto","excerpt_length":200,"categories":{"enable":true,"limit":3},"tags":{"enable":true,"limit":3}},"footerStart":"2025/3/12 11:45:14"};
+    window.lang_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 个月前","year":"%s 年前"};
+    window.data = {"masonry":false};
+  </script>
+    
+    <!--- Fontawesome Part-->
+    <link rel="stylesheet" href="https://evan.beee.top/projects/hexo-theme-redefine@2.8.2/source/fontawesome/fontawesome.min.css">
+    <link rel="stylesheet" href="https://evan.beee.top/projects/hexo-theme-redefine@2.8.2/source/fontawesome/brands.min.css">
+    <link rel="stylesheet" href="https://evan.beee.top/projects/hexo-theme-redefine@2.8.2/source/fontawesome/solid.min.css">
+    <link rel="stylesheet" href="https://evan.beee.top/projects/hexo-theme-redefine@2.8.2/source/fontawesome/regular.min.css">
+    
+    
+    
+    
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+
+<body>
+	<div class="progress-bar-container">
+	
+
+	
+	<span class="pjax-progress-bar"></span>
+	<!--        <span class="swup-progress-icon">-->
+	<!--            <i class="fa-solid fa-circle-notch fa-spin"></i>-->
+	<!--        </span>-->
+	
+</div>
+
+<main class="page-container" id="swup">
+
+	
+
+	<div class="main-content-container flex flex-col justify-between min-h-dvh">
+		<div class="main-content-header">
+			<header class="navbar-container px-6 md:px-12">
+    <div class="navbar-content transition-navbar ">
+        <div class="left">
+            
+            <a class="logo-title" href="/">
+                
+                ourdreams
+                
+            </a>
+        </div>
+
+        <div class="right">
+            <!-- PC -->
+            <div class="desktop">
+                <ul class="navbar-list">
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class=""
+                                   href="/"
+                                        >
+                                    <i class="fa-regular fa-house fa-fw"></i>
+                                    首页
+                                    
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                    
+                        <li class="navbar-item search search-popup-trigger">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <!-- Mobile -->
+            <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fa-solid fa-magnifying-glass"></i>
+                    </div>
+                
+                <div class="icon-item navbar-bar">
+                    <div class="navbar-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mobile sheet -->
+    <div class="navbar-drawer h-dvh w-full absolute top-0 left-0 bg-background-color flex flex-col justify-between">
+        <ul class="drawer-navbar-list flex flex-col px-4 justify-center items-start">
+            
+                
+                    
+
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                           href="/"
+                        >
+                            <span>
+                                首页
+                            </span>
+                            
+                                <i class="fa-regular fa-house fa-sm fa-fw"></i>
+                            
+                        </a>
+                        
+
+                        
+                    </li>
+            
+
+            
+            
+        </ul>
+
+        <div class="statistics flex justify-around my-2.5">
+    <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/tags">
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">28</div>
+        <div class="label text-third-text-color text-sm">标签</div>
+    </a>
+    <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/categories">
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">9</div>
+        <div class="label text-third-text-color text-sm">分类</div>
+    </a>
+    <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/archives">
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">46</div>
+        <div class="label text-third-text-color text-sm">文章</div>
+    </a>
+</div>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+		</div>
+
+		<div class="main-content-body transition-fade-up">
+			
+
+			<div class="main-content">
+				<div class="post-page-container flex relative justify-between box-border w-full h-full">
+	<div class="article-content-container">
+
+		<div class="article-title relative w-full">
+			
+			<div class="w-full flex items-center pt-6 justify-start">
+				<h1 class="article-title-regular text-second-text-color tracking-tight text-4xl md:text-6xl font-semibold px-2 sm:px-6 md:px-8 py-3">Centos下PHP单体基础服务部署</h1>
+			</div>
+			
+		</div>
+
+		
+		<div class="article-header flex flex-row gap-2 items-center px-2 sm:px-6 md:px-8">
+			<div class="avatar w-[46px] h-[46px] flex-shrink-0 rounded-medium border border-border-color p-[1px]">
+				<img src="/images/redefine-avatar.jpg">
+			</div>
+			<div class="info flex flex-col justify-between">
+				<div class="author flex items-center">
+					<span class="name text-default-text-color text-lg font-semibold">不易</span>
+					
+					<span class="author-label ml-1.5 text-xs px-2 py-0.5 rounded-small text-third-text-color border border-shadow-color-1">不全的全栈</span>
+					
+				</div>
+				<div class="meta-info">
+					<div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fa-regular fa-pen-fancy"></i>&nbsp;
+        <span class="desktop">2025-03-12 22:07:05</span>
+        <span class="mobile">2025-03-12 22:07:05</span>
+        <span class="hover-info">创建</span>
+    </span>
+    
+        <span class="article-date article-meta-item">
+            <i class="fa-regular fa-wrench"></i>&nbsp;
+            <span class="desktop">2025-03-27 15:53:41</span>
+            <span class="mobile">2025-03-27 15:53:41</span>
+            <span class="hover-info">更新</span>
+        </span>
+    
+
+    
+        <span class="article-categories article-meta-item">
+            <i class="fa-regular fa-folders"></i>&nbsp;
+            <ul>
+                
+                
+                    
+                        
+                        <li>
+                            <a href="/categories/%E8%BF%90%E7%BB%B4/">运维</a>&nbsp;
+                        </li>
+                    
+                    
+                
+            </ul>
+        </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fa-regular fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/%E8%BF%90%E7%BB%B4/">运维</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        | <a href="/tags/Linux/">Linux</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+    
+    
+</div>
+
+				</div>
+			</div>
+		</div>
+		
+
+		
+
+
+		<div class="article-content markdown-body px-2 sm:px-6 md:px-8 pb-8">
+			<h1 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h1><p>当前环境：centos7.2</p>
+<p>预安装：php7.4  apache2.4   certbot  mysql7</p>
+<h2 id="切换yum源"><a href="#切换yum源" class="headerlink" title="切换yum源"></a>切换yum源</h2><p>没有安装wget使用yum安装 </p>
+<div class="code-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install wget -y</span><br></pre></td></tr></table></figure></div>
+
+<p>切换源</p>
+<div class="code-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget -O /etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/Centos-7.repo</span><br></pre></td></tr></table></figure></div>
+
+<p>清除yum缓存</p>
+<div class="code-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum clean all</span><br></pre></td></tr></table></figure></div>
+
+<p>重新生成缓存</p>
+<div class="code-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum makecache</span><br></pre></td></tr></table></figure></div>
+
+<p>验证</p>
+<div class="code-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum repolist</span><br></pre></td></tr></table></figure></div>
+
+<h2 id="PHP7-4"><a href="#PHP7-4" class="headerlink" title="PHP7.4"></a>PHP7.4</h2><h3 id="下载安装编译工具"><a href="#下载安装编译工具" class="headerlink" title="下载安装编译工具"></a>下载安装编译工具</h3><div class="code-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum groupinstall &#x27;Development Tools&#x27;</span><br></pre></td></tr></table></figure></div>
+
+<h3 id="安装依赖"><a href="#安装依赖" class="headerlink" title="安装依赖"></a>安装依赖</h3><div class="code-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install libxml2 libxml2-devel openssl openssl-devel bzip2 bzip2-devel libcurl libcurl-devel libjpeg libjpeg-devel libpng libpng-devel freetype freetype-devel gmp gmp-devel libmcrypt libmcrypt-devel readline readline-devel libxslt libxslt-devel zlib zlib-devel glibc glibc-devel glib2 glib2-devel ncurses curl gdbm-devel db4-devel libXpm-devel libX11-devel gd-devel gmp-devel expat-devel xmlrpc-c xmlrpc-c-devel libicu-devel libmcrypt-devel libmemcached-devel</span><br></pre></td></tr></table></figure></div>
+
+<h4 id="报错："><a href="#报错：" class="headerlink" title="报错："></a>报错：</h4><div class="code-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Protected multilib versions: zlib-1.2.7-17.el7.x86_64 != zlib-1.2.7-15.el7.i686</span><br></pre></td></tr></table></figure></div>
+
+<p>重新安装依赖指定忽略多库</p>
+<div class="code-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install libxml2 libxml2-devel openssl openssl-devel bzip2 bzip2-devel libcurl libcurl-devel libjpeg libjpeg-devel libpng libpng-devel freetype freetype-devel gmp gmp-devel libmcrypt libmcrypt-devel readline readline-devel libxslt libxslt-devel zlib zlib-devel glibc glibc-devel glib2 glib2-devel ncurses curl gdbm-devel db4-devel libXpm-devel libX11-devel gd-devel gmp-devel expat-devel xmlrpc-c xmlrpc-c-devel libicu-devel libmcrypt-devel libmemcached-devel --setopt=protected_multilib=false</span><br></pre></td></tr></table></figure></div>
+
+<h3 id="下载并解压php"><a href="#下载并解压php" class="headerlink" title="下载并解压php"></a>下载并解压php</h3><div class="code-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">wget http:``//php.net/distributions/php-7.4.0.tar.gz</span><br><span class="line">tar -zxvf php-7.4.0.tar.gz</span><br><span class="line">cd php-7.4.0</span><br></pre></td></tr></table></figure></div>
+
+<h3 id="编译与指定编译项"><a href="#编译与指定编译项" class="headerlink" title="编译与指定编译项"></a>编译与指定编译项</h3><p>注意其中的路径可自由设置</p>
+<p>其中工作组与用户不得为root权限，应建立一个专门服务于访客的工作组与用户,例如此处的www</p>
+<div class="code-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./configure --prefix=/var/developer/php/php --with-config-file-path=/var/developer/php --with-fpm-user=www --with-fpm-group=www --with-curl --with-freetype=dir --with-iconv-dir --with-kerberos --with-libdir=lib64 --with-mysqli --with-openssl --with-pdo-mysql --with-pdo-sqlite --with-pear --with-xmlrpc --with-xsl --with-zlib --with-bz2 --with-mhash --enable-fpm --enable-bcmath --enable-inline-optimization --enable-mbregex --enable-mbstring --enable-opcache --enable-pcntl --enable-shmop --enable-soap --enable-sockets --enable-sysvsem --enable-sysvshm --enable-xml --enable-fpm</span><br></pre></td></tr></table></figure></div>
+
+<h4 id="报错"><a href="#报错" class="headerlink" title="报错"></a>报错</h4><p>configure: error: Package requirements (libxml-2.0 &amp;gt;&#x3D; 2.7.6) were not met:No package &#039;libxml-2.0&#039; found</p>
+<p>libxml解决：</p>
+<div class="code-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install -y libxml2-devel</span><br></pre></td></tr></table></figure></div>
+
+
+
+<p>configure: error: Package requirements (krb5-gssapi krb5) were not met:</p>
+<p>krb5解决：</p>
+<div class="code-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum -y install krb5-devel</span><br></pre></td></tr></table></figure></div>
+
+
+
+<p>configure: error: libcrypto not found.</p>
+<p>openssl解决：</p>
+<div class="code-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">yum remove openssl-devel</span><br><span class="line">yum -y install openssl-devel</span><br></pre></td></tr></table></figure></div>
+
+
+
+<p>configure: error: Package requirements (sqlite3 &gt; 3.7.4) were not met: No package ‘sqlite3’ found </p>
+<p>sqlite3解决：</p>
+<div class="code-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install sqlite-devel</span><br></pre></td></tr></table></figure></div>
+
+
+
+<p>Please reinstall the BZip2 distribution</p>
+<p>bzip2解决：</p>
+<div class="code-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install bzip2 bzip2-devel</span><br></pre></td></tr></table></figure></div>
+
+
+
+<p> Package requirements (libcurl &gt;&#x3D; 7.15.5) were not met:</p>
+<p>No package ‘libcurl’ found</p>
+<p>libcurl解决：</p>
+<div class="code-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install libcurl-devel</span><br></pre></td></tr></table></figure></div>
+
+
+
+<p>configure: error: Package requirements (oniguruma) were not met: No package ‘oniguruma’ found</p>
+<p>oniguruma解决：</p>
+<div class="code-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install oniguruma oniguruma-devel</span><br></pre></td></tr></table></figure></div>
+
+
+
+<p>configure: error: Package requirements (libxslt &gt;&#x3D; 1.1.0) were not met:No package ‘libxslt’ found </p>
+<p>libxslt解决：</p>
+<div class="code-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install libxslt-devel</span><br></pre></td></tr></table></figure></div>
+
+
+
+<h3 id="执行编译"><a href="#执行编译" class="headerlink" title="执行编译"></a>执行编译</h3><div class="code-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">make &amp;&amp; make install</span><br></pre></td></tr></table></figure></div>
+
+<h3 id="查看版本"><a href="#查看版本" class="headerlink" title="查看版本"></a>查看版本</h3><div class="code-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/var/developer/php/php/bin/php -v</span><br></pre></td></tr></table></figure></div>
+
+<h3 id="配置环境变量"><a href="#配置环境变量" class="headerlink" title="配置环境变量"></a>配置环境变量</h3><div class="code-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/profile</span><br></pre></td></tr></table></figure></div>
+
+<p>​	添加至最后</p>
+<div class="code-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">PATH=$PATH:/usr/local/php/bin</span><br><span class="line">export PATH</span><br></pre></td></tr></table></figure></div>
+
+<p>​	更新环境变量</p>
+<div class="code-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">source /etc/profile</span><br></pre></td></tr></table></figure></div>
+
+<p>​	验证版本</p>
+<div class="code-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">php -v</span><br></pre></td></tr></table></figure></div>
+
+<h3 id="配置PHP-FPM"><a href="#配置PHP-FPM" class="headerlink" title="配置PHP-FPM"></a>配置PHP-FPM</h3><div class="code-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cp php.ini-production /etc/php.ini</span><br></pre></td></tr></table></figure></div>
+
+<p>在安装目录找到php.ini-production</p>
+<div class="code-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">cp /var/developer/php/php/etc/php-fpm.conf.default /var/developer/php/php/etc/php-fpm.conf</span><br><span class="line">cp /var/developer/php/php/etc/php-fpm.d/www.conf.default /var/developer/php/php/etc/php-fpm.d/www.conf</span><br><span class="line">cp /var/developer/php/php-7.4.10/sapi/fpm/init.d.php-fpm /etc/init.d/php-fpm</span><br><span class="line">chmod +x /etc/init.d/php-fpm</span><br></pre></td></tr></table></figure></div>
+
+<p>启动</p>
+<div class="code-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">service php-fpm start</span><br></pre></td></tr></table></figure></div>
+
+<p>错误：</p>
+<div class="code-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Starting php-fpm [23-Sep-2020 11:01:51] ERROR: [pool www] please specify user and group other than root [23-Sep-2020 11:01:51] ERROR: FPM initialization failed  failed</span><br></pre></td></tr></table></figure></div>
+
+<p>解决：无法以root用户运行fpm，为了系统安全 php默认是禁用该行为的，修改<a class="link"   target="_blank" rel="noopener" href="http://www.conf下/" >www.conf下<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a> user与group指定用户与工作组为其他工作组而非root</p>
+<h2 id="Apache2-4"><a href="#Apache2-4" class="headerlink" title="Apache2.4"></a>Apache2.4</h2><p>偷懒：使用yum源安装，本环境使用centos7，默认最低版本为2.4</p>
+<p>查看yum库：</p>
+<div class="code-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum list httpd*</span><br></pre></td></tr></table></figure></div>
+
+<p>有2.4.16，，不需要切换yum源</p>
+<p>安装：</p>
+<div class="code-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum -y install httpd</span><br></pre></td></tr></table></figure></div>
+
+<p>修改查看配置文件:</p>
+<div class="code-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/httpd/conf/httpd.conf</span><br></pre></td></tr></table></figure></div>
+
+<p>添加开机自启</p>
+<div class="code-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl enable httpd.service</span><br></pre></td></tr></table></figure></div>
+
+<p>启动，查看状态</p>
+<div class="code-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">service httpd start</span><br><span class="line"></span><br><span class="line">service httpd status</span><br></pre></td></tr></table></figure></div>
+
+<h3 id="访问问题"><a href="#访问问题" class="headerlink" title="访问问题"></a>访问问题</h3><p>注意此处的http与https为两个不同文件</p>
+<p>在你配置https后会为你生成一个apache对应的ssl文件，我的存放在etc&#x2F;httpd&#x2F;conf下 命名默认为httpd-ssl.conf</p>
+<p>普通配置文件为 httpd.conf，此处命名可能有所不同，如果搜不到去目录下查找相似文件即可</p>
+<p>配置：</p>
+<div class="code-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">&lt;VirtualHost *:80&gt;</span><br><span class="line">    ServerAdmin z1792524653@163.com</span><br><span class="line">    DocumentRoot /var/www/dream/public</span><br><span class="line">    DirectoryIndex /var/www/dream/public</span><br><span class="line">    &lt;Directory &quot;/var/www/dream/public&quot;&gt;</span><br><span class="line">        DirectoryIndex index.php</span><br><span class="line">        Options Indexes FollowSymlinks</span><br><span class="line">        AllowOverride All</span><br><span class="line">        Order deny,allow</span><br><span class="line">        Require all granted</span><br><span class="line">        Allow from all</span><br><span class="line">    &lt;/Directory&gt;</span><br><span class="line">    ServerName oursdreams.cn</span><br><span class="line">    ServerAlias *.oursdreams.cn</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">RewriteEngine on</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">RewriteCond %&#123;SERVER_NAME&#125; =www.oursdreams.cn [OR]</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">RewriteCond %&#123;SERVER_NAME&#125; =dream</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">RewriteRule ^ https://%&#123;SERVER_NAME&#125;%&#123;REQUEST_URI&#125; [END,NE,R=permanent]</span></span><br><span class="line">&lt;/VirtualHost&gt;</span><br><span class="line"></span><br><span class="line">&lt;IfModule dir_module&gt;</span><br><span class="line">    DirectoryIndex index.php</span><br><span class="line">&lt;/IfModule&gt;</span><br><span class="line"></span><br><span class="line">&lt;FilesMatch \.php$&gt;</span><br><span class="line">SetHandler &quot;proxy:fcgi://127.0.0.1:9000&quot;</span><br><span class="line">&lt;/FilesMatch&gt;</span><br></pre></td></tr></table></figure></div>
+
+<p>注意：此处访问为php文件，如若没有进行解析php，首先查看自己服务器上php是否全局，再查看php-fpm是否开启，它默认会占用9000端口，上方配置解析方式也是通过该内部端口进行通信，不要将该端口在防火墙上放行。</p>
+<p>ssl:</p>
+<div class="code-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">&lt;IfModule mod_ssl.c&gt;</span><br><span class="line">&lt;VirtualHost *:443&gt;</span><br><span class="line">ServerAdmin z1792524653@163.com</span><br><span class="line">DocumentRoot /var/www/dream/public</span><br><span class="line">DirectoryIndex /var/www/dream/public</span><br><span class="line">    &lt;Directory &quot;/var/www/dream/public&quot;&gt;</span><br><span class="line">        DirectoryIndex index.php</span><br><span class="line">        Options Indexes FollowSymlinks</span><br><span class="line">        AllowOverride All</span><br><span class="line">        Order deny,allow</span><br><span class="line">        Require all granted</span><br><span class="line">        Allow from all</span><br><span class="line">    &lt;/Directory&gt;</span><br><span class="line">ServerName dream</span><br><span class="line">ServerAlias www.oursdreams.cn</span><br><span class="line">SSLCertificateFile /etc/letsencrypt/live/www.oursdreams.cn/cert.pem</span><br><span class="line">SSLCertificateKeyFile /etc/letsencrypt/live/www.oursdreams.cn/privkey.pem</span><br><span class="line">Include /etc/letsencrypt/options-ssl-apache.conf</span><br><span class="line">SSLCertificateChainFile /etc/letsencrypt/live/www.oursdreams.cn/chain.pem</span><br><span class="line">&lt;/VirtualHost&gt;</span><br><span class="line">&lt;/IfModule&gt;</span><br></pre></td></tr></table></figure></div>
+
+<p>一般在你配置ssl证书时会自动生成，只需修改其默认指向路径即可</p>
+<h2 id="Mysql"><a href="#Mysql" class="headerlink" title="Mysql"></a>Mysql</h2><p>下载的mysql-8.0.11 使用wget</p>
+<div class="code-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget https://dev.mysql.com/get/Downloads/MySQL-8.0/mysql-8.0.11-linux-glibc2.12-x86_64.tar.gz</span><br></pre></td></tr></table></figure></div>
+
+<p>注意下方操作的目录，因为自安装，目录需要自己指定</p>
+<p>我新建一个目录在 &#x2F;var&#x2F;developer&#x2F;mysql下</p>
+<p>解压 </p>
+<div class="code-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar -zxvf mysql-8.0.11-linux-glibc2.12-x86_64.tar.gz</span><br></pre></td></tr></table></figure></div>
+
+<p>重命名 </p>
+<div class="code-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mv mysql-8.0.11-linux-glibc2.12-x86_64 mysql-8.0.11</span><br></pre></td></tr></table></figure></div>
+
+<p>创建文件夹data,存储文件</p>
+<div class="code-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkdir ./data</span><br></pre></td></tr></table></figure></div>
+
+<p>创建用户及用户组</p>
+<div class="code-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">用户组</span></span><br><span class="line">groupadd mysql</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">用户 （用户名/密码）</span></span><br><span class="line">useradd -g mysql mysql</span><br></pre></td></tr></table></figure></div>
+
+<p>授权</p>
+<div class="code-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">授权用户</span></span><br><span class="line">chown -R mysql.mysql /var/developer/mysql/mysql-8.0.11</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">授权组</span></span><br><span class="line">chgrp -R mysql /var/developer/mysql/mysql-8.0.11</span><br></pre></td></tr></table></figure></div>
+
+<p>初始化数据库（进入解压目录下）：</p>
+<div class="code-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./bin/mysqld --user=mysql --basedir=/var/developer/mysql/mysql-8.0.11/ --datadir=/var/developer/mysql/mysql-8.0.11/data/ --initialize</span><br></pre></td></tr></table></figure></div>
+
+<p>注意完成的返回信息，会给你一个临时密码</p>
+<p>配置：</p>
+<div class="code-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">vi /etc/my.cnf</span><br><span class="line"></span><br><span class="line">//安装后发现我并没有配置文件，全局搜索 find / -name &quot;my.cnf&quot; find / -name &quot;my-default.cnf&quot; 未搜到，只好自建配置</span><br><span class="line"></span><br><span class="line">sudo vim /etc/my.cnf</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">按照它的读取顺序</span></span><br></pre></td></tr></table></figure></div>
+
+<p>可能会有好几个地方有 mysql 的配置文件，它的读取顺序是这样的</p>
+<p>&#x2F;etc&#x2F;my.cnf<br>basedir&#x2F;my.cnf<br>datadir&#x2F;my.cnf<br>–defaults-extra-file #在读取全局配置文件之后，读取用户配置文件 (~&#x2F;.my.cnf)之前，读取extra指定的参数文件<br>~&#x2F;.my.cnf<br>所以我们在 &#x2F;etc 下的配置文件 my.cnf 是第一个读取的文件，读到这个文件后就不会在读后面路劲中的配置文件</p>
+<p>部分配置信息：</p>
+<div class="code-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">MySQL 配置文件，</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">数据库目录 /data/mysql</span></span><br><span class="line">[client]</span><br><span class="line">port=3306</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">mysql socket 文件存放地址</span></span><br><span class="line">socket=/tmp/mysql.sock</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">默认字符集</span></span><br><span class="line">default-character-set=utf8</span><br><span class="line"></span><br><span class="line">[mysqld]</span><br><span class="line">server-id=1</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">端口</span></span><br><span class="line">port=3306</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">运行用户</span></span><br><span class="line">user=mysql</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">最大连接</span></span><br><span class="line">max_connections=200</span><br><span class="line">socket=/tmp/mysql.sock</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">mysql 安装目录（解压后文件的目录）</span></span><br><span class="line">basedir=/var/developer/mysql/mysql-8.0.11</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">数据目录（这里放在我们新建的 /data/mysql 下）</span></span><br><span class="line">datadir=/var/developer/mysql/mysql-8.0.11/data</span><br><span class="line">pid-file=/var/developer/mysql/mysql-8.0.11/mysql.pid</span><br><span class="line">init-connect=&#x27;SET NAMES utf8&#x27;</span><br><span class="line">character-set-server=utf8</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">数据库引擎</span></span><br><span class="line">default-storage-engine=INNODB</span><br><span class="line">log_error=/data/mysql/mysql-error.log</span><br><span class="line">slow_query_log_file=/data/mysql/mysql-slow.log</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">跳过验证密码</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">skip-grant-tables</span></span><br><span class="line"></span><br><span class="line">[mysqldump]</span><br><span class="line">quick</span><br><span class="line">max_allowed_packet=16M</span><br><span class="line">EOF</span><br></pre></td></tr></table></figure></div>
+
+
+
+<p>添加服务：# 若mysqld，以下mysql相应的修改mysqld</p>
+<div class="code-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">cp -a /var/developer/mysql/mysql-8.0.11/support-files/mysql.server /etc/init.d/mysql</span><br><span class="line"></span><br><span class="line">chmod +x /etc/init.d/mysql</span><br><span class="line">chkconfig --add mysql</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">检查服务是否生效</span></span><br><span class="line">chkconfig --list mysql</span><br></pre></td></tr></table></figure></div>
+
+<p>启动：</p>
+<div class="code-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">service mysql start</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">查看启动状态</span></span><br><span class="line">service mysql status</span><br></pre></td></tr></table></figure></div>
+
+
+
+<p>登录：密码为初始化时的临时密码</p>
+<div class="code-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mysql -uroot -p</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">我的myql忘了配置到全局，会提示我mysql命令不存在，先去安装目录的bin目录下登录 ./mysql -uroot -p</span></span><br></pre></td></tr></table></figure></div>
+
+<p>修改下密码：</p>
+<div class="code-container" data-rel="Sql"><figure class="iseeu highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ALTER</span> <span class="keyword">USER</span> <span class="string">&#x27;root&#x27;</span>@<span class="string">&#x27;localhost&#x27;</span> IDENTIFIED <span class="keyword">WITH</span> mysql_native_password <span class="keyword">BY</span> <span class="string">&#x27;新密码&#x27;</span>;</span><br></pre></td></tr></table></figure></div>
+
+<p>远程连接</p>
+<p>在 my.cnf 的mysqld 下增加</p>
+<div class="code-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">default_authentication_plugin=mysql_native_password</span><br></pre></td></tr></table></figure></div>
+
+<p>重启服务：</p>
+<div class="code-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">service mysql restart</span><br></pre></td></tr></table></figure></div>
+
+<p>远程连接授权：</p>
+<div class="code-container" data-rel="Sql"><figure class="iseeu highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">USER</span> <span class="string">&#x27;root&#x27;</span>@<span class="string">&#x27;%&#x27;</span> IDENTIFIED <span class="keyword">BY</span> <span class="string">&#x27;密码&#x27;</span>;</span><br><span class="line">#修改加密规则并更新密码</span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">USER</span> <span class="string">&#x27;root&#x27;</span>@<span class="string">&#x27;%&#x27;</span> IDENTIFIED <span class="keyword">WITH</span> mysql_native_password <span class="keyword">BY</span> <span class="string">&#x27;密码&#x27;</span>;</span><br><span class="line">#设置为远程登录</span><br><span class="line"><span class="keyword">GRANT</span> <span class="keyword">ALL</span> PRIVILEGES <span class="keyword">ON</span> <span class="operator">*</span>.<span class="operator">*</span> <span class="keyword">TO</span> <span class="string">&#x27;root&#x27;</span>@<span class="string">&#x27;%&#x27;</span> <span class="keyword">WITH</span> <span class="keyword">GRANT</span> OPTION;</span><br><span class="line">#刷新权限</span><br><span class="line">flush privileges;</span><br></pre></td></tr></table></figure></div>
+
+<h2 id="防火墙与端口"><a href="#防火墙与端口" class="headerlink" title="防火墙与端口"></a>防火墙与端口</h2><p>先检查防火墙是否开启，注意我的环境为centos7 7与6的最大变动就是防火墙</p>
+<p>查看防火墙状态: <strong>firewall-cmd –state</strong></p>
+<p>开启防火墙:<strong>systemctl start firewalld.service</strong></p>
+<p>查看防火墙所有开放的端口 <strong>firewall-cmd –zone&#x3D;public –list-ports</strong></p>
+<p>开放3306端口 <strong>firewall-cmd –zone&#x3D;public –add-port&#x3D;3306&#x2F;tcp –permanent</strong></p>
+<p>配置立即生效 <strong>firewall-cmd –reload</strong></p>
+<p>查看监听的端口 <strong>netstat -lnpt</strong></p>
+<p>检查端口被哪个进程占用 <strong>netstat -lnpt |grep 3306</strong></p>
+<p>查看进程的详细信息 <strong>ps 3306</strong></p>
+<h3 id="测试连接数据库"><a href="#测试连接数据库" class="headerlink" title="测试连接数据库"></a>测试连接数据库</h3><p>—-测试连接数据库时发现连接失败，检查配置与端口开放，在my.cnf中修改了端口号为3306但查看进程发现3306端口未使用</p>
+<p>重启 &#x2F;etc&#x2F;init.d&#x2F;mysql restart</p>
+<p>再次检查 netstat -lnpt |grep 3306</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="C:\Users\z1792\AppData\Roaming\Typora\typora-user-images\image-20200924110351649.png"
+                      alt="image-20200924110351649"
+                ></p>
+<p>测试连接：SUCCESS!</p>
+<h2 id="HTTPS"><a href="#HTTPS" class="headerlink" title="HTTPS"></a>HTTPS</h2><p>配置https协议，使用一个免费签发协议</p>
+<p>这里使用certbot <a class="link"   target="_blank" rel="noopener" href="https://certbot.eff.org/" >https://certbot.eff.org/<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></p>
+<div class="code-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">安装</span></span><br><span class="line">sudo yum install certbot python2-certbot-apache</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">自动颁发证书，也可手动设置</span></span><br><span class="line">sudo certbot --apache</span><br></pre></td></tr></table></figure></div>
+
+<p>报错：</p>
+<div class="code-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Unable to find a virtual host listening on port 80 which is currently needed</span><br></pre></td></tr></table></figure></div>
+
+<p>解决：httpd配置中需要声明下端口与服务</p>
+<div class="code-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/httpd/conf/httpd.conf</span><br></pre></td></tr></table></figure></div>
+
+<p>查找是否有,没有则添加，注意下方的路径与服务名自定义为你自己的</p>
+<div class="code-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">NameVirtualHost *:80</span><br><span class="line"></span><br><span class="line">&lt;VirtualHost *:80&gt;</span><br><span class="line">ServerAdmin root@localhost</span><br><span class="line">DocumentRoot /var/www</span><br><span class="line">ServerName dream</span><br><span class="line">&lt;/VirtualHost&gt;</span><br></pre></td></tr></table></figure></div>
+
+<p>重新颁发：sudo certbot –apache</p>
+<p>OK！</p>
+<p>每次颁发的证书有效期为三个月，设置到期自动续订</p>
+<div class="code-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">echo &quot;0 0,12 * * * root python -c &#x27;import random; import time; time.sleep(random.random() * 3600)&#x27; &amp;&amp; certbot renew -q&quot; | sudo tee -a /etc/crontab &gt; /dev/null</span><br></pre></td></tr></table></figure></div>
+
+<p>测试访问：https:&#x2F;&#x2F;你的域名</p>
+<p>如连接失败请检查您的端口是否开放，https默认为443端口，开放防火墙443端口即可</p>
+
+		</div>
+
+		
+		<div class="post-copyright-info w-full my-8 px-2 sm:px-6 md:px-8">
+			<div class="article-copyright-info-container">
+    <ul>
+        <li><strong>标题:</strong> Centos下PHP单体基础服务部署</li>
+        <li><strong>作者:</strong> 不易</li>
+        <li><strong>创建于
+                :</strong> 2025-03-12 22:07:05</li>
+        
+            <li>
+                <strong>更新于
+                    :</strong> 2025-03-27 15:53:41
+            </li>
+        
+        <li>
+            <strong>链接:</strong> https://github.com/ourdreams0722/2025/03/12/centos PHP服务器基础环境部署/
+        </li>
+        <li>
+            <strong>
+                版权声明:
+            </strong>
+            
+
+            
+                本文章采用 <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0">CC BY-NC-SA 4.0</a> 进行许可。
+            
+        </li>
+    </ul>
+</div>
+
+		</div>
+		
+
+		
+		<ul class="post-tags-box text-lg mt-1.5 flex-wrap justify-center flex md:hidden">
+			
+			<li class="tag-item mx-0.5">
+				<a href="/tags/%E8%BF%90%E7%BB%B4/">#运维</a>&nbsp;
+			</li>
+			
+			<li class="tag-item mx-0.5">
+				<a href="/tags/Linux/">#Linux</a>&nbsp;
+			</li>
+			
+		</ul>
+		
+
+		
+
+		
+		<div class="article-nav my-8 flex justify-between items-center px-2 sm:px-6 md:px-8">
+			
+			<div class="article-prev border-border-color shadow-redefine-flat shadow-shadow-color-2 rounded-medium px-4 py-2 hover:shadow-redefine-flat-hover hover:shadow-shadow-color-2">
+				<a class="prev" rel="prev" href="/2025/03/12/vue-element-admin%E7%9A%84%E6%A0%87%E7%AD%BE%E9%A1%B5%E7%BC%93%E5%AD%98/">
+					<span class="left arrow-icon flex justify-center items-center">
+						<i class="fa-solid fa-chevron-left"></i>
+					</span>
+					<span class="title flex justify-center items-center">
+						<span class="post-nav-title-item">基于ElementUI的标签页缓存</span>
+						<span class="post-nav-item">上一篇</span>
+					</span>
+				</a>
+			</div>
+			
+			
+			<div class="article-next border-border-color shadow-redefine-flat shadow-shadow-color-2 rounded-medium px-4 py-2 hover:shadow-redefine-flat-hover hover:shadow-shadow-color-2">
+				<a class="next" rel="next" href="/2025/03/12/%E5%86%85%E5%AD%98%E6%BA%A2%E5%87%BA%E6%8E%92%E6%9F%A5/">
+					<span class="title flex justify-center items-center">
+						<span class="post-nav-title-item">Jvm内存溢出排查</span>
+						<span class="post-nav-item">下一篇</span>
+					</span>
+					<span class="right arrow-icon flex justify-center items-center">
+						<i class="fa-solid fa-chevron-right"></i>
+					</span>
+				</a>
+			</div>
+			
+		</div>
+		
+
+
+		
+		<div class="comment-container px-2 sm:px-6 md:px-8 pb-8">
+			<div class="comments-container mt-10 w-full ">
+    <div id="comment-anchor" class="w-full h-2.5"></div>
+    <div class="comment-area-title w-full my-1.5 md:my-2.5 text-xl md:text-3xl font-bold">
+        评论
+    </div>
+    
+
+        
+            
+    <div id="waline"></div>
+    <script type="module" data-swup-reload-script>
+      import { init } from '/js/libs/waline.mjs';
+
+      function loadWaline() {
+        init({
+          el: '#waline',
+          serverURL: 'https://example.example.com',
+          lang: 'zh-CN',
+          dark: 'body[class~="dark-mode"]',
+          reaction: false,
+          requiredMeta: ['nick', 'mail'],
+          emoji: [],
+          
+          
+        });
+      }
+
+      if (typeof swup !== 'undefined') {
+        loadWaline();
+      } else {
+        window.addEventListener('DOMContentLoaded', loadWaline);
+      }
+    </script>
+
+
+
+        
+    
+</div>
+
+		</div>
+		
+	</div>
+
+	
+	<div class="toc-content-container">
+		<div class="post-toc-wrap">
+	<div class="post-toc">
+		<div class="toc-title">目录</div>
+		<div class="page-title">Centos下PHP单体基础服务部署</div>
+		<ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%8E%AF%E5%A2%83"><span class="nav-text">环境</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%87%E6%8D%A2yum%E6%BA%90"><span class="nav-text">切换yum源</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#PHP7-4"><span class="nav-text">PHP7.4</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%8B%E8%BD%BD%E5%AE%89%E8%A3%85%E7%BC%96%E8%AF%91%E5%B7%A5%E5%85%B7"><span class="nav-text">下载安装编译工具</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E8%A3%85%E4%BE%9D%E8%B5%96"><span class="nav-text">安装依赖</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%8B%E8%BD%BD%E5%B9%B6%E8%A7%A3%E5%8E%8Bphp"><span class="nav-text">下载并解压php</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BC%96%E8%AF%91%E4%B8%8E%E6%8C%87%E5%AE%9A%E7%BC%96%E8%AF%91%E9%A1%B9"><span class="nav-text">编译与指定编译项</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%89%A7%E8%A1%8C%E7%BC%96%E8%AF%91"><span class="nav-text">执行编译</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9F%A5%E7%9C%8B%E7%89%88%E6%9C%AC"><span class="nav-text">查看版本</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F"><span class="nav-text">配置环境变量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%85%8D%E7%BD%AEPHP-FPM"><span class="nav-text">配置PHP-FPM</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Apache2-4"><span class="nav-text">Apache2.4</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AE%BF%E9%97%AE%E9%97%AE%E9%A2%98"><span class="nav-text">访问问题</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Mysql"><span class="nav-text">Mysql</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%98%B2%E7%81%AB%E5%A2%99%E4%B8%8E%E7%AB%AF%E5%8F%A3"><span class="nav-text">防火墙与端口</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B5%8B%E8%AF%95%E8%BF%9E%E6%8E%A5%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="nav-text">测试连接数据库</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HTTPS"><span class="nav-text">HTTPS</span></a></li></ol></li></ol>
+
+	</div>
+</div>
+	</div>
+	
+</div>
+			</div>
+
+			
+		</div>
+
+		<div class="main-content-footer">
+			<footer class="footer mt-5 py-5 h-auto text-base text-third-text-color relative border-t-2 border-t-border-color">
+    <div class="info-container py-3 text-center">
+        
+        <div class="text-center">
+            &copy;
+            
+              <span>2025</span>
+              -
+            
+            2025<!--&nbsp;<i class="fa-solid fa-heart fa-beat" style="--fa-animation-duration: 0.5s; color: #f54545"></i>&nbsp;&nbsp;<a href="/">不易</a>-->
+            
+        </div>
+        
+        <!--<div class="relative text-center lg:absolute lg:left-[20px] lg:top-1/2 lg:-translate-y-1/2 lg:text-left">
+            <span class="lg:block text-sm">由 <?xml version="1.0" encoding="utf-8"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"><svg class="relative top-[2px] inline-block align-baseline" version="1.1" id="圖層_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="1rem" height="1rem" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve"><path fill="#0E83CD" d="M256.4,25.8l-200,115.5L56,371.5l199.6,114.7l200-115.5l0.4-230.2L256.4,25.8z M349,354.6l-18.4,10.7l-18.6-11V275H200v79.6l-18.4,10.7l-18.6-11v-197l18.5-10.6l18.5,10.8V237h112v-79.6l18.5-10.6l18.5,10.8V354.6z"/></svg><a target="_blank" class="text-base" href="https://hexo.io">Hexo</a> 驱动</span>
+            <span class="text-sm lg:block">主题&nbsp;<a class="text-base" target="_blank" href="https://github.com/EvanNotFound/hexo-theme-redefine">Redefine v2.8.2</a></span>
+        </div>-->
+        
+        
+            <div>
+                博客已运行 <span class="odometer" id="runtime_days" ></span> 天 <span class="odometer" id="runtime_hours"></span> 小时 <span class="odometer" id="runtime_minutes"></span> 分钟 <span class="odometer" id="runtime_seconds"></span> 秒
+            </div>
+        
+        
+            <script data-swup-reload-script>
+                try {
+                    function odometer_init() {
+                    const elements = document.querySelectorAll('.odometer');
+                    elements.forEach(el => {
+                        new Odometer({
+                            el,
+                            format: '( ddd).dd',
+                            duration: 200
+                        });
+                    });
+                    }
+                    odometer_init();
+                } catch (error) {}
+            </script>
+        
+        
+        
+    </div>  
+</footer>
+		</div>
+	</div>
+
+	
+	<div class="post-tools">
+		<div class="post-tools-container">
+	<ul class="article-tools-list">
+		<!-- TOC aside toggle -->
+		
+		<li class="right-bottom-tools page-aside-toggle">
+			<i class="fa-regular fa-outdent"></i>
+		</li>
+		
+
+		<!-- go comment -->
+		
+		<li class="go-comment">
+			<i class="fa-regular fa-comments"></i>
+		</li>
+		
+	</ul>
+</div>
+	</div>
+	
+
+	<div class="right-side-tools-container">
+		<div class="side-tools-container">
+	<ul class="hidden-tools-list">
+		<li class="right-bottom-tools tool-font-adjust-plus flex justify-center items-center">
+			<i class="fa-regular fa-magnifying-glass-plus"></i>
+		</li>
+
+		<li class="right-bottom-tools tool-font-adjust-minus flex justify-center items-center">
+			<i class="fa-regular fa-magnifying-glass-minus"></i>
+		</li>
+
+		<li class="right-bottom-tools tool-dark-light-toggle flex justify-center items-center">
+			<i class="fa-regular fa-moon"></i>
+		</li>
+
+		<!-- rss -->
+		
+
+		
+
+		<li class="right-bottom-tools tool-scroll-to-bottom flex justify-center items-center">
+			<i class="fa-regular fa-arrow-down"></i>
+		</li>
+	</ul>
+
+	<ul class="visible-tools-list">
+		<li class="right-bottom-tools toggle-tools-list flex justify-center items-center">
+			<i class="fa-regular fa-cog fa-spin"></i>
+		</li>
+		
+		<li class="right-bottom-tools tool-scroll-to-top flex justify-center items-center">
+			<i class="arrow-up fas fa-arrow-up"></i>
+			<span class="percent"></span>
+		</li>
+		
+		
+	</ul>
+</div>
+	</div>
+
+	<div class="image-viewer-container">
+	<img src="">
+</div>
+
+	
+	<div class="search-pop-overlay">
+	<div class="popup search-popup">
+		<div class="search-header">
+			<span class="search-input-field-pre">
+				<i class="fa-solid fa-keyboard"></i>
+			</span>
+			<div class="search-input-container">
+				<input autocomplete="off" autocorrect="off" autocapitalize="off" placeholder="站内搜索您需要的内容..." spellcheck="false" type="search" class="search-input">
+			</div>
+			<span class="popup-btn-close">
+				<i class="fa-solid fa-times"></i>
+			</span>
+		</div>
+		<div id="search-result">
+			<div id="no-result">
+				<i class="fa-solid fa-spinner fa-spin-pulse fa-5x fa-fw"></i>
+			</div>
+		</div>
+	</div>
+</div>
+	
+
+</main>
+
+
+<script  src="https://evan.beee.top/projects/hexo-theme-redefine@2.8.2/source/js/build/libs/Swup.min.js" ></script><script  src="https://evan.beee.top/projects/hexo-theme-redefine@2.8.2/source/js/build/libs/SwupSlideTheme.min.js" ></script><script  src="https://evan.beee.top/projects/hexo-theme-redefine@2.8.2/source/js/build/libs/SwupScriptsPlugin.min.js" ></script><script  src="https://evan.beee.top/projects/hexo-theme-redefine@2.8.2/source/js/build/libs/SwupProgressPlugin.min.js" ></script><script  src="https://evan.beee.top/projects/hexo-theme-redefine@2.8.2/source/js/build/libs/SwupScrollPlugin.min.js" ></script><script  src="https://evan.beee.top/projects/hexo-theme-redefine@2.8.2/source/js/build/libs/SwupPreloadPlugin.min.js" ></script>
+<script>
+    const swup = new Swup({
+        plugins: [
+            new SwupScriptsPlugin({
+                optin: true,
+            }),
+            new SwupProgressPlugin(),
+            new SwupScrollPlugin({
+                offset: 80,
+            }),
+            new SwupSlideTheme({
+                mainElement: ".main-content-body",
+            }),
+            new SwupPreloadPlugin(),
+        ],
+        containers: ["#swup"],
+    });
+</script>
+
+
+
+
+	<script type="module" src="https://evan.beee.top/projects/hexo-theme-redefine@2.8.2/source/js/build/tools/imageViewer.js" ></script><script type="module" src="https://evan.beee.top/projects/hexo-theme-redefine@2.8.2/source/js/build/utils.js" ></script><script type="module" src="https://evan.beee.top/projects/hexo-theme-redefine@2.8.2/source/js/build/main.js" ></script><script type="module" src="https://evan.beee.top/projects/hexo-theme-redefine@2.8.2/source/js/build/layouts/navbarShrink.js" ></script><script type="module" src="https://evan.beee.top/projects/hexo-theme-redefine@2.8.2/source/js/build/tools/scrollTopBottom.js" ></script><script type="module" src="https://evan.beee.top/projects/hexo-theme-redefine@2.8.2/source/js/build/tools/lightDarkSwitch.js" ></script><script type="module" src="https://evan.beee.top/projects/hexo-theme-redefine@2.8.2/source/js/build/layouts/categoryList.js" ></script>
+
+
+    <script type="module" src="https://evan.beee.top/projects/hexo-theme-redefine@2.8.2/source/js/build/tools/localSearch.js" ></script>
+
+
+
+    <script type="module" src="https://evan.beee.top/projects/hexo-theme-redefine@2.8.2/source/js/build/tools/codeBlock.js" ></script>
+
+
+
+    <script type="module" src="https://evan.beee.top/projects/hexo-theme-redefine@2.8.2/source/js/build/layouts/lazyload.js" ></script>
+
+
+
+    <script  src="https://evan.beee.top/projects/hexo-theme-redefine@2.8.2/source/js/build/tools/runtime.js" ></script>
+    <script  src="https://evan.beee.top/projects/hexo-theme-redefine@2.8.2/source/js/build/libs/odometer.min.js" ></script>
+    <link rel="stylesheet" href="https://evan.beee.top/projects/hexo-theme-redefine@2.8.2/source/assets/odometer-theme-minimal.css">
+
+
+
+  <script  src="https://evan.beee.top/projects/hexo-theme-redefine@2.8.2/source/js/build/libs/Typed.min.js" ></script>
+  <script type="module" src="https://evan.beee.top/projects/hexo-theme-redefine@2.8.2/source/js/build/plugins/typed.js" ></script>
+
+
+
+
+
+
+
+    <script  src="https://evan.beee.top/projects/hexo-theme-redefine@2.8.2/source/js/build/libs/anime.min.js" ></script>
+
+
+
+
+    <script type="module" src="https://evan.beee.top/projects/hexo-theme-redefine@2.8.2/source/js/build/tools/tocToggle.js" data-swup-reload-script></script><script type="module" src="https://evan.beee.top/projects/hexo-theme-redefine@2.8.2/source/js/build/layouts/toc.js" data-swup-reload-script></script><script type="module" src="https://evan.beee.top/projects/hexo-theme-redefine@2.8.2/source/js/build/plugins/tabs.js" data-swup-reload-script></script>
+
+
+<script  src="https://evan.beee.top/projects/hexo-theme-redefine@2.8.2/source/js/build/libs/moment-with-locales.min.js" data-swup-reload-script></script>
+<script type="module" src="https://evan.beee.top/projects/hexo-theme-redefine@2.8.2/source/js/build/layouts/essays.js" data-swup-reload-script></script>
+
+
+
+
+	
+</body>
+
+</html>
